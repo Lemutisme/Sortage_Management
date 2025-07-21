@@ -23,9 +23,9 @@ class SimulationConfig:
     max_retries: int = 3
 
     # API Configuration (set these based on your provider)
-    api_key: Optional[str] = None
-    azure_endpoint: Optional[str] = None  # For Azure OpenAI
-    api_version: str = "2024-02-15-preview"  # For Azure OpenAI
+    api_key = open("./keys/openai.txt").read().strip()
+    azure_endpoint = None  # For Azure OpenAI
+    api_version = "2024-02-15-preview"  # For Azure OpenAI
 
 @dataclass
 class DisruptionEvent:

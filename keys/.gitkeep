@@ -1,2 +1,3 @@
 # This file ensures the keys/ directory is tracked by git
 # while keeping the actual key files private 
+# remove the OPENAI_API_KEY =
