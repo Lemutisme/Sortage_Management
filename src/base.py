@@ -67,7 +67,13 @@ class BaseAgent(ABC):
                 # This is a placeholder - replace with your actual LLM API call
                 response = await self._make_llm_call(system_prompt, user_prompt)
                 
+                # Debug: Log the raw response
+                self.logger.info(f"Raw LLM response for {self.agent_id}: {response[:200]}...")
+                
                 # Parse and validate JSON response
+                if not response or response.strip() == "":
+                    raise ValueError("Empty response from LLM")
+                
                 result = json.loads(response)
                 
                 if expected_json_keys:
@@ -82,10 +88,7 @@ class BaseAgent(ABC):
                 if attempt == self.config.max_retries - 1:
                     raise
                 await asyncio.sleep(2 ** attempt)  # Exponential backoff
-    
-    async def _make_llm_call(self, system_prompt: str, user_prompt: str) -> str:
-        """Actual LLM API call - implement based on your chosen provider."""
-        
+
     async def _make_llm_call(self, system_prompt: str, user_prompt: str) -> str:
         """Actual LLM API call - implement based on your chosen provider."""
         
@@ -94,18 +97,28 @@ class BaseAgent(ABC):
             import openai
             client = openai.AsyncOpenAI(api_key=self.config.api_key)
             
+            # Enhanced system prompt to ensure JSON compliance
+            enhanced_system_prompt = system_prompt + "\n\nYou must respond with valid JSON format only."
+
             response = await client.chat.completions.create(
                 model=self.config.llm_model,
                 messages=[
-                    {"role": "system", "content": system_prompt},
+                    {"role": "system", "content": enhanced_system_prompt},
                     {"role": "user", "content": user_prompt}
                 ],
                 temperature=self.config.llm_temperature,
-                max_tokens=2000,
-                response_format={"type": "json_object"}  # Ensures JSON response
+                max_tokens=2000
+                # Note: response_format removed for broader compatibility
             )
             
-            return response.choices[0].message.content
+            content = response.choices[0].message.content
+            self.logger.info(f"LLM Raw Response: '{content}'")
+
+            if not content or content.strip() == "":
+                self.logger.error("LLM returned empty response")
+                raise ValueError("Empty response from LLM")
+
+            return content
             
         except ImportError:
             self.logger.warning("OpenAI library not installed, falling back to mock responses")
