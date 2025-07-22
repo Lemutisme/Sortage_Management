@@ -1,70 +1,277 @@
 """
-Drug Shortage Multi-Agent Simulation System
-==========================================
+Drug Shortage Multi-Agent Simulation System with Comprehensive Logging
+====================================================================
 
 A comprehensive simulation framework for modeling pharmaceutical supply chain
-dynamics with LLM-based agents representing manufacturers, buyers, and regulators.
+dynamics with LLM-based agents and detailed logging for analysis.
 """
 
 from typing import Dict, Any
-
 import pandas as pd
 import asyncio
-import openai
+import os
+from pathlib import Path
 
 from simulator import SimulationCoordinator
 from configs import SimulationConfig
 
 # =============================================================================
-# Setup and Installation Guide
+# Enhanced Example Usage with Logging
 # =============================================================================
 
-"""
-To set up real LLM API calls, follow these steps:
-
-1. Install required dependencies:
-   pip install openai anthropic azure-openai pandas numpy
-
-2. Set up your API configuration:
-
-For OpenAI:
-   config = SimulationConfig(
-       llm_model="gpt-4",
-       api_key="sk-your-openai-api-key-here"
-   )
-
-For Anthropic Claude:
-   config = SimulationConfig(
-       llm_model="claude-3-sonnet-20240229",
-       api_key="your-anthropic-api-key-here"
-   )
-
-For Azure OpenAI:
-   config = SimulationConfig(
-       llm_model="gpt-4",
-       api_key="your-azure-api-key-here",
-       azure_endpoint="https://your-resource-name.openai.azure.com/"
-   )
-
-3. Update the _make_llm_call method above with your chosen provider
-4. Set environment variables for security:
-   export OPENAI_API_KEY="your-key-here"
-   export ANTHROPIC_API_KEY="your-key-here"
-   
-   Then in code:
-   import os
-   config.api_key = os.getenv("OPENAI_API_KEY")
-"""
-
-
-# =============================================================================
-# Example Usage and Testing
-# =============================================================================
-
-async def run_example_simulation():
-    """Example of how to run the simulation."""
+async def run_logged_simulation(config: SimulationConfig, 
+                               simulation_name: str = "default") -> Dict[str, Any]:
+    """
+    Run a simulation with comprehensive logging and analysis.
     
-    # Configure simulation
+    Args:
+        config: Simulation configuration
+        simulation_name: Descriptive name for this simulation run
+        
+    Returns:
+        Complete simulation results with logging metadata
+    """
+    
+    print(f"\n🚀 Starting simulation: {simulation_name}")
+    print(f"Configuration: {config.n_manufacturers} manufacturers, {config.n_periods} periods")
+    
+    # Create and run simulation with logging
+    coordinator = SimulationCoordinator(config)
+    
+    try:
+        results = await coordinator.run_simulation()
+        
+        # Print logging summary
+        logging_summary = coordinator.get_logging_summary()
+        print(f"\n📊 Logging Summary:")
+        print(f"  Simulation ID: {logging_summary['simulation_id']}")
+        print(f"  Log Directory: {logging_summary['session_directory']}")
+        print(f"  Total Events: {logging_summary['logging_stats']['total_events']}")
+        print(f"  Decision Events: {logging_summary['logging_stats']['decision_events']}")
+        print(f"  LLM Calls: {logging_summary['logging_stats']['llm_calls']}")
+        
+        # Print simulation results summary
+        print(f"\n📈 Simulation Results:")
+        metrics = results['summary_metrics']
+        print(f"  Peak shortage: {metrics['peak_shortage_percentage']:.1%}")
+        print(f"  Shortage periods: {metrics['total_shortage_periods']}/{config.n_periods}")
+        print(f"  Total buyer cost: {results['buyer_total_cost']:.3f}")
+        print(f"  Total manufacturer profit: {metrics['total_manufacturer_profit']:.3f}")
+        print(f"  FDA interventions: {metrics['fda_intervention_rate']:.1%} of periods")
+        
+        return results
+        
+    except Exception as e:
+        print(f"❌ Simulation failed: {e}")
+        raise
+
+async def run_comparative_study():
+    """Run multiple simulations to compare different scenarios."""
+    
+    print("🔬 Running Comparative Study with Different Market Conditions")
+    
+    scenarios = [
+        {
+            "name": "Low Disruption Baseline",
+            "config": SimulationConfig(
+                n_manufacturers=4,
+                n_periods=4,
+                disruption_probability=0.02,
+                disruption_magnitude=0.15
+            )
+        },
+        {
+            "name": "High Disruption Stress Test", 
+            "config": SimulationConfig(
+                n_manufacturers=4,
+                n_periods=4,
+                disruption_probability=0.10,
+                disruption_magnitude=0.30
+            )
+        },
+        {
+            "name": "Concentrated Market (3 manufacturers)",
+            "config": SimulationConfig(
+                n_manufacturers=3,
+                n_periods=4,
+                disruption_probability=0.05,
+                disruption_magnitude=0.20
+            )
+        },
+        {
+            "name": "Competitive Market (6 manufacturers)",
+            "config": SimulationConfig(
+                n_manufacturers=6,
+                n_periods=4,
+                disruption_probability=0.05,
+                disruption_magnitude=0.20
+            )
+        }
+    ]
+    
+    comparative_results = []
+    
+    for scenario in scenarios:
+        print(f"\n--- Running Scenario: {scenario['name']} ---")
+        
+        try:
+            results = await run_logged_simulation(
+                scenario['config'], 
+                scenario['name']
+            )
+            
+            # Extract key metrics for comparison
+            metrics = results['summary_metrics']
+            comparative_results.append({
+                "scenario": scenario['name'],
+                "n_manufacturers": scenario['config'].n_manufacturers,
+                "disruption_prob": scenario['config'].disruption_probability,
+                "disruption_magnitude": scenario['config'].disruption_magnitude,
+                "peak_shortage": metrics['peak_shortage_percentage'],
+                "avg_shortage": metrics['average_shortage_percentage'],
+                "shortage_periods": metrics['total_shortage_periods'],
+                "resolution_time": metrics['time_to_resolution'],
+                "total_profit": metrics['total_manufacturer_profit'],
+                "buyer_cost": results['buyer_total_cost'],
+                "fda_interventions": len(results['fda_announcements']),
+                "simulation_id": results['logging_session']['simulation_id']
+            })
+            
+        except Exception as e:
+            print(f"❌ Scenario '{scenario['name']}' failed: {e}")
+            comparative_results.append({
+                "scenario": scenario['name'],
+                "error": str(e)
+            })
+    
+    # Create comparison summary
+    if comparative_results:
+        comparison_df = pd.DataFrame([r for r in comparative_results if 'error' not in r])
+        
+        if not comparison_df.empty:
+            print(f"\n📊 Comparative Analysis Summary:")
+            print("=" * 80)
+            
+            for _, row in comparison_df.iterrows():
+                print(f"{row['scenario']:<30} | "
+                      f"Peak: {row['peak_shortage']:.1%} | "
+                      f"Periods: {row['shortage_periods']}/4 | "
+                      f"Resolution: {row['resolution_time'] or 'N/A'} | "
+                      f"FDA: {row['fda_interventions']}")
+            
+            # Save comparison results
+            comparison_df.to_csv("comparative_study_results.csv", index=False)
+            print(f"\n💾 Comparative results saved to: comparative_study_results.csv")
+        
+        return comparative_results
+
+async def analyze_agent_decisions(simulation_results: Dict[str, Any]):
+    """Analyze agent decision patterns from simulation results."""
+    
+    print(f"\n🧠 Analyzing Agent Decision Patterns")
+    
+    # Manufacturer decision analysis
+    manufacturer_decisions = simulation_results['decision_history']['manufacturers']
+    
+    print(f"\n📊 Manufacturer Decision Analysis:")
+    for i, decisions in enumerate(manufacturer_decisions):
+        if decisions:
+            investments = []
+            confidences = []
+            
+            for decision in decisions:
+                final_decision = decision.get('final_decision', {})
+                investment = final_decision.get('decision', {}).get('capacity_investment', 0)
+                confidence = final_decision.get('confidence', 'unknown')
+                
+                investments.append(investment)
+                confidences.append(confidence)
+            
+            total_investment = sum(investments)
+            avg_confidence = len([c for c in confidences if c in ['moderate', 'high']]) / len(confidences) if confidences else 0
+            
+            print(f"  Manufacturer {i}: Total Investment: {total_investment:.3f}, Confidence Rate: {avg_confidence:.1%}")
+    
+    # Buyer decision analysis
+    buyer_decisions = simulation_results['decision_history']['buyer']
+    
+    if buyer_decisions:
+        print(f"\n🏥 Buyer Decision Analysis:")
+        
+        demand_quantities = []
+        stockpiling_periods = 0
+        
+        for decision in buyer_decisions:
+            final_decision = decision.get('final_decision', {})
+            demand = final_decision.get('decision', {}).get('demand_quantity', 1.0)
+            rationale = final_decision.get('decision', {}).get('demand_rationale', 'baseline')
+            
+            demand_quantities.append(demand)
+            
+            if 'stockpile' in rationale.lower() or demand > 1.2:
+                stockpiling_periods += 1
+        
+        avg_demand = sum(demand_quantities) / len(demand_quantities) if demand_quantities else 1.0
+        max_demand = max(demand_quantities) if demand_quantities else 1.0
+        
+        print(f"  Average Demand: {avg_demand:.3f} ({avg_demand:.1%} of baseline)")
+        print(f"  Peak Demand: {max_demand:.3f}")
+        print(f"  Stockpiling Periods: {stockpiling_periods}/{len(buyer_decisions)}")
+    
+    # FDA decision analysis
+    fda_decisions = simulation_results['decision_history']['fda']
+    
+    if fda_decisions:
+        print(f"\n🏛️ FDA Decision Analysis:")
+        
+        announcement_types = {}
+        for decision in fda_decisions:
+            final_decision = decision.get('final_decision', {})
+            announcement_type = final_decision.get('decision', {}).get('announcement_type', 'none')
+            announcement_types[announcement_type] = announcement_types.get(announcement_type, 0) + 1
+        
+        for ann_type, count in announcement_types.items():
+            percentage = count / len(fda_decisions) * 100
+            print(f"  {ann_type.title()}: {count} times ({percentage:.1f}%)")
+
+def export_detailed_analysis(results: Dict[str, Any], export_dir: str = "analysis_exports"):
+    """Export detailed analysis files for further research."""
+    
+    export_path = Path(export_dir)
+    export_path.mkdir(exist_ok=True)
+    
+    simulation_id = results['logging_session']['simulation_id']
+    
+    print(f"\n💾 Exporting detailed analysis to {export_dir}/")
+    
+    # Export market trajectory
+    market_df = pd.DataFrame(results['market_trajectory'])
+    market_df.to_csv(export_path / f"market_trajectory_{simulation_id}.csv", index=False)
+    
+    # Export manufacturer states
+    manufacturer_df = pd.DataFrame(results['manufacturer_summaries'])
+    manufacturer_df.to_csv(export_path / f"manufacturer_states_{simulation_id}.csv", index=False)
+    
+    # Export buyer summary
+    buyer_summary = results['buyer_summary']
+    if isinstance(buyer_summary, dict) and 'status' not in buyer_summary:
+        buyer_df = pd.DataFrame([buyer_summary])
+        buyer_df.to_csv(export_path / f"buyer_summary_{simulation_id}.csv", index=False)
+    
+    # Export FDA announcements
+    if results['fda_announcements']:
+        fda_df = pd.DataFrame(results['fda_announcements'])
+        fda_df.to_csv(export_path / f"fda_announcements_{simulation_id}.csv", index=False)
+    
+    print(f"  ✅ Analysis files exported with ID: {simulation_id}")
+
+# =============================================================================
+# Main Execution Functions
+# =============================================================================
+
+async def run_single_example():
+    """Run a single example simulation with detailed logging."""
+    
     config = SimulationConfig(
         n_manufacturers=4,
         n_periods=4,
@@ -75,43 +282,78 @@ async def run_example_simulation():
         # api_key=os.getenv("OPENAI_API_KEY")
     )
     
-    # Create and run simulation
-    coordinator = SimulationCoordinator(config)
-    results = await coordinator.run_simulation()
+    results = await run_logged_simulation(config, "Single Example Run")
     
-    # Print summary
-    print("\n=== Simulation Results ===")
-    print(f"Peak shortage: {results['summary_metrics']['peak_shortage_percentage']:.1%}")
-    print(f"Shortage periods: {results['summary_metrics']['total_shortage_periods']}/{config.n_periods}")
-    print(f"Total buyer cost: {results['buyer_total_cost']:.3f}")
-    print(f"Total manufacturer profit: {results['summary_metrics']['total_manufacturer_profit']:.3f}")
+    # Analyze agent decisions
+    await analyze_agent_decisions(results)
+    
+    # Export detailed analysis
+    export_detailed_analysis(results)
     
     return results
 
-
-def analyze_results(results: Dict[str, Any]) -> pd.DataFrame:
-    """Convert results to DataFrame for analysis."""
-    market_data = []
+async def run_quick_policy_test():
+    """Quick test of different policy scenarios."""
     
-    for state in results["market_trajectory"]:
-        market_data.append({
-            "period": state["period"],
-            "demand": state["total_demand"], 
-            "supply": state["total_supply"],
-            "shortage": state["shortage_amount"],
-            "shortage_pct": state["shortage_percentage"],
-            "disrupted_count": len(state["disrupted_manufacturers"]),
-            "fda_announcement": bool(state["fda_announcement"])
-        })
+    print("🎯 Quick Policy Effectiveness Test")
     
-    return pd.DataFrame(market_data)
-
+    # This would require implementing proactive FDA mode
+    # For now, we test with different disruption scenarios
+    
+    low_disruption_config = SimulationConfig(
+        n_manufacturers=4,
+        n_periods=4,
+        disruption_probability=0.02,
+        disruption_magnitude=0.10
+    )
+    
+    high_disruption_config = SimulationConfig(
+        n_manufacturers=4,
+        n_periods=4,
+        disruption_probability=0.08,
+        disruption_magnitude=0.25
+    )
+    
+    print("\n--- Low Disruption Environment ---")
+    low_results = await run_logged_simulation(low_disruption_config, "Low Disruption Policy Test")
+    
+    print("\n--- High Disruption Environment ---")
+    high_results = await run_logged_simulation(high_disruption_config, "High Disruption Policy Test")
+    
+    # Compare outcomes
+    print(f"\n📊 Policy Test Comparison:")
+    print(f"Low Disruption - Peak Shortage: {low_results['summary_metrics']['peak_shortage_percentage']:.1%}")
+    print(f"High Disruption - Peak Shortage: {high_results['summary_metrics']['peak_shortage_percentage']:.1%}")
+    
+    print(f"Low Disruption - FDA Interventions: {len(low_results['fda_announcements'])}")
+    print(f"High Disruption - FDA Interventions: {len(high_results['fda_announcements'])}")
 
 if __name__ == "__main__":
-    # Run example simulation
-    results = asyncio.run(run_example_simulation())
+    import sys
     
-    # Convert to DataFrame for analysis
-    df = analyze_results(results)
-    print("\nMarket Trajectory:")
-    print(df.to_string(index=False))
+    print("🧬 Drug Shortage Multi-Agent Simulation with Comprehensive Logging")
+    print("=" * 70)
+    
+    if len(sys.argv) > 1:
+        mode = sys.argv[1].lower()
+        
+        if mode == "comparative":
+            print("Running comparative study...")
+            asyncio.run(run_comparative_study())
+        elif mode == "policy":
+            print("Running policy test...")
+            asyncio.run(run_quick_policy_test())
+        else:
+            print("Unknown mode. Running single example...")
+            asyncio.run(run_single_example())
+    else:
+        print("Running single example simulation...")
+        asyncio.run(run_single_example())
+    
+    print("\n✅ Simulation completed! Check the generated log files for detailed analysis.")
+    print("💡 Log files include:")
+    print("   - Comprehensive event logs (JSONL format)")
+    print("   - Agent-specific decision logs")
+    print("   - Market outcome tracking")
+    print("   - LLM call logs for debugging")
+    print("   - CSV exports for analysis")

@@ -1,2 +1,3 @@
 src/__pycache__/
 keys/*.txt
+simulation_logs/
