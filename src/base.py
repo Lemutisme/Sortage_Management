@@ -170,6 +170,7 @@ class BaseAgent(ABC, LoggerMixin):
                 # Make the actual LLM call
                 response = await self._make_llm_call(system_prompt, user_prompt)
                 
+                
                 # Log successful call
                 self.log_llm_call(
                     period=self.current_period,
@@ -187,6 +188,7 @@ class BaseAgent(ABC, LoggerMixin):
                     "response_length": len(response) if response else 0,
                     "stage": stage
                 })
+
                 
                 # Parse and validate JSON response
                 if not response or response.strip() == "":
@@ -208,8 +210,9 @@ class BaseAgent(ABC, LoggerMixin):
                     raise ValueError("No JSON object found in response")
                 
                 json_content = response[start_idx:end_idx+1]
+
                 result = json.loads(json_content)
-                
+
                 if expected_json_keys:
                     missing_keys = [key for key in expected_json_keys if key not in result]
                     if missing_keys:
@@ -293,14 +296,14 @@ class BaseAgent(ABC, LoggerMixin):
             if len(self.config.api_key.strip()) < 10:
                 self.logger.warning("API key appears invalid, using mock responses")
                 return self._mock_response()
-            
+
             client = openai.AsyncOpenAI(api_key=self.config.api_key)
             
             # Enhanced system prompt to ensure JSON compliance
             enhanced_system_prompt = system_prompt + "\n\nYou must respond with valid JSON format only. Do not include any text before or after the JSON object."
 
             self.logger.debug(f"Making OpenAI API call with model: {self.config.llm_model}")
-            
+
             response = await client.chat.completions.create(
                 model=self.config.llm_model,
                 messages=[
@@ -310,6 +313,7 @@ class BaseAgent(ABC, LoggerMixin):
                 temperature=self.config.llm_temperature,
                 max_tokens=2000
             )
+
             
             if not response or not response.choices:
                 self.logger.error("OpenAI API returned empty response")

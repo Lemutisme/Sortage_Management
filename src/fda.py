@@ -54,13 +54,14 @@ class FDAAgent(BaseAgent):
 
         self.logger.debug("Calling LLM for regulatory analysis")
         
+
         result = await self.call_llm(
             system_prompt, 
             user_prompt, 
             expected_keys,
             stage="regulatory_analysis"
         )
-        
+
         # Log key regulatory assessments
         market_conditions = result.get('market_conditions', {})
         shortage_status = market_conditions.get('shortage_status', 'unknown')

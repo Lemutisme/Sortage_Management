@@ -63,7 +63,6 @@ class SimulationCoordinator:
     
     async def run_simulation(self) -> Dict[str, Any]:
         """Run the complete simulation with comprehensive logging."""
-        
         self.logger.info(f"Starting simulation with {self.config.n_manufacturers} manufacturers, {self.config.n_periods} periods")
         
         try:
@@ -79,19 +78,19 @@ class SimulationCoordinator:
                 
                 # Store disruption state before update
                 old_disruptions = self.environment.disruptions.copy()
-                
+
                 self.environment.update_disruptions()
                 self.environment.apply_investments()
                 
                 # Log disruption events
                 new_disruptions = [d for d in self.environment.disruptions if d not in old_disruptions]
                 self.simulation_logger.log_disruption_events(period, new_disruptions, self.environment.disruptions)
-                
                 # Step 2: FDA makes announcement decision
                 self.logger.debug("FDA making announcement decision")
                 
                 fda_context = self.environment.create_context("fda")
                 fda_decision = await self.environment.fda.make_decision(fda_context)
+
                 fda_announcement = self.environment.fda.make_announcement(fda_decision)
                 
                 # Step 3: Manufacturers make capacity decisions

@@ -106,7 +106,7 @@ class ManufacturerAgent(BaseAgent):
         
         self.logger.info(
             f"Investment decision made - Amount: {investment:.3f}, "
-            f"Percentage: {decision.get('investment_percentage', 0):.1f}%, "
+            f"Percentage: {decision.get('investment_percentage', 0)}%, "
             f"Confidence: {confidence}"
         )
         
@@ -114,7 +114,6 @@ class ManufacturerAgent(BaseAgent):
         reasoning = result.get("reasoning", {})
         if reasoning:
             self.logger.debug(f"Decision reasoning: {json.dumps(reasoning, indent=2)}")
-        
         return result
 
     def get_default_decision(self, context: Dict[str, Any]) -> Dict[str, Any]:
