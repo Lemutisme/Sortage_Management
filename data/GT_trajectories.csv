@@ -1,0 +1,164 @@
+﻿gt_id,shortage_event_id,ndc_id,Status,Timestamp, Reason for Shortage,Generic Name,Company Name, Initial Posting Date,Date of Update
+1,00409-1639-04/07/2020,00409-1639,to be discontinued,1/19/23 0:23,Discontinuation of the manufacture of the drug.,Furosemide Injection,"Hospira, Inc.",4/7/20,9/28/22
+1,00409-9631-04/07/2020,00409-9631,to be discontinued,1/19/23 0:23,Discontinuation of the manufacture of the drug,Furosemide Injection,"Hospira, Inc.",4/7/20,9/28/22
+1,71288-0205-04/07/2020,71288-0205,current,7/30/24 19:46,,Furosemide Injection,"Meitheal Pharmaceuticals, Inc.",4/7/20,7/3/24
+1,71288-0203-04/07/2020,71288-0203,current,7/30/24 19:46,,Furosemide Injection,"Meitheal Pharmaceuticals, Inc.",4/7/20,7/3/24
+1,70860-0302-04/07/2020,70860-0302,current,7/30/24 19:46,Demand increase for the drug,Furosemide Injection,Sagent Pharmaceuticals,4/7/20,6/26/24
+1,83634-0302-04/07/2020,83634-0302,current,7/30/24 19:46,,Furosemide Injection,"Avet Pharmaceuticals, Inc.",4/7/20,7/1/24
+1,63323-0280-04/07/2020,63323-0280,current,7/30/24 19:46,,Furosemide Injection,"Fresenius Kabi USA, LLC",4/7/20,6/27/24
+1,55150-0322-04/07/2020,55150-0322,current,7/30/24 19:46,Demand increase for the drug,Furosemide Injection,Eugia US LLC,4/7/20,7/11/24
+1,55150-0323-04/07/2020,55150-0323,current,7/30/24 19:46,Demand increase for the drug,Furosemide Injection,Eugia US LLC,4/7/20,7/11/24
+1,55150-0324-04/07/2020,55150-0324,current,7/30/24 19:46,,Furosemide Injection,Eugia US LLC,4/7/20,7/11/24
+1,36000-0284-04/07/2020,36000-0284,current,7/30/24 19:46,,Furosemide Injection,Baxter Healthcare,4/7/20,6/21/24
+1,36000-0282-04/07/2020,36000-0282,current,7/30/24 19:46,,Furosemide Injection,Baxter Healthcare,4/7/20,6/21/24
+1,36000-0283-04/07/2020,36000-0283,current,7/30/24 19:46,,Furosemide Injection,Baxter Healthcare,4/7/20,6/21/24
+1,23155-0473-04/07/2020,23155-0473,current,7/30/24 19:46,,Furosemide Injection,"Avet Pharmaceuticals, Inc.",4/7/20,7/1/24
+1,25021-0311-04/07/2020,25021-0311,current,7/30/24 19:46,,Furosemide Injection,Sagent Pharmaceuticals,4/7/20,7/1/24
+1,16729-0502-04/07/2020,16729-0502,current,7/30/24 19:46,Requirements related to complying with good manufacturing practices,Furosemide Injection,Accord Healthcare Inc.,4/7/20,5/6/24
+1,00409-6102-04/07/2020,00409-6102,current,7/30/24 19:46,,Furosemide Injection,"Hospira, Inc., a Pfizer Company",4/7/20,7/15/24
+1,16729-0500-04/07/2020,16729-0500,current,7/30/24 19:46,,Furosemide Injection,Accord Healthcare Inc.,4/7/20,7/1/24
+1,16729-0501-04/07/2020,16729-0501,current,7/30/24 19:46,,Furosemide Injection,Accord Healthcare Inc.,4/7/20,7/1/24
+2,01761-0002-02/20/2018,01761-0002,current,1/19/23 0:23,Discontinuation of the manufacture of the drug,Bupivacaine Hydrochloride Injection,"Hospira, Inc.",2/20/18,1/9/23
+2,36000-0092-02/20/2018,36000-0092,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Bupivacaine Hydrochloride Injection,Baxter Healthcare,2/20/18,8/1/23
+2,59923-0717-02/20/2018,59923-0717,current,4/8/24 14:32,,Bupivacaine Hydrochloride Injection,"Areva Pharmaceuticals, Inc.",2/20/18,1/15/24
+2,59923-0719-02/20/2018,59923-0719,current,4/8/24 14:32,,Bupivacaine Hydrochloride Injection,"Areva Pharmaceuticals, Inc.",2/20/18,1/15/24
+2,59923-0720-02/20/2018,59923-0720,current,4/8/24 14:32,,Bupivacaine Hydrochloride Injection,"Areva Pharmaceuticals, Inc.",2/20/18,1/15/24
+2,59923-0718-02/20/2018,59923-0718,current,4/8/24 14:32,,Bupivacaine Hydrochloride Injection,"Areva Pharmaceuticals, Inc.",2/20/18,1/15/24
+2,00409-1560-02/20/2018,00409-1560,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,63323-0472-02/20/2018,63323-0472,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",2/20/18,6/27/24
+2,71288-0728-02/20/2018,71288-0728,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Kindos Pharmaceuticals Co. Ltd.,2/20/18,7/11/24
+2,71288-0725-02/20/2018,71288-0725,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Kindos Pharmaceuticals Co. Ltd.,2/20/18,7/11/24
+2,71288-0722-02/20/2018,71288-0722,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Kindos Pharmaceuticals Co. Ltd.,2/20/18,7/11/24
+2,70069-0753-02/20/2018,70069-0753,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Somerset Therapeutics, LLC",2/20/18,7/9/24
+2,70069-0752-02/20/2018,70069-0752,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Somerset Therapeutics, LLC",2/20/18,7/9/24
+2,71288-0726-02/20/2018,71288-0726,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Kindos Pharmaceuticals Co. Ltd.,2/20/18,7/11/24
+2,71288-0723-02/20/2018,71288-0723,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Kindos Pharmaceuticals Co. Ltd.,2/20/18,7/11/24
+2,73293-0002-02/20/2018,73293-0002,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Huons Co., Ltd",2/20/18,4/16/24
+2,63323-0466-02/20/2018,63323-0466,current,7/30/24 19:46,Demand increase for the drug,Bupivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",2/20/18,6/27/24
+2,63323-0464-02/20/2018,63323-0464,current,7/30/24 19:46,Demand increase for the drug,Bupivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",2/20/18,6/27/24
+2,63323-0467-02/20/2018,63323-0467,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",2/20/18,6/27/24
+2,63323-0465-02/20/2018,63323-0465,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",2/20/18,6/27/24
+2,00409-1582-02/20/2018,00409-1582,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,00409-1610-02/20/2018,00409-1610,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,00409-1559-02/20/2018,00409-1559,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,00409-1162-02/20/2018,00409-1162,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,00409-1160-02/20/2018,00409-1160,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,00409-1159-02/20/2018,00409-1159,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,55150-0250-02/20/2018,55150-0250,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Eugia US LLC,2/20/18,7/11/24
+2,55150-0249-02/20/2018,55150-0249,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Eugia US LLC,2/20/18,7/11/24
+2,55150-0171-02/20/2018,55150-0171,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Eugia US LLC,2/20/18,7/11/24
+2,55150-0170-02/20/2018,55150-0170,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Eugia US LLC,2/20/18,7/11/24
+2,00409-1163-02/20/2018,00409-1163,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,55150-0169-02/20/2018,55150-0169,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Eugia US LLC,2/20/18,7/11/24
+2,55150-0167-02/20/2018,55150-0167,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Eugia US LLC,2/20/18,7/11/24
+2,55150-0168-02/20/2018,55150-0168,current,7/30/24 19:46,Demand increase for the drug,Bupivacaine Hydrochloride Injection,Eugia US LLC,2/20/18,7/11/24
+2,00409-1165-02/20/2018,00409-1165,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,55150-0172-02/20/2018,55150-0172,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,Eugia US LLC,2/20/18,7/11/24
+2,00409-1587-02/20/2018,00409-1587,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+2,00409-3613-02/20/2018,00409-3613,current,7/30/24 19:46,,Bupivacaine Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",2/20/18,7/15/24
+3,00781-3253-12/18/2020,00781-3253,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Azacitidine Injection,Celgene Corporation,12/18/20,12/19/23
+3,00781-9253-12/18/2020,00781-9253,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Azacitidine Injection,Celgene Corporation,12/18/20,12/19/23
+3,51991-0797-12/22/2020,51991-0797,current,4/8/24 14:32,Demand increase for the drug,Azacitidine Injection,"Breckenridge Pharmaceutical, Inc.",12/22/20,1/15/24
+3,55150-0393-12/22/2020,55150-0393,current,7/30/24 19:46,,Azacitidine Injection,Eugia US LLC,12/22/20,7/11/24
+3,16729-0306-12/21/2020,16729-0306,current,7/30/24 19:46,Other,Azacitidine Injection,Accord Healthcare Inc.,12/21/20,6/26/24
+3,72485-0201-12/18/2020,72485-0201,current,7/30/24 19:46,,Azacitidine Injection,Armas Pharmaceuticals Inc,12/18/20,5/17/24
+3,43598-0305-12/18/2020,43598-0305,current,7/30/24 19:46,,Azacitidine Injection,"Dr. Reddy's Laboratories, Inc.",12/18/20,7/1/24
+3,00143-9606-12/18/2020,00143-9606,current,7/30/24 19:46,,Azacitidine Injection,"Hikma Pharmaceuticals USA, Inc.",12/18/20,7/1/24
+3,63323-0771-12/18/2020,63323-0771,current,7/30/24 19:46,,Azacitidine Injection,"Fresenius Kabi USA, LLC",12/18/20,6/27/24
+3,59572-0102-12/18/2020,59572-0102,current,7/30/24 19:46,,Azacitidine Injection,Celgene Corporation,12/18/20,5/27/24
+3,69097-0805-12/22/2020,69097-0805,to be discontinued,7/30/24 19:46,,Azacitidine Injection,Cipla Limited,12/22/20,3/5/24
+3,71288-0115-12/18/2020,71288-0115,current,7/30/24 19:46,,Azacitidine Injection,"Meitheal Pharmaceuticals, Inc.",12/18/20,7/3/24
+3,68001-0313-12/22/2020,68001-0313,current,7/30/24 19:46,,Azacitidine Injection,"Teva Pharmaceuticals USA, Inc.",12/22/20,7/8/24
+4,63323-0494-12/30/2020,63323-0494,current,7/30/24 19:46,,Valproate Sodium Injection,"Fresenius Kabi USA, LLC",12/30/20,6/27/24
+4,00143-9785-12/30/2020,00143-9785,current,7/30/24 19:46,,Valproate Sodium Injection,"Hikma Pharmaceuticals USA, Inc.",12/30/20,7/1/24
+4,70860-0784-12/30/2020,70860-0784,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Valproate Sodium Injection,Sagent Pharmaceuticals,12/30/20,1/9/24
+5,00527-1395-11/25/2019,00527-1395,to be discontinued,8/14/23 0:01,,Loxapine Capsules,"Lannett Company, Inc.",11/25/19,11/25/19
+5,00527-1396-11/25/2019,00527-1396,to be discontinued,8/14/23 0:01,,Loxapine Capsules,"Lannett Company, Inc.",11/25/19,11/25/19
+5,00527-1397-11/25/2019,00527-1397,to be discontinued,8/14/23 0:01,,Loxapine Capsules,"Lannett Company, Inc.",11/25/19,11/25/19
+5,00591-0371-11/25/2019,00591-0371,resolved,8/14/23 0:01,,Loxapine Capsules,Teva Pharmaceuticals,11/25/19,6/14/22
+5,00527-1394-11/25/2019,00527-1394,to be discontinued,8/14/23 0:01,,Loxapine Capsules,"Lannett Company, Inc.",11/25/19,11/25/19
+5,00591-0369-11/25/2019,00591-0369,resolved,8/14/23 0:01,,Loxapine Capsules,Teva Pharmaceuticals,11/25/19,6/14/22
+5,00591-0372-11/25/2019,00591-0372,resolved,8/14/23 0:01,,Loxapine Capsules,Teva Pharmaceuticals,11/25/19,6/14/22
+6,70860-0777-04/11/2018,70860-0777,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,4/11/18,4/25/22
+6,25021-0777-04/11/2018,25021-0777,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Sagent Pharmaceuticals,4/11/18,4/25/22
+6,00409-4755-04/11/2018,00409-4755,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",4/11/18,4/25/22
+6,00409-1120-04/11/2018,00409-1120,to be discontinued,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",4/11/18,10/6/21
+6,55150-0126-04/11/2018,55150-0126,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Eugia Pharma Specialties LTD. (formerly Aurobindo),4/11/18,4/25/22
+6,60505-6130-04/11/2018,60505-6130,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Apotex Corp.,4/11/18,4/25/22
+6,25021-0782-04/11/2018,25021-0782,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Sagent Pharmaceuticals,4/11/18,4/25/22
+6,70860-0776-04/11/2018,70860-0776,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,4/11/18,4/25/22
+6,72266-0123-04/11/2018,72266-0123,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,4/11/18,4/25/22
+6,72266-0124-04/11/2018,72266-0124,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,4/11/18,4/25/22
+6,36000-0012-04/11/2018,36000-0012,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Baxter Healthcare,4/11/18,4/25/22
+6,00641-6078-04/11/2018,00641-6078,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",4/11/18,4/25/22
+6,00409-4759-04/11/2018,00409-4759,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",4/11/18,4/25/22
+6,23155-0547-04/11/2018,23155-0547,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,4/11/18,4/25/22
+6,55150-0125-04/11/2018,55150-0125,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Eugia Pharma Specialties LTD. (formerly Aurobindo),4/11/18,4/25/22
+6,23155-0549-04/11/2018,23155-0549,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,4/11/18,4/25/22
+6,23155-0548-04/11/2018,23155-0548,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,4/11/18,4/25/22
+6,63323-0373-04/11/2018,63323-0373,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",4/11/18,4/25/22
+6,63323-0374-04/11/2018,63323-0374,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",4/11/18,4/25/22
+6,76045-0103-04/11/2018,76045-0103,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",4/11/18,4/25/22
+6,00143-9890-04/11/2018,00143-9890,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",4/11/18,4/25/22
+7,70069-0064-12/22/2020,70069-0064,current,1/19/23 0:23,,Ropivacaine Hydrochloride Injection,"Somerset Therapeutics, LLC",12/22/20,4/20/22
+7,17478-0081-03/27/2018,17478-0081,current,8/14/23 0:01,,Ropivacaine Hydrochloride Injection,Akorn Pharmaceuticals,3/27/18,3/1/23
+7,00409-9300-03/26/2018,00409-9300,to be discontinued,8/14/23 0:01,,Ropivacaine Hydrochloride Injection,"Hospira, Inc.",3/26/18,9/8/22
+7,00409-9301-03/26/2018,00409-9301,to be discontinued,8/14/23 0:01,,Ropivacaine Hydrochloride Injection,"Hospira, Inc.",3/26/18,9/8/22
+7,00409-9302-03/26/2018,00409-9302,to be discontinued,8/14/23 0:01,,Ropivacaine Hydrochloride Injection,"Hospira, Inc.",3/26/18,9/8/22
+7,00409-9303-03/26/2018,00409-9303,to be discontinued,8/14/23 0:01,,Ropivacaine Hydrochloride Injection,"Hospira, Inc.",3/26/18,9/8/22
+7,70069-0061-03/23/2018,70069-0061,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Somerset Therapeutics, LLC",3/23/18,7/9/24
+7,70069-0062-03/23/2018,70069-0062,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Somerset Therapeutics, LLC",3/23/18,7/9/24
+7,63323-0285-03/23/2018,63323-0285,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",3/23/18,6/27/24
+7,70069-0064-03/23/2018,70069-0064,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Somerset Therapeutics, LLC",3/23/18,7/9/24
+7,55150-0198-03/23/2018,55150-0198,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,Eugia US LLC,3/23/18,7/11/24
+7,25021-0671-03/27/2018,25021-0671,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,InfoRLife SA,3/27/18,7/1/24
+7,25021-0652-03/27/2018,25021-0652,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,InfoRLife SA,3/27/18,7/1/24
+7,43066-0015-12/22/2020,43066-0015,current,7/30/24 19:46,Demand increase for the drug,Ropivacaine Hydrochloride Injection,"Caplin Steriles, Ltd.",12/22/20,6/26/24
+7,43066-0019-12/22/2020,43066-0019,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Caplin Steriles, Ltd.",12/22/20,6/26/24
+7,43066-0023-12/22/2020,43066-0023,current,7/30/24 19:46,Demand increase for the drug,Ropivacaine Hydrochloride Injection,"Caplin Steriles, Ltd.",12/22/20,6/26/24
+7,63323-0286-03/23/2018,63323-0286,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",3/23/18,6/27/24
+7,63323-0287-03/23/2018,63323-0287,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",3/23/18,6/27/24
+7,63323-0288-03/23/2018,63323-0288,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",3/23/18,6/27/24
+7,43066-0027-12/22/2020,43066-0027,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,"Caplin Steriles, Ltd.",12/22/20,6/26/24
+7,55150-0195-03/23/2018,55150-0195,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,Eugia US LLC,3/23/18,7/11/24
+7,55150-0196-03/23/2018,55150-0196,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,Eugia US LLC,3/23/18,7/11/24
+7,55150-0197-03/23/2018,55150-0197,current,7/30/24 19:46,Demand increase for the drug,Ropivacaine Hydrochloride Injection,Eugia US LLC,3/23/18,7/11/24
+7,55150-0199-03/23/2018,55150-0199,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,Eugia US LLC,3/23/18,7/11/24
+7,55150-0200-03/23/2018,55150-0200,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,Eugia US LLC,3/23/18,7/11/24
+7,55150-0201-03/23/2018,55150-0201,current,7/30/24 19:46,,Ropivacaine Hydrochloride Injection,Eugia US LLC,3/23/18,7/11/24
+8,00409-1412-12/13/2017,00409-1412,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Bumetanide Injection,"Hospira, Inc., a Pfizer Company",12/13/17,11/3/23
+8,00409-1412-07/19/2022,00409-1412,to be discontinued,8/14/23 0:01,,Bumetanide Injection,Pfizer,7/19/22,7/19/22
+8,00641-6007-01/31/2018,00641-6007,current,7/30/24 19:46,,Bumetanide Injection,"Hikma Pharmaceuticals USA, Inc.",1/31/18,5/17/24
+8,00641-6008-01/31/2018,00641-6008,current,7/30/24 19:46,,Bumetanide Injection,"Hikma Pharmaceuticals USA, Inc.",1/31/18,5/17/24
+8,65219-0572-01/31/2018,65219-0572,current,7/30/24 19:46,,Bumetanide Injection,"Fresenius Kabi USA, LLC",1/31/18,6/27/24
+8,65219-0570-01/31/2018,65219-0570,current,7/30/24 19:46,,Bumetanide Injection,"Fresenius Kabi USA, LLC",1/31/18,6/27/24
+8,70860-0406-01/31/2018,70860-0406,current,7/30/24 19:46,,Bumetanide Injection,Sagent Pharmaceuticals,1/31/18,7/1/24
+8,70860-0405-01/31/2018,70860-0405,current,7/30/24 19:46,,Bumetanide Injection,Sagent Pharmaceuticals,1/31/18,7/1/24
+8,72205-0101-12/13/2017,72205-0101,current,7/30/24 19:46,,Bumetanide Injection,MSN Laboratories Private Limited,12/13/17,7/2/24
+8,72205-0102-12/13/2017,72205-0102,current,7/30/24 19:46,,Bumetanide Injection,MSN Laboratories Private Limited,12/13/17,6/26/24
+9,48102-0057-07/06/2022,48102-0057,current,6/28/24 1:27,,Erythromycin Ointment,Fera Pharmaceuticals,7/6/22,1/15/24
+9,00574-4024-07/06/2022,00574-4024,current,6/28/24 1:27,Discontinuation of the manufacture of the drug,Erythromycin Ointment,Padagis US LLC,7/6/22,5/15/24
+9,24208-0910-07/06/2022,24208-0910,resolved,7/30/24 19:46,,Erythromycin Ointment,Bausch & Lomb Incorporated,7/6/22,7/2/24
+9,72485-0067-07/06/2022,72485-0067,resolved,7/30/24 19:46,,Erythromycin Ointment,Armas Pharmaceuticals Inc,7/6/22,7/2/24
+10,59762-0223-10/02/2023,59762-0223,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,HYDROCHLOROTHIAZIDE; QUINAPRIL HYDROCHLORIDE TABLET,Pfizer Inc.,10/2/23,10/2/23
+10,59762-0222-10/02/2023,59762-0222,to be discontinued,7/30/24 19:46,,Hydrochlorothiazide; Quinapril Hydrochloride Tablet,Pfizer Inc.,10/2/23,10/2/23
+10,59762-0220-10/02/2023,59762-0220,to be discontinued,7/30/24 19:46,,Hydrochlorothiazide; Quinapril Hydrochloride Tablet,Pfizer Inc.,10/2/23,10/2/23
+10,68180-0554-01/19/2023,68180-0554,current,7/30/24 19:46,Requirements related to complying with good manufacturing practices,Quinapril Hydrochloride Tablet,"Lupin Pharmaceuticals, Inc.",1/19/23,5/18/24
+10,00071-0535-01/19/2023,00071-0535,current,7/30/24 19:46,Delay in shipping of the drug,Quinapril Hydrochloride Tablet,Pfizer Inc.,1/19/23,7/15/24
+10,00071-0530-01/19/2023,00071-0530,current,7/30/24 19:46,Delay in shipping of the drug,Quinapril Hydrochloride Tablet,Pfizer Inc.,1/19/23,7/15/24
+10,00071-0532-01/19/2023,00071-0532,current,7/30/24 19:46,Delay in shipping of the drug,Quinapril Hydrochloride Tablet,Pfizer Inc.,1/19/23,7/15/24
+10,00071-0527-01/19/2023,00071-0527,current,7/30/24 19:46,Delay in shipping of the drug,Quinapril Hydrochloride Tablet,Pfizer Inc.,1/19/23,7/15/24
+10,68180-0558-01/19/2023,68180-0558,current,7/30/24 19:46,Requirements related to complying with good manufacturing practices,Quinapril Hydrochloride Tablet,"Lupin Pharmaceuticals, Inc.",1/19/23,5/18/24
+10,43547-0413-01/19/2023,43547-0413,current,7/30/24 19:46,Shortage of an active ingredient,Quinapril Hydrochloride Tablet,"Solco Healthcare US, LLC",1/19/23,6/17/24
+10,68180-0557-01/19/2023,68180-0557,current,7/30/24 19:46,Requirements related to complying with good manufacturing practices,Quinapril Hydrochloride Tablet,"Lupin Pharmaceuticals, Inc.",1/19/23,5/18/24
+10,62135-0484-01/19/2023,62135-0484,current,7/30/24 19:46,,Quinapril Hydrochloride Tablet,Chartwell Molecular Holdings LLC,1/19/23,7/2/24
+10,62135-0485-01/19/2023,62135-0485,current,7/30/24 19:46,,Quinapril Hydrochloride Tablet,Chartwell Molecular Holdings LLC,1/19/23,7/2/24
+10,62135-0486-01/19/2023,62135-0486,current,7/30/24 19:46,,Quinapril Hydrochloride Tablet,Chartwell Molecular Holdings LLC,1/19/23,7/2/24
+10,62135-0487-01/19/2023,62135-0487,current,7/30/24 19:46,,Quinapril Hydrochloride Tablet,Chartwell Molecular Holdings LLC,1/19/23,7/2/24
+10,43547-0410-01/19/2023,43547-0410,current,7/30/24 19:46,Shortage of an active ingredient,Quinapril Hydrochloride Tablet,"Solco Healthcare US, LLC",1/19/23,6/17/24
+10,43547-0411-01/19/2023,43547-0411,current,7/30/24 19:46,Shortage of an active ingredient,Quinapril Hydrochloride Tablet,"Solco Healthcare US, LLC",1/19/23,6/17/24
+10,43547-0412-01/19/2023,43547-0412,current,7/30/24 19:46,Shortage of an active ingredient,Quinapril Hydrochloride Tablet,"Solco Healthcare US, LLC",1/19/23,6/17/24
+10,68180-0556-01/19/2023,68180-0556,current,7/30/24 19:46,Requirements related to complying with good manufacturing practices,Quinapril Hydrochloride Tablet,"Lupin Pharmaceuticals, Inc.",1/19/23,5/18/24
+10,65862-0617-01/19/2023,65862-0617,current,7/30/24 19:46,Discontinuation of the manufacture of the drug,Quinapril Hydrochloride Tablet,Aurobindo Pharma USA,1/19/23,7/2/24
+10,65862-0618-01/19/2023,65862-0618,current,7/30/24 19:46,Discontinuation of the manufacture of the drug,Quinapril Hydrochloride Tablet,Aurobindo Pharma USA,1/19/23,7/2/24
+10,65862-0620-01/19/2023,65862-0620,current,7/30/24 19:46,Discontinuation of the manufacture of the drug,Quinapril Hydrochloride Tablet,Aurobindo Pharma USA,1/19/23,7/2/24
