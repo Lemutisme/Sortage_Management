@@ -111,17 +111,16 @@ MARKET CONTEXT ANALYSIS
 ======================
 
 Current Situation:
-- Period: {period}/{n_periods}
 - Your current capacity: {current_capacity:.3f}
 - Disruption status: {disruption_status}
 - Recovery periods remaining: {recovery_periods}
 - FDA Alert: "{fda_announcement}"
-- Last period demand: {last_demand}
-- Market disruptions: {disrupted_count}/{n_manufacturers} manufacturers affected
-- Your last production: {last_production:.3f}
+- Your last allocated production: {last_production:.3f}
+- Default allocated production: {baseline_production:.3f}
+- Last period total demand: {last_demand}
 
 ANALYSIS FRAMEWORK:
-1. Shortage Risk: Assess probability and severity of market shortages
+1. Shortage Risk: Assess probability and severity of market shortages from allocatd production
 2. Demand Patterns: Evaluate demand stability and growth trends  
 3. Competitive Pressure: Analyze competitor capacity and likely responses
 4. Internal Capabilities: Review your operational status and expansion feasibility
@@ -132,13 +131,13 @@ Respond with structured JSON analysis:
     "goal": "maximize_profit_while_managing_risk",
     "market_conditions": {{
         "shortage_risk": "low/moderate/high",
-        "demand_trend": "stable/increasing/volatile", 
-        "competitive_pressure": "low/moderate/high",
-        "regulatory_pressure": "none/moderate/high"
+        "demand_trend": "stable/increasing/decreasing/volatile", 
+        "competitor_health": "strong/moderate/weak",
+        "fda_impact": "none/minor/significant"
     }},
     "internal_state": {{
         "capacity_utilization": "percentage_as_float",
-        "expansion_feasibility": "yes/no/limited",
+        "expansion_feasibility": "yes/no",
         "financial_health": "strong/moderate/constrained",
         "risk_tolerance": "conservative/moderate/aggressive"
     }},
@@ -153,15 +152,27 @@ Respond with structured JSON analysis:
     def _manufacturer_decision_system(self) -> str:
         return """
 You are the CEO of pharmaceutical manufacturer {manufacturer_id}, making a critical 
-capacity investment decision that will impact your company's market position and profitability.
+capacity investment decision that will impact your company's market position and profitability. 
+In the absence of a shortage alert or sustained unmet demand, there is no operational or financial reason to change capacity.
+Capacity expansion should only occur when projected demand exceeds current capacity, or credible signals indicate supply disruptions of competit.
 
-DECISION CONSTRAINTS:
+EXPAND POSSIBILITIES:
+- Can expand in this period: {can_expand}
+
+DECISION FACTORS:
 - Current capacity: {current_capacity:.3f}
-- Can only expand if not disrupted: {can_expand}
-- Investment cost: {capacity_cost} per unit of additional capacity
-- Expected profit: {unit_profit} per unit sold
 - Capacity expansion takes 1 period to become effective
+- Investment cost: {capacity_cost} per unit of additional capacity
+- Profit margin: {unit_profit} per unit sold
 - Market has {n_manufacturers} competitors
+
+DEMAND ALLOCATION LOGIC: 
+- Demand is evenly allocated among all manufacturers each period.
+- If any manufacturer is disrupted, their unmet portion of demand is reallocated to other manufacturers based on available capacity.
+- Therefore, increasing your capacity does not increase your market share under normal conditions.
+- Instead, capacity expansion is only financially beneficial if:
+  - You anticipate future disruptions among competitors,
+  - You aim to be positioned to absorb reallocated demand when others cannot deliver.
 
 Your objective is to maximize long-term profitability while managing operational risks.
 Consider both immediate market opportunities and strategic positioning.
@@ -180,15 +191,20 @@ Based on the market analysis, determine your optimal capacity investment level.
 
 Key Considerations:
 1. MARKET TIMING: Is this the right time to expand given current shortage risk?
-2. COMPETITIVE STRATEGY: How will competitors likely respond to market signals?
-3. FINANCIAL RETURN: What's the expected ROI given investment costs and profit margins?
-4. RISK MANAGEMENT: What are the downside risks if demand doesn't materialize?
+2. REGULATORY ENVIRONMENT: Are there FDA announcements that imply potential shortages?
+3. COMPETITIVE STRATEGY: How will competitors likely respond to market signals?
+4. FINANCIAL RETURN: What's the expected ROI given investment costs and profit margins?
+5. RISK MANAGEMENT: What are the downside risks if demand doesn't materialize?
 
 Investment Options:
 - No Investment (0%): Maintain current capacity, avoid investment risk
+  Default choice if market conditions are stable.
 - Conservative (5-15%): Small expansion, limited downside risk
+  Use when you see slight demand growth or competitor disruptions.
 - Moderate (15-30%): Balanced growth, moderate risk/reward
+  Use in response to credible market signals or competitor weaknesses.
 - Aggressive (30%+): Major expansion, high risk/high reward
+  Justified only with strong evidence of long-term demand growth or sustained shortage.
 
 Make your decision:
 {{
@@ -234,12 +250,13 @@ Current Market Context:
 - FDA Alert Status: "{fda_announcement}"
 - Last period supply received: {last_supply}
 - Last period demand: {last_demand}
+- Current inventory level: {inventory}
 - Market disruption level: {disrupted_count}/{n_manufacturers} manufacturers affected
 - Unit purchase price: {unit_profit}
 - Stockout penalty cost: {stockout_penalty} per unmet unit
 
 RISK ANALYSIS FRAMEWORK:
-1. Supply Security: Evaluate manufacturer reliability and capacity adequacy
+1. Supply Security: Evaluate manufacturer reliability
 2. Shortage Probability: Assess likelihood and potential severity of shortages
 3. Cost Structure: Analyze trade-offs between procurement and stockout costs
 4. Patient Impact: Consider clinical consequences of supply disruptions
@@ -251,12 +268,10 @@ Provide structured supply risk assessment:
     "market_conditions": {{
         "supply_security": "secure/at_risk/critical",
         "shortage_probability": "low/moderate/high",
-        "manufacturer_reliability": "high/moderate/concerning",
-        "price_stability": "stable/increasing/volatile"
+        "manufacturer_reliability": "high/moderate/concerning"
     }},
     "internal_state": {{
-        "stockout_tolerance": "zero/minimal/limited",
-        "budget_flexibility": "high/moderate/constrained", 
+        "stockout_possibility": "low/moderate/high",
         "patient_demand_pressure": "stable/increasing/urgent",
         "inventory_buffer": "adequate/low/critical"
     }},
@@ -276,13 +291,16 @@ ensuring medication availability while optimizing total procurement costs.
 COST STRUCTURE:
 - Purchase price: {unit_profit} per unit
 - Stockout penalty: {stockout_penalty} per unmet unit (includes clinical and operational costs)
-- Baseline demand: {initial_demand}
+- Inevntory level: {inventory} unit in stock
+- Deterministic demand: {initial_demand} unit per period
 
-DECISION AUTHORITY:
-You can adjust procurement quantities to build safety stock, but must justify 
-any deviation from baseline demand to your board and member hospitals.
+DECISION GUIDELINES
+You can adjust procurement quantities each period.
+Stockpiling is costly and should ONLY be used when credible shortage signals appear, such as FDA alerts or known supply decreases.
+You are accountable to a board and member hospitals for cost justification. Waste due to early or excess stockpiling may result in budget overruns and audit concerns.
 
-Patient safety is non-negotiable. Cost optimization is important but secondary.
+OBJECTIVE
+Your primary responsibility is to ensure patient access to essential drugs while making rational, cost-conscious decisions.
 """
 
     def _buyer_decision_user(self) -> str:
@@ -294,19 +312,24 @@ Supply Risk Analysis:
 {state_json}
 
 PROCUREMENT STRATEGY:
-Determine optimal purchase quantity balancing patient safety and cost efficiency.
+Determine optimal purchase quantity to meet patient needs cost-effectively while avoiding unnecessary inventory buildup.
 
 Strategic Options:
-1. BASELINE PROCUREMENT (1.0x): Normal ordering, standard risk
-2. CONSERVATIVE BUFFER (1.1-1.2x): Modest safety stock for uncertainty  
+1. BASELINE PROCUREMENT (1.0x): Normal ordering, standard risk. 
+   Recommended in stable markets. Avoids holding cost and expiry risk.
+2. CONSERVATIVE BUFFER (1.1-1.2x): Modest safety stock for uncertainty 
+   Use only when early warning signs or slight supply risk are present.
 3. MODERATE STOCKPILING (1.2-1.5x): Significant buffer for anticipated shortage
+   Justified only if credible disruption is expected.
 4. EMERGENCY STOCKPILING (1.5x+): Crisis response for critical supply threats
+   Use only in response to severe disruptions or confirmed manufacturer breakdowns.
 
 Decision Factors:
+- Inventory Level: Current safety stock level
+- FDA Signals: Regulatory alerts may indicate need for protective action
 - Patient Safety: Any shortage risks clinical outcomes
 - Cost Management: Balance purchase costs vs stockout penalties  
 - Market Impact: Your demand influences overall market dynamics
-- FDA Signals: Regulatory alerts may indicate need for protective action
 
 Make your procurement decision:
 {{
@@ -316,7 +339,8 @@ Make your procurement decision:
     }},
     "reasoning": {{
         "supply_risk_assessment": "shortage probability and potential impact",
-        "cost_benefit_analysis": "expected total cost vs alternatives", 
+        "fda_signals_impact": "regulatory alerts and implications",
+        "cost_benefit_analysis": "expected total cost vs investment costs",
         "patient_safety_considerations": "how this protects patient care",
         "market_impact_awareness": "effect on overall supply-demand balance"
     }},

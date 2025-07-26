@@ -16,6 +16,7 @@ class BuyerAgent(BaseAgent):
         self.demand_history = []
         self.supply_received_history = []
         self.total_cost = 0.0
+        self.inventory = 0.5
 
     async def collect_and_analyze(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """Use modular prompt system for supply risk analysis with detailed logging."""
@@ -35,6 +36,7 @@ class BuyerAgent(BaseAgent):
             "fda_announcement": fda_announcement,
             "last_supply": context.get('last_supply', 'Unknown'),
             "last_demand": context.get('last_demand', 'Unknown'),
+            "inventory": self.inventory,
             "disrupted_count": disrupted_count,
             "n_manufacturers": self.config.n_manufacturers,
             "unit_profit": self.config.unit_profit,
@@ -92,6 +94,7 @@ class BuyerAgent(BaseAgent):
         decision_context = {
             "unit_profit": self.config.unit_profit,
             "stockout_penalty": self.config.stockout_penalty,
+            "inventory": self.inventory,
             "initial_demand": self.config.initial_demand,
             "state_json": json.dumps(state_json, indent=2)
         }
@@ -206,6 +209,17 @@ class BuyerAgent(BaseAgent):
         if supply_received > 0:
             cost_per_unit = total_period_cost / supply_received
             self.logger.debug(f"Effective cost per unit received: {cost_per_unit:.3f}")
+    
+    def update_inventory(self, inv_change: float):
+        """Update capacity (called by Environment) with logging."""
+        old_inventory = self.inventory
+        self.inventory = max(0, self.inventory + inv_change)  # Ensure inventory doesn't go negative
+    
+        self.logger.info(
+            f"Inventory updated - From {old_inventory:.3f} to {self.inventory:.3f} "
+            f"(change: {inv_change:+.3f})"
+        )
+
 
     def get_procurement_summary(self) -> Dict[str, Any]:
         """Get procurement performance summary for logging and analysis."""

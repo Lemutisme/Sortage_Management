@@ -1,0 +1,5 @@
+period,total_demand,total_supply,shortage_amount,shortage_percentage,disrupted_manufacturers,fda_announcement
+0,1.2,1.0,0.19999999999999996,0.16666666666666663,[],
+1,1.3,1.15,0.15000000000000013,0.11538461538461549,[],
+2,1.3,1.3,0.0,0.0,[],
+3,1.1,1.1,0.0,0.0,[],

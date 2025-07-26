@@ -124,7 +124,7 @@ class SimulationCoordinator:
                 # Step 5: Market clearing
                 self.logger.debug("Calculating market clearing")
                 
-                productions, total_supply, shortage = self.environment.calculate_market_outcome(demand)
+                productions, total_supply, shortage, inv_change = self.environment.calculate_market_outcome(demand)
                 
                 # Step 6: Record outcomes
                 market_state = MarketState(
@@ -132,6 +132,7 @@ class SimulationCoordinator:
                     total_demand=demand,
                     total_supply=total_supply,
                     shortage_amount=shortage,
+                    unsold=max(inv_change, 0),
                     shortage_percentage=shortage / demand if demand > 0 else 0,
                     disrupted_manufacturers=[m.manufacturer_id for m in self.environment.manufacturers if m.state.disrupted],
                     fda_announcement=fda_announcement
@@ -155,7 +156,8 @@ class SimulationCoordinator:
                     f"Period {period + 1} completed - "
                     f"Demand: {demand:.3f}, "
                     f"Supply: {total_supply:.3f}, "
-                    f"Shortage: {shortage:.3f} ({shortage/demand:.1%})"
+                    f"Shortage: {shortage:.3f} ({shortage/demand:.1%}), "
+                    f"Unsold: {max(inv_change, 0):.3f}"
                 )
                 
                 if fda_announcement:

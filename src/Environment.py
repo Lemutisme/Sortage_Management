@@ -86,7 +86,7 @@ class Environment:
             if manufacturer.manufacturer_id not in disrupted_ids:
                 manufacturer.set_disruption(False, 0)
     
-    def calculate_market_outcome(self, demand: float) -> Tuple[List[float], float, float]:
+    def calculate_market_outcome(self, demand: float) -> Tuple[List[float], float, float, float]:
         """Calculate supply allocation and market clearing."""
         n = self.config.n_manufacturers
         
@@ -121,7 +121,10 @@ class Environment:
         total_supply = sum(productions)
         shortage = max(0, demand - total_supply)
         
-        return productions, total_supply, shortage
+        unsold = total_supply - self.config.initial_demand
+        self.buyer.update_inventory(unsold)
+        
+        return productions, total_supply, shortage, unsold
     
     def apply_investments(self):
         """Apply capacity investments from previous period."""

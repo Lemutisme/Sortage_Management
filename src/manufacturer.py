@@ -36,7 +36,8 @@ class ManufacturerAgent(BaseAgent):
             "fda_announcement": context.get('fda_announcement', 'None'),
             "last_demand": context.get('last_demand', 'Unknown'),
             "disrupted_count": len(context.get('disrupted_manufacturers', [])),
-            "last_production": self.state.last_production
+            "last_production": self.state.last_production,
+            "baseline_production": self.config.initial_demand / self.config.n_manufacturers
         }
 
         self.logger.debug(f"Prompt context prepared: {prompt_context}")

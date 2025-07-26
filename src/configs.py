@@ -102,6 +102,7 @@ class MarketState:
     total_demand: float
     total_supply: float
     shortage_amount: float
+    unsold: float
     shortage_percentage: float
     disrupted_manufacturers: List[int]
     fda_announcement: Optional[str] = None
