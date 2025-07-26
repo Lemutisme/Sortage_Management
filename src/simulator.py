@@ -61,7 +61,7 @@ class SimulationCoordinator:
             # Continue without comprehensive logging if setup fails
             self.logger.warning("Continuing simulation with basic logging only")
     
-    async def run_simulation(self) -> Dict[str, Any]:
+    async def run_simulation(self, start_with_disruption=False) -> Dict[str, Any]:
         """Run the complete simulation with comprehensive logging."""
         self.logger.info(f"Starting simulation with {self.config.n_manufacturers} manufacturers, {self.config.n_periods} periods")
         
@@ -79,7 +79,8 @@ class SimulationCoordinator:
                 # Store disruption state before update
                 old_disruptions = self.environment.disruptions.copy()
 
-                self.environment.update_disruptions()
+                force_disruption = start_with_disruption and period == 0
+                self.environment.update_disruptions(force_disruption)
                 self.environment.apply_investments()
                 
                 # Log disruption events

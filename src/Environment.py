@@ -33,7 +33,7 @@ class Environment:
         
         self.logger = logging.getLogger("Environment")
     
-    def generate_disruptions(self) -> List[DisruptionEvent]:
+    def generate_disruptions(self, force_disruption: bool = False) -> List[DisruptionEvent]:
         """Generate random disruptions for the current period."""
         new_disruptions = []
         
@@ -49,13 +49,25 @@ class Environment:
                 )
                 new_disruptions.append(disruption)
                 self.logger.info(f"New disruption: Manufacturer {manufacturer_id}, duration {duration}")
-        
+
+        if force_disruption and not new_disruptions:
+            # Force a disruption if starting with one
+            duration = random.randint(1, 4)
+            disruption = DisruptionEvent(
+                manufacturer_id=random.choice(range(self.config.n_manufacturers)),
+                start_period=self.current_period,
+                duration=duration,
+                magnitude=self.config.disruption_magnitude,
+                remaining_periods=duration
+            )
+            new_disruptions.append(disruption)
+            self.logger.info(f"Forced disruption: Manufacturer {disruption.manufacturer_id}, duration {duration}")
         return new_disruptions
     
-    def update_disruptions(self):
+    def update_disruptions(self, force_disruption: bool = False):
         """Update ongoing disruptions and apply to manufacturers."""
         # Generate new disruptions
-        new_disruptions = self.generate_disruptions()
+        new_disruptions = self.generate_disruptions(force_disruption)
         self.disruptions.extend(new_disruptions)
         
         # Update existing disruptions
@@ -121,10 +133,10 @@ class Environment:
         total_supply = sum(productions)
         shortage = max(0, demand - total_supply)
         
-        unsold = total_supply - self.config.initial_demand
-        self.buyer.update_inventory(unsold)
+        inv_change = total_supply - self.config.initial_demand
+        self.buyer.update_inventory(inv_change)
         
-        return productions, total_supply, shortage, unsold
+        return productions, total_supply, shortage, inv_change
     
     def apply_investments(self):
         """Apply capacity investments from previous period."""

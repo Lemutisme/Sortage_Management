@@ -154,7 +154,7 @@ Respond with structured JSON analysis:
 You are the CEO of pharmaceutical manufacturer {manufacturer_id}, making a critical 
 capacity investment decision that will impact your company's market position and profitability. 
 In the absence of a shortage alert or sustained unmet demand, there is no operational or financial reason to change capacity.
-Capacity expansion should only occur when projected demand exceeds current capacity, or credible signals indicate supply disruptions of competit.
+Capacity expansion should only occur when projected demand exceeds current capacity, or credible signals indicate supply disruptions of competitors.
 
 EXPAND POSSIBILITIES:
 - Can expand in this period: {can_expand}

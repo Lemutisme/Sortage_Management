@@ -20,7 +20,8 @@ from configs import SimulationConfig
 # =============================================================================
 
 async def run_logged_simulation(config: SimulationConfig, 
-                               simulation_name: str = "default") -> Dict[str, Any]:
+                                start_with_disruption: bool = False,
+                                simulation_name: str = "default") -> Dict[str, Any]:
     """
     Run a simulation with comprehensive logging and analysis.
     
@@ -39,7 +40,7 @@ async def run_logged_simulation(config: SimulationConfig,
     coordinator = SimulationCoordinator(config)
     
     try:
-        results = await coordinator.run_simulation()
+        results = await coordinator.run_simulation(start_with_disruption)
         
         # Print logging summary
         logging_summary = coordinator.get_logging_summary()
@@ -269,7 +270,7 @@ def export_detailed_analysis(results: Dict[str, Any], export_dir: str = "analysi
 # Main Execution Functions
 # =============================================================================
 
-async def run_single_example():
+async def run_single_example(start_with_disruption: bool = False):
     """Run a single example simulation with detailed logging."""
     
     config = SimulationConfig(
@@ -281,9 +282,9 @@ async def run_single_example():
         # Uncomment and set your API key:
         # api_key=os.getenv("OPENAI_API_KEY")
     )
-    
-    results = await run_logged_simulation(config, "Single Example Run")
-    
+
+    results = await run_logged_simulation(config, start_with_disruption, "Single Example Run")
+
     # Analyze agent decisions
     await analyze_agent_decisions(results)
     
@@ -348,7 +349,7 @@ if __name__ == "__main__":
             asyncio.run(run_single_example())
     else:
         print("Running single example simulation...")
-        asyncio.run(run_single_example())
+        asyncio.run(run_single_example(True))
     
     print("\n✅ Simulation completed! Check the generated log files for detailed analysis.")
     print("💡 Log files include:")
