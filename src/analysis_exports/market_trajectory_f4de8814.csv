@@ -1,0 +1,5 @@
+period,total_demand,total_supply,shortage_amount,unsold,shortage_percentage,disrupted_manufacturers,fda_announcement
+0,1.2,0.95,0.25,0.0,0.20833333333333334,[2],
+1,1.2,0.9875,0.2124999999999999,0.0,0.17708333333333326,[2],The FDA is aware of emerging supply challenges in the market. We encourage manufacturers and distributors to report any disruptions and collaborate to ensure continued patient access. We are monitoring the situation closely.
+2,1.1,1.0,0.10000000000000009,0.0,0.09090909090909098,[],The FDA is aware of emerging supply challenges in the market. We encourage manufacturers and healthcare providers to report any supply disruptions. Coordination efforts are being monitored to ensure patient needs are met.
+3,1.0,0.95,0.050000000000000044,0.0,0.050000000000000044,[],

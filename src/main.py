@@ -349,7 +349,7 @@ if __name__ == "__main__":
             asyncio.run(run_single_example())
     else:
         print("Running single example simulation...")
-        asyncio.run(run_single_example(True))
+        asyncio.run(run_single_example(start_with_disruption=False))
     
     print("\n✅ Simulation completed! Check the generated log files for detailed analysis.")
     print("💡 Log files include:")
