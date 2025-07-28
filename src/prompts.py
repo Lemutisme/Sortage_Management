@@ -118,7 +118,6 @@ Current Situation:
 - Your last allocated production: {last_production:.3f}
 - Default allocated production: {baseline_production:.3f}
 - Last period total demand: {last_demand}
-- Market disruption level: {disrupted_count}/{n_manufacturers} manufacturers affected
 
 ANALYSIS FRAMEWORK:
 1. Shortage Risk: Assess probability and severity of market shortages from allocated production
@@ -422,7 +421,8 @@ Provide regulatory assessment:
         "shortage_status": "none/emerging/confirmed/critical",
         "supply_adequacy": "surplus/adequate/insufficient/critical", 
         "market_stability": "stable/volatile/disrupted",
-        "coordination_need": "none/helpful/essential"
+        "coordination_need": "none/helpful/essential",
+        "manufacturer_disruptions": "number of disrupted manufacturers in the current period"
     }},
     "internal_state": {{
         "alert_urgency": "routine/elevated/high/critical",
@@ -483,7 +483,8 @@ Make your regulatory decision:
     "decision": {{
         "announcement_type": "none/monitoring/alert/critical",
         "communication_urgency": "routine/elevated/urgent",
-        "public_message": "brief_announcement_text_if_applicable"
+        "public_message": "brief_announcement_text_if_applicable",
+        "manufacturer_disruptions": "number of disrupted manufacturers in the current period"
     }},
     "reasoning": {{
         "shortage_assessment": "current status and trajectory analysis",

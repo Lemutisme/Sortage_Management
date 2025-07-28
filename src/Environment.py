@@ -53,6 +53,8 @@ class Environment:
         if force_disruption and not new_disruptions:
             # Force a disruption if starting with one
             duration = random.randint(1, 4)
+            # force duration to be 8 for this situation
+            # duration = 8
             disruption = DisruptionEvent(
                 manufacturer_id=random.choice(range(self.config.n_manufacturers)),
                 start_period=self.current_period,

@@ -274,8 +274,8 @@ async def run_single_example(start_with_disruption: bool = False):
     """Run a single example simulation with detailed logging."""
     
     config = SimulationConfig(
-        n_manufacturers=4,
-        n_periods=4,
+        n_manufacturers=2,
+        n_periods=8,
         disruption_probability=0.05,
         disruption_magnitude=0.2,
         llm_temperature=0.3,
