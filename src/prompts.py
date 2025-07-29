@@ -320,8 +320,8 @@ Decide **this period’s purchase quantity** Q and whether to **build
 safety stock** (inventory carried into next period) so that:
 1.The fixed demand of {initial_demand} units is satisfied with ≥ 95% service
     level in the next period, **even if** the projected disruption occurs.  
-2.Total expected cost (purchase price + holding + shortage penalty) is
-    minimized.  
+2.Total cumulative expected cost (purchase price + holding cost + shortage penalty) is
+    minimized over each period.  
 
 OBJECTIVE
 Your primary responsibility is to ensure patient access to essential drugs while making rational, cost-conscious decisions.

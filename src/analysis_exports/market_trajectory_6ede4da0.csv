@@ -1,0 +1,11 @@
+period,total_demand,total_supply,shortage_amount,unsold,shortage_percentage,disrupted_manufacturers,fda_announcement
+0,1.2,0.9,0.29999999999999993,0.0,0.24999999999999994,[1],The FDA is aware of emerging supply disruptions affecting certain products. We encourage manufacturers to report any production issues and buyers to maintain normal purchasing patterns. Coordination efforts are underway to ensure continued supply.
+1,1.5,0.9,0.6,0.0,0.39999999999999997,[1],The FDA is closely monitoring the emerging drug shortage situation. We encourage manufacturers to report any supply disruptions and buyers to maintain regular purchasing patterns to avoid exacerbating the situation.
+2,1.5,1.05,0.44999999999999996,0.050000000000000044,0.3,[1],The FDA acknowledges an emerging shortage of the affected drug. We are actively monitoring the situation and encourage manufacturers to report supply status and capacity plans. Stakeholders are advised to coordinate to ensure equitable distribution.
+3,1.5,1.05,0.44999999999999996,0.050000000000000044,0.3,[1],The FDA is issuing a shortage alert for the affected drug due to emerging supply disruptions. We are coordinating with manufacturers to address the issue and encourage healthcare providers to report any supply challenges. Patient safety remains our top priority.
+4,1.1,0.9500000000000001,0.15000000000000002,0.0,0.13636363636363638,[],
+5,1.2,1.0,0.19999999999999996,0.0,0.16666666666666663,[],
+6,1.2,1.0,0.19999999999999996,0.0,0.16666666666666663,[],The FDA is aware of emerging supply concerns and is monitoring the situation closely. We encourage manufacturers and healthcare providers to report any supply disruptions.
+7,1.1,0.9500000000000001,0.15000000000000002,0.0,0.13636363636363638,[],
+8,1.2,1.0,0.19999999999999996,0.0,0.16666666666666663,[],The FDA is monitoring an emerging shortage situation. We encourage manufacturers and stakeholders to report any supply disruptions.
+9,1.3,1.2850000000000001,0.014999999999999902,0.28500000000000014,0.011538461538461463,[1],The FDA is aware of emerging supply disruptions in the market and is actively monitoring the situation. We encourage manufacturers to report any production challenges and buyers to maintain normal purchasing patterns.

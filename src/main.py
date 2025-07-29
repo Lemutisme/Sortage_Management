@@ -274,10 +274,10 @@ async def run_single_example(start_with_disruption: bool = False):
     """Run a single example simulation with detailed logging."""
     
     config = SimulationConfig(
-        n_manufacturers=2,
+        n_manufacturers=5,
         n_periods=8,
         disruption_probability=0.05,
-        disruption_magnitude=0.2,
+        disruption_magnitude=0.3,
         llm_temperature=0.3,
         # Uncomment and set your API key:
         # api_key=os.getenv("OPENAI_API_KEY")
@@ -349,7 +349,7 @@ if __name__ == "__main__":
             asyncio.run(run_single_example())
     else:
         print("Running single example simulation...")
-        asyncio.run(run_single_example(start_with_disruption=True))
+        asyncio.run(run_single_example(start_with_disruption=False))
     
     print("\n✅ Simulation completed! Check the generated log files for detailed analysis.")
     print("💡 Log files include:")

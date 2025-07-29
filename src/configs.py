@@ -55,6 +55,7 @@ class SimulationConfig:
 
     # LLM Configuration
     llm_model: str = "gpt-4o"
+    # llm_model: str = "o3"
     llm_temperature: float = 0.3
     max_retries: int = 3
 

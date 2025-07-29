@@ -310,8 +310,8 @@ class BaseAgent(ABC, LoggerMixin):
                     {"role": "system", "content": enhanced_system_prompt},
                     {"role": "user", "content": user_prompt}
                 ],
-                temperature=self.config.llm_temperature,
-                max_tokens=2000
+                # temperature=self.config.llm_temperature,
+                # max_tokens=2000
             )
 
             
