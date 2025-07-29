@@ -267,6 +267,7 @@ Current Market Context:
 - Current inventory level: {inventory}
 - Market disruption level: {disrupted_count}/{n_manufacturers} manufacturers affected
 - Unit purchase price: {unit_profit}
+- Unit holding cost: {holding_cost} per unit in inventory
 - Stockout penalty cost: {stockout_penalty} per unmet unit
 
 RISK ANALYSIS FRAMEWORK:
@@ -304,6 +305,7 @@ ensuring medication availability while optimizing total procurement costs.
 
 COST STRUCTURE:
 - Purchase price: {unit_profit} per unit
+- Holding cost: {holding_cost} per unit in inventory
 - Stockout penalty: {stockout_penalty} per unmet unit (includes clinical and operational costs)
 - Inventory level: {inventory} unit in stock
 - Fixed baseline demand: {initial_demand} unit per period; The consortium must secure no less than {initial_demand} units *every* period to meet ongoing patient needs.

@@ -40,6 +40,7 @@ class BuyerAgent(BaseAgent):
             "disrupted_count": disrupted_count,
             "n_manufacturers": self.config.n_manufacturers,
             "unit_profit": self.config.unit_profit,
+            'holding_cost': self.config.holding_cost,
             "stockout_penalty": self.config.stockout_penalty
         }
 
@@ -93,6 +94,7 @@ class BuyerAgent(BaseAgent):
         
         decision_context = {
             "unit_profit": self.config.unit_profit,
+            "holding_cost": self.config.holding_cost,
             "stockout_penalty": self.config.stockout_penalty,
             "inventory": self.inventory,
             "initial_demand": self.config.initial_demand,
@@ -171,8 +173,9 @@ class BuyerAgent(BaseAgent):
         purchase_cost = supply_received * self.config.unit_profit
         shortage = max(0, demand - supply_received)
         stockout_cost = shortage * self.config.stockout_penalty
-        total_period_cost = purchase_cost + stockout_cost
-        
+        holding_cost = self.inventory * self.config.holding_cost
+        total_period_cost = purchase_cost + stockout_cost + holding_cost
+
         old_total_cost = self.total_cost
         self.total_cost += total_period_cost
         
@@ -188,6 +191,7 @@ class BuyerAgent(BaseAgent):
             f"Period costs - "
             f"Purchase: {purchase_cost:.3f}, "
             f"Stockout penalty: {stockout_cost:.3f}, "
+            f"Holding cost: {holding_cost:.3f}, "
             f"Total: {total_period_cost:.3f}"
         )
         
@@ -236,7 +240,8 @@ class BuyerAgent(BaseAgent):
         
         # Cost breakdown
         total_purchase_cost = total_supply * self.config.unit_profit
-        total_stockout_cost = self.total_cost - total_purchase_cost
+        total_stockout_cost = total_shortage * self.config.stockout_penalty
+        total_holding_cost = self.total_cost - total_purchase_cost - total_stockout_cost
         
         summary = {
             "total_periods": len(self.demand_history),
@@ -247,6 +252,7 @@ class BuyerAgent(BaseAgent):
             "average_demand_per_period": average_demand,
             "total_cost": self.total_cost,
             "total_purchase_cost": total_purchase_cost,
+            "total_holding_cost": total_holding_cost,
             "total_stockout_cost": total_stockout_cost,
             "periods_with_shortage": sum(1 for i, d in enumerate(self.demand_history) 
                                        if i < len(self.supply_received_history) and 

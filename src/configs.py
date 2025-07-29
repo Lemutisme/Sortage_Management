@@ -50,6 +50,7 @@ class SimulationConfig:
     disruption_magnitude: float = 0.2
     capacity_cost: float = 0.5
     unit_profit: float = 1.0
+    holding_cost: float = 0.1
     stockout_penalty: float = 1.1
 
     # LLM Configuration
