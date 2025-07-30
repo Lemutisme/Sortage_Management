@@ -1,0 +1,3 @@
+period,total_demand,total_supply,shortage_amount,unsold,shortage_percentage,disrupted_manufacturers,fda_announcement
+0,1.2,0.7,0.5,0,0.4166666666666667,[0],
+1,1.5,0.7,0.8,0,0.5333333333333333,[0],The FDA is closely monitoring the emerging drug shortage and encourages all manufacturers and stakeholders to report any disruptions in supply. Collaborative efforts and proactive reporting will aid in efficient resolution.

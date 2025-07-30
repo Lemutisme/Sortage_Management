@@ -118,7 +118,7 @@ class BuyerAgent(BaseAgent):
         
         # Log decision outcome
         decision = result.get("decision", {})
-        demand_quantity = decision.get("demand_quantity", self.config.initial_demand)
+        demand_quantity = float(decision.get("demand_quantity", self.config.initial_demand))
         demand_rationale = decision.get("demand_rationale", "unknown")
         confidence = result.get("confidence", "unknown")
         

@@ -1,0 +1,3 @@
+period,total_demand,total_supply,shortage_amount,unsold,shortage_percentage,disrupted_manufacturers,fda_announcement
+0,1.3,0.7,0.6000000000000001,0,0.46153846153846156,[0],The FDA is aware of emerging supply issues with the medication. We encourage manufacturers and healthcare providers to report any disruptions and collaborate for swift resolution.
+1,1.4,0.7,0.7,0,0.5,[0],"The FDA is currently monitoring an emerging drug shortage. We encourage healthcare providers, manufacturers, and distributors to coordinate and report any supply disruptions. Our goal is to ensure patient needs are met and prevent further escalation."

@@ -56,16 +56,16 @@ async def run_logged_simulation(config: SimulationConfig,
         # Print simulation results summary
         print(f"\n📈 Simulation Results:")
         metrics = results['summary_metrics']
-        # print(f"  Peak shortage: {metrics['peak_shortage_percentage']:.1%}")
-        # print(f"  Shortage periods: {metrics['total_shortage_periods']}/{config.n_periods}")
-        # print(f"  Total buyer cost: {results['buyer_total_cost']:.3f}")
-        # print(f"  Total manufacturer profit: {metrics['total_manufacturer_profit']:.3f}")
-        # print(f"  FDA interventions: {metrics['fda_intervention_rate']:.1%} of periods")
-        print(f"  Peak shortage: {metrics['peak_shortage_percentage']}")
+        print(f"  Peak shortage: {metrics['peak_shortage_percentage']:.1%}")
         print(f"  Shortage periods: {metrics['total_shortage_periods']}/{config.n_periods}")
-        print(f"  Total buyer cost: {results['buyer_total_cost']}")
-        print(f"  Total manufacturer profit: {metrics['total_manufacturer_profit']}")
-        print(f"  FDA interventions: {metrics['fda_intervention_rate']} of periods")
+        print(f"  Total buyer cost: {results['buyer_total_cost']:.3f}")
+        print(f"  Total manufacturer profit: {metrics['total_manufacturer_profit']:.3f}")
+        print(f"  FDA interventions: {metrics['fda_intervention_rate']:.1%} of periods")
+        # print(f"  Peak shortage: {metrics['peak_shortage_percentage']}")
+        # print(f"  Shortage periods: {metrics['total_shortage_periods']}/{config.n_periods}")
+        # print(f"  Total buyer cost: {results['buyer_total_cost']}")
+        # print(f"  Total manufacturer profit: {metrics['total_manufacturer_profit']}")
+        # print(f"  FDA interventions: {metrics['fda_intervention_rate']} of periods")
         
         return results
         
@@ -281,8 +281,8 @@ async def run_single_example(start_with_disruption: bool = False):
     """Run a single example simulation with detailed logging."""
     
     config = SimulationConfig(
-        n_manufacturers=5,
-        n_periods=8,
+        n_manufacturers=2,
+        n_periods=4,
         disruption_probability=0.05,
         disruption_magnitude=0.3,
         llm_temperature=0.3,
@@ -433,7 +433,7 @@ if __name__ == "__main__":
             print("Running ground truth experiment...")
             HERE = Path(__file__).resolve().parent
             csv_path = HERE/"../data"/"GT_Disc.csv"
-            # csv_path = HERE/"../data"/"GT_Disc_tester.csv"
+            csv_path = HERE/"../data"/"GT_Disc_tester.csv"
             df = pd.read_csv(csv_path)
             print(df.shape)
             asyncio.run(run_gt_experiments(df))
