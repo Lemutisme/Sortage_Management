@@ -3,6 +3,6 @@ keys/*.txt
 simulation_logs/
 analysis_exports/
 experiments_logs/
-gt_valuation/
+gt_evaluation/
 .venv/
 data/FDA_final.csv
