@@ -309,6 +309,9 @@ async def run_gt_experiments(
 ):
     export_path = Path(export_dir)
     export_path.mkdir(exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_path = export_path / f"gt_experiments_{ts}.csv"
+    exists_header = False
 
     iterator = tqdm(df.itertuples(index=False), total=len(df)) if show_progress else df.itertuples(index=False)
     comparative_results = []
@@ -362,14 +365,17 @@ async def run_gt_experiments(
                     "error": str(e)
                 })
     
-    if comparative_results:
-        comparison_df = pd.DataFrame([r for r in comparative_results if 'error' not in r])
+        if comparative_results:
+            comparison_df = pd.DataFrame([r for r in comparative_results if 'error' not in r])
         
-        if not comparison_df.empty:
-            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-            comparison_df.to_csv(export_path/f"gt_experiments_{ts}.csv", index=False)
-            print(f"\n💾 Comparative results saved to: gt_experiments_{ts}.csv")
-            return comparison_df
+            if not comparison_df.empty:
+                if not exists_header:
+                    comparison_df.to_csv(csv_path, index=False)
+                    exists_header = True
+                else:
+                    comparison_df.to_csv(csv_path, mode='a', header=False, index=False)
+                print(f"\n💾 Comparative results saved to: gt_experiments_{ts}.csv")
+    return comparison_df
 
 
 async def run_quick_policy_test():
@@ -437,7 +443,7 @@ if __name__ == "__main__":
             csv_path = HERE/"../data"/"GT_NoDisc.csv"
             df = pd.read_csv(csv_path)
             print(df.shape)
-            asyncio.run(run_gt_experiments(df))
+            asyncio.run(run_gt_experiments(df.iloc[[7]]))
         else:
             print("Unknown mode. Running single example...")
             asyncio.run(run_single_example())

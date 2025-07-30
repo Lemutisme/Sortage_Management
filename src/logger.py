@@ -48,7 +48,7 @@ class MarketLogEvent(LogEvent):
 class SimulationLogger:
     """Comprehensive logging system for the drug shortage simulation."""
     
-    def __init__(self, config: SimulationConfig, log_dir: str = "simulation_logs"):
+    def __init__(self, config: SimulationConfig, log_dir: str = "experiments_logs"):
         self.config = config
         self.simulation_id = str(uuid.uuid4())[:8]
         self.start_time = datetime.now()
@@ -58,7 +58,7 @@ class SimulationLogger:
         self.log_dir.mkdir(exist_ok=True)
         
         # Log files
-        self.session_dir = self.log_dir / f"sim_{self.simulation_id}_{self.start_time.strftime('%Y%m%d_%H%M%S')}"
+        self.session_dir = self.log_dir / f"{self.start_time.strftime('%Y%m%d_%H%M%S')}_sim_{self.simulation_id}"
         self.session_dir.mkdir(exist_ok=True)
         
         # Initialize structured event storage
