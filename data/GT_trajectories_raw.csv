@@ -1,0 +1,624 @@
+﻿gt_id,shortage_event_id,ndc_id,Status,Timestamp, Reason for Shortage,Generic Name,Company Name,Initial Posting Date,Date of Update
+5,00527-1395-11/25/2019,00527-1395,to be discontinued,8/14/23 0:01,,Loxapine Capsules,"Lannett Company, Inc.",11/25/19,6/14/22
+5,00527-1396-11/25/2019,00527-1396,to be discontinued,8/14/23 0:01,,Loxapine Capsules,"Lannett Company, Inc.",11/25/19,6/14/22
+5,00527-1397-11/25/2019,00527-1397,to be discontinued,8/14/23 0:01,,Loxapine Capsules,"Lannett Company, Inc.",11/25/19,6/14/22
+5,00591-0371-11/25/2019,00591-0371,resolved,8/14/23 0:01,,Loxapine Capsules,Teva Pharmaceuticals,11/25/19,6/14/22
+5,00527-1394-11/25/2019,00527-1394,to be discontinued,8/14/23 0:01,,Loxapine Capsules,"Lannett Company, Inc.",11/25/19,6/14/22
+5,00591-0369-11/25/2019,00591-0369,resolved,8/14/23 0:01,,Loxapine Capsules,Teva Pharmaceuticals,11/25/19,6/14/22
+5,00591-0372-11/25/2019,00591-0372,resolved,8/14/23 0:01,,Loxapine Capsules,Teva Pharmaceuticals,11/25/19,6/14/22
+6,70860-0777-04/11/2018,70860-0777,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,4/11/18,4/25/22
+6,25021-0777-04/11/2018,25021-0777,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Sagent Pharmaceuticals,4/11/18,4/25/22
+6,00409-4755-04/11/2018,00409-4755,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",4/11/18,4/25/22
+6,00409-1120-04/11/2018,00409-1120,to be discontinued,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",4/11/18,10/6/21
+6,55150-0126-04/11/2018,55150-0126,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Eugia Pharma Specialties LTD. (formerly Aurobindo),4/11/18,4/25/22
+6,60505-6130-04/11/2018,60505-6130,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Apotex Corp.,4/11/18,4/25/22
+6,25021-0782-04/11/2018,25021-0782,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Sagent Pharmaceuticals,4/11/18,4/25/22
+6,70860-0776-04/11/2018,70860-0776,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,4/11/18,4/25/22
+6,72266-0123-04/11/2018,72266-0123,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,4/11/18,4/25/22
+6,72266-0124-04/11/2018,72266-0124,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,4/11/18,4/25/22
+6,36000-0012-04/11/2018,36000-0012,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Baxter Healthcare,4/11/18,4/25/22
+6,00641-6078-04/11/2018,00641-6078,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",4/11/18,4/25/22
+6,00409-4759-04/11/2018,00409-4759,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",4/11/18,4/25/22
+6,23155-0547-04/11/2018,23155-0547,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,4/11/18,4/25/22
+6,55150-0125-04/11/2018,55150-0125,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Eugia Pharma Specialties LTD. (formerly Aurobindo),4/11/18,4/25/22
+6,23155-0549-04/11/2018,23155-0549,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,4/11/18,4/25/22
+6,23155-0548-04/11/2018,23155-0548,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,4/11/18,4/25/22
+6,63323-0373-04/11/2018,63323-0373,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",4/11/18,4/25/22
+6,63323-0374-04/11/2018,63323-0374,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",4/11/18,4/25/22
+6,76045-0103-04/11/2018,76045-0103,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",4/11/18,4/25/22
+6,00143-9890-04/11/2018,00143-9890,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",4/11/18,4/25/22
+9,48102-0057-07/06/2022,48102-0057,resolved,6/28/24 1:27,,Erythromycin Ointment,Fera Pharmaceuticals,5/15/24,10/2/24
+9,00574-4024-07/06/2022,00574-4024,to be discontinued,6/28/24 1:27,Discontinuation of the manufacture of the drug,Erythromycin Ointment,Padagis US LLC,5/15/24,10/2/24
+9,24208-0910-07/06/2022,24208-0910,resolved,7/30/24 19:46,,Erythromycin Ointment,Bausch & Lomb Incorporated,5/15/24,10/2/24
+9,72485-0067-07/06/2022,72485-0067,resolved,7/30/24 19:46,,Erythromycin Ointment,Armas Pharmaceuticals Inc,5/15/24,10/2/24
+11,57664-0655-02/21/2020,57664-0655,resolved,8/14/23 0:01,,Pindolol Tablets,Sun Pharmaceutical Industries Inc.,2/21/20,1/11/22
+11,57664-0656-02/21/2020,57664-0656,resolved,8/14/23 0:01,,Pindolol Tablets,Sun Pharmaceutical Industries Inc.,2/21/20,1/11/22
+11,00378-0052-02/21/2020,00378-0052,resolved,8/14/23 0:01,,Pindolol Tablets,"Mylan Pharmaceuticals Inc., a Viatris Company",2/21/20,1/11/22
+11,00378-0127-02/21/2020,00378-0127,resolved,8/14/23 0:01,,Pindolol Tablets,"Mylan Pharmaceuticals Inc., a Viatris Company",2/21/20,1/11/22
+11,76385-0132-02/21/2020,76385-0132,resolved,8/14/23 0:01,,Pindolol Tablets,Bayshore Pharmaceuticals,2/21/20,1/11/22
+11,76385-0131-02/21/2020,76385-0131,resolved,8/14/23 0:01,,Pindolol Tablets,Bayshore Pharmaceuticals,2/21/20,1/11/22
+11,29033-0028-02/21/2020,29033-0028,resolved,8/14/23 0:01,,Pindolol Tablets,"Nostrum Laboratories, Inc.",2/21/20,1/11/22
+11,29033-0029-02/21/2020,29033-0029,resolved,8/14/23 0:01,,Pindolol Tablets,"Nostrum Laboratories, Inc.",2/21/20,1/11/22
+11,62559-0561-02/21/2020,62559-0561,resolved,8/14/23 0:01,,Pindolol Tablets,"ANI Pharmaceuticals, Inc.",2/21/20,1/11/22
+11,62559-0560-02/21/2020,62559-0560,resolved,8/14/23 0:01,,Pindolol Tablets,"ANI Pharmaceuticals, Inc.",2/21/20,1/11/22
+12,23155-0313-12/02/2020,23155-0313,resolved,8/14/23 0:01,,Acetazolamide Injection,"Avet Pharmaceuticals, Inc. (formerly Heritage Pharma)",12/2/20,6/17/22
+12,67457-0853-12/02/2020,67457-0853,resolved,8/14/23 0:01,,Acetazolamide Injection,"Mylan Institutional, a Viatris company",12/2/20,6/17/22
+12,00143-9503-12/02/2020,00143-9503,resolved,8/14/23 0:01,,Acetazolamide Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",12/2/20,6/17/22
+12,39822-0190-12/02/2020,39822-0190,resolved,8/14/23 0:01,,Acetazolamide Injection,"X-GEN Pharmaceuticals, Inc.",12/2/20,6/17/22
+13,13668-0462-10/29/2019,13668-0462,resolved,8/14/23 0:01,,Anagrelide Hydrochloride Capsules,Torrent Pharma Inc.,10/29/19,7/20/21
+13,54092-0063-10/29/2019,54092-0063,resolved,8/14/23 0:01,,Anagrelide Hydrochloride Capsules,Takeda Pharmaceuticals USA Inc.,10/29/19,7/20/21
+13,13668-0453-10/29/2019,13668-0453,resolved,8/14/23 0:01,,Anagrelide Hydrochloride Capsules,Torrent Pharma Inc.,10/29/19,7/20/21
+13,00172-5240-10/29/2019,00172-5240,resolved,8/14/23 0:01,,Anagrelide Hydrochloride Capsules,Teva Pharmaceuticals,10/29/19,7/20/21
+13,00172-5241-10/29/2019,00172-5241,resolved,8/14/23 0:01,,Anagrelide Hydrochloride Capsules,Teva Pharmaceuticals,10/29/19,7/20/21
+14,00093-7473-02/09/2023,00093-7473,resolved,7/30/24 19:46,,Capecitabine Tablet,"Teva Pharmaceuticals USA, Inc.",2/9/23,5/21/24
+14,72205-0006-02/09/2023,72205-0006,resolved,7/30/24 19:46,,Capecitabine Tablet,Novadoz Pharmaceuticals LLC,2/9/23,5/21/24
+14,72205-0007-02/09/2023,72205-0007,resolved,7/30/24 19:46,,Capecitabine Tablet,Novadoz Pharmaceuticals LLC,2/9/23,5/21/24
+14,00004-1101-02/09/2023,00004-1101,to be discontinued,7/30/24 19:46,,Capecitabine Tablet,"Genentech, Inc",2/9/23,1/23/24
+14,00004-1100-02/09/2023,00004-1100,to be discontinued,7/30/24 19:46,,Capecitabine Tablet,"Genentech, Inc",2/9/23,1/23/24
+14,16729-0073-02/09/2023,16729-0073,resolved,7/30/24 19:46,,Capecitabine Tablet,Accord Healthcare Inc.,2/9/23,6/27/24
+14,55111-0497-02/09/2023,55111-0497,resolved,7/30/24 19:46,,Capecitabine Tablet,"Dr. Reddy's Laboratories, Inc.",2/9/23,6/27/24
+14,55111-0496-02/09/2023,55111-0496,resolved,7/30/24 19:46,,Capecitabine Tablet,"Dr. Reddy's Laboratories, Inc.",2/9/23,6/27/24
+14,59651-0204-02/09/2023,59651-0204,resolved,7/30/24 19:46,,Capecitabine Tablet,Eugia US LLC,2/9/23,5/21/24
+14,00093-7474-02/09/2023,00093-7474,resolved,7/30/24 19:46,,Capecitabine Tablet,"Teva Pharmaceuticals USA, Inc.",2/9/23,5/21/24
+14,59651-0205-02/09/2023,59651-0205,resolved,7/30/24 19:46,,Capecitabine Tablet,Eugia US LLC,2/9/23,5/21/24
+15,66288-1300-12/17/2018,66288-1300,resolved,8/14/23 0:01,,Cefazolin Injection,"Samson Medical Technologies, L.L.C.",12/17/18,12/1/22
+15,00143-9924-12/03/2018,00143-9924,resolved,8/14/23 0:01,,Cefazolin Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",12/3/18,12/1/22
+15,00781-3450-12/03/2018,00781-3450,resolved,8/14/23 0:01,,Cefazolin Injection,Sandoz,12/3/18,12/1/22
+15,00781-3451-12/03/2018,00781-3451,resolved,8/14/23 0:01,,Cefazolin Injection,Sandoz,12/3/18,12/1/22
+15,00781-3452-12/03/2018,00781-3452,resolved,8/14/23 0:01,,Cefazolin Injection,Sandoz,12/3/18,12/1/22
+15,25021-0101-11/30/2018,25021-0101,resolved,8/14/23 0:01,,Cefazolin Injection,Sagent Pharmaceuticals,11/30/18,12/1/22
+15,00338-3503-12/17/2018,00338-3503,resolved,8/14/23 0:01,,Cefazolin Injection,Baxter Healthcare,12/17/18,12/1/22
+15,00338-3508-12/17/2018,00338-3508,resolved,8/14/23 0:01,,Cefazolin Injection,Baxter Healthcare,12/17/18,12/1/22
+15,60505-6231-11/30/2018,60505-6231,resolved,8/14/23 0:01,,Cefazolin Injection,Apotex Corp.,11/30/18,12/1/22
+15,44567-0707-11/30/2018,44567-0707,resolved,8/14/23 0:01,,Cefazolin Injection,WG Critical Care,11/30/18,12/1/22
+15,44567-0708-11/30/2018,44567-0708,resolved,8/14/23 0:01,,Cefazolin Injection,WG Critical Care,11/30/18,12/1/22
+15,44567-0706-11/30/2018,44567-0706,resolved,8/14/23 0:01,,Cefazolin Injection,WG Critical Care,11/30/18,12/1/22
+15,00264-3103-11/30/2018,00264-3103,resolved,8/14/23 0:01,,Cefazolin Injection,B. Braun Medical Inc.,11/30/18,12/1/22
+15,00264-3105-11/30/2018,00264-3105,resolved,8/14/23 0:01,,Cefazolin Injection,B. Braun Medical Inc.,11/30/18,12/1/22
+15,00143-9983-12/03/2108,00143-9983,resolved,8/14/23 0:01,,Cefazolin Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",12/3/08,12/1/22
+15,00143-9923-12/03/2018,00143-9923,resolved,8/14/23 0:01,,Cefazolin Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",12/3/18,12/1/22
+15,00409-0805-11/30/2018,00409-0805,resolved,8/14/23 0:01,,Cefazolin Injection,"Hospira, Inc.",11/30/18,12/1/22
+15,03103-0011-11/30/2018,03103-0011,resolved,8/14/23 0:01,,Cefazolin Injection,B. Braun Medical Inc.,11/30/18,12/1/22
+15,00409-2585-11/30/2018,00409-2585,resolved,8/14/23 0:01,,Cefazolin Injection,"Hospira, Inc.",11/30/18,12/1/22
+15,66288-1100-12/17/2018,66288-1100,resolved,8/14/23 0:01,,Cefazolin Injection,"Samson Medical Technologies, L.L.C.",12/17/18,12/1/22
+15,60505-6142-11/30/2018,60505-6142,resolved,8/14/23 0:01,,Cefazolin Injection,Apotex Corp.,11/30/18,12/1/22
+15,25021-0102-11/30/2018,25021-0102,resolved,8/14/23 0:01,,Cefazolin Injection,Sagent Pharmaceuticals,11/30/18,12/1/22
+15,25021-0100-11/30/2018,25021-0100,resolved,8/14/23 0:01,,Cefazolin Injection,Sagent Pharmaceuticals,11/30/18,12/1/22
+15,03105-0011-11/30/2018,03105-0011,resolved,8/14/23 0:01,,Cefazolin Injection,B. Braun Medical Inc.,11/30/18,12/1/22
+15,60505-6143-11/30/2018,60505-6143,resolved,8/14/23 0:01,,Cefazolin Injection,Apotex Corp.,11/30/18,12/1/22
+16,60505-0759-05/03/2019,60505-0759,resolved,8/14/23 0:01,,Cefoxitin for Injection,Apotex Corp.,5/3/19,11/18/21
+16,00264-3123-05/03/2019,00264-3123,resolved,8/14/23 0:01,,Cefoxitin for Injection,B. Braun Medical Inc.,5/3/19,11/18/21
+16,00264-3125-05/03/2019,00264-3125,resolved,8/14/23 0:01,,Cefoxitin for Injection,B. Braun Medical Inc.,5/3/19,11/18/21
+16,60505-0760-05/03/2019,60505-0760,resolved,8/14/23 0:01,,Cefoxitin for Injection,Apotex Corp.,5/3/19,11/18/21
+16,60505-0761-05/03/2019,60505-0761,resolved,8/14/23 0:01,,Cefoxitin for Injection,Apotex Corp.,5/3/19,11/18/21
+16,63323-0341-05/03/2019,63323-0341,resolved,8/14/23 0:01,,Cefoxitin for Injection,"Fresenius Kabi USA, LLC",5/3/19,11/18/21
+16,63323-0342-05/03/2019,63323-0342,resolved,8/14/23 0:01,,Cefoxitin for Injection,"Fresenius Kabi USA, LLC",5/3/19,11/18/21
+16,25021-0111-05/03/2019,25021-0111,resolved,8/14/23 0:01,,Cefoxitin for Injection,Sagent Pharmaceuticals,5/3/19,11/18/21
+16,25021-0109-05/03/2019,25021-0109,resolved,8/14/23 0:01,,Cefoxitin for Injection,Sagent Pharmaceuticals,5/3/19,11/18/21
+16,03123-0011-05/03/2019,03123-0011,resolved,8/14/23 0:01,,Cefoxitin for Injection,B. Braun Medical Inc.,5/3/19,11/18/21
+16,25021-0110-05/03/2019,25021-0110,resolved,8/14/23 0:01,,Cefoxitin for Injection,Sagent Pharmaceuticals,5/3/19,11/18/21
+16,44567-0246-05/03/2019,44567-0246,resolved,8/14/23 0:01,,Cefoxitin for Injection,WG Critical Care,5/3/19,11/18/21
+16,44567-0247-05/03/2019,44567-0247,resolved,8/14/23 0:01,,Cefoxitin for Injection,WG Critical Care,5/3/19,11/18/21
+16,00143-9878-05/03/2019,00143-9878,resolved,8/14/23 0:01,,Cefoxitin for Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",5/3/19,11/18/21
+16,00143-9877-05/03/2019,00143-9877,resolved,8/14/23 0:01,,Cefoxitin for Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",5/3/19,11/18/21
+16,00143-9876-05/03/2019,00143-9876,resolved,8/14/23 0:01,,Cefoxitin for Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",5/3/19,11/18/21
+16,03125-0011-05/03/2019,03125-0011,resolved,8/14/23 0:01,,Cefoxitin for Injection,B. Braun Medical Inc.,5/3/19,11/18/21
+16,44567-0245-05/03/2019,44567-0245,resolved,8/14/23 0:01,,Cefoxitin for Injection,WG Critical Care,5/3/19,11/18/21
+17,42806-0564-03/30/2021,42806-0564,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,"Epic Pharma, LLC",3/30/21,10/25/22
+17,00555-0033-03/30/2021,00555-0033,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Teva Pharmaceuticals,3/30/21,10/25/22
+17,00555-0159-03/30/2021,00555-0159,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Teva Pharmaceuticals,3/30/21,10/25/22
+17,00555-0158-03/30/2021,00555-0158,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Teva Pharmaceuticals,3/30/21,10/25/22
+17,42806-0562-03/30/2021,42806-0562,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,"Epic Pharma, LLC",3/30/21,10/25/22
+17,42806-0563-03/30/2021,42806-0563,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,"Epic Pharma, LLC",3/30/21,10/25/22
+17,62135-0220-03/30/2021,62135-0220,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Chartwell Pharma,3/30/21,10/25/22
+17,62135-0222-03/30/2021,62135-0222,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Chartwell Pharma,3/30/21,10/25/22
+17,62135-0221-03/30/2021,62135-0221,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Chartwell Pharma,3/30/21,10/25/22
+18,42806-0564-03/30/2021,42806-0564,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,"Epic Pharma, LLC",11/19/19,10/25/22
+18,00555-0033-03/30/2021,00555-0033,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Teva Pharmaceuticals,11/19/19,10/25/22
+18,00555-0159-03/30/2021,00555-0159,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Teva Pharmaceuticals,11/19/19,10/25/22
+18,00555-0158-03/30/2021,00555-0158,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Teva Pharmaceuticals,11/19/19,10/25/22
+18,42806-0562-03/30/2021,42806-0562,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,"Epic Pharma, LLC",11/19/19,10/25/22
+18,42806-0563-03/30/2021,42806-0563,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,"Epic Pharma, LLC",11/19/19,10/25/22
+18,62135-0220-03/30/2021,62135-0220,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Chartwell Pharma,11/19/19,10/25/22
+18,62135-0222-03/30/2021,62135-0222,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Chartwell Pharma,11/19/19,10/25/22
+18,43547-0251-11/19/2019,43547-0251,to be discontinued,8/14/23 0:01,,"Chlordiazepoxide Hydrochloride USP, Capsules",Bausch Health,11/19/19,10/25/22
+18,43547-0252-11/19/2019,43547-0252,to be discontinued,8/14/23 0:01,,"Chlordiazepoxide Hydrochloride USP, Capsules",Bausch Health,11/19/19,10/25/22
+18,62135-0221-03/30/2021,62135-0221,resolved,8/14/23 0:01,,Chlordiazepoxide Hydrochloride Capsules,Chartwell Pharma,11/19/19,10/25/22
+19,00074-4382-04/08/2020,00074-4382,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Abbvie,4/8/20,7/27/21
+19,55150-0286-04/08/2020,55150-0286,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,AuroMedics Pharma LLC (mfd. by Aurobindo Pharma Ltd.),4/8/20,7/27/21
+19,00703-2045-04/08/2020,00703-2045,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Teva Pharmaceuticals,4/8/20,7/27/21
+19,55150-0284-04/08/2020,55150-0284,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,AuroMedics Pharma LLC (mfd. by Aurobindo Pharma Ltd.),4/8/20,7/27/21
+19,00074-4380-04/08/2020,00074-4380,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Abbvie,4/8/20,7/27/21
+19,00074-4378-04/08/2020,00074-4378,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Abbvie,4/8/20,7/27/21
+19,00409-1103-04/08/2020,00409-1103,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Hospira, Inc.",4/8/20,7/27/21
+19,00703-2056-04/08/2020,00703-2056,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Teva Pharmaceuticals,4/8/20,7/27/21
+19,00703-2033-04/08/2020,00703-2033,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Teva Pharmaceuticals,4/8/20,7/27/21
+19,70069-0141-04/08/2020,70069-0141,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Somerset Therapeutics, LLC",4/8/20,7/27/21
+19,70069-0161-04/08/2020,70069-0161,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Somerset Therapeutics, LLC",4/8/20,7/27/21
+19,70069-0151-04/08/2020,70069-0151,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Somerset Therapeutics, LLC",4/8/20,7/27/21
+19,71288-0712-04/08/2020,71288-0712,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Meitheal Pharmaceuticals, Inc.",4/8/20,7/27/21
+19,00409-1208-04/08/2020,00409-1208,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Hospira, Inc.",4/8/20,7/27/21
+19,71288-0713-04/08/2020,71288-0713,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Meitheal Pharmaceuticals, Inc.",4/8/20,7/27/21
+19,63323-0417-04/08/2020,63323-0417,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Fresenius Kabi USA, LLC",4/8/20,7/27/21
+19,63323-0418-04/08/2020,63323-0418,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Fresenius Kabi USA, LLC",4/8/20,7/27/21
+19,00781-3150-04/08/2020,00781-3150,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Sandoz,4/8/20,7/27/21
+19,00781-3152-04/08/2020,00781-3152,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Sandoz,4/8/20,7/27/21
+19,00781-3153-04/08/2020,00781-3153,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,Sandoz,4/8/20,7/27/21
+19,00409-1098-04/08/2020,00409-1098,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Hospira, Inc.",4/8/20,7/27/21
+19,63323-0416-04/08/2020,63323-0416,resolved,8/14/23 0:01,,Cisatracurium Besylate Injection,"Fresenius Kabi USA, LLC",4/8/20,7/27/21
+20,68001-0283-02/10/2023,68001-0283,to be discontinued,7/30/24 19:46,,Cisplatin Injection,Accord Healthcare Inc.,2/10/23,6/27/24
+20,63323-0103-02/10/2023,63323-0103,resolved,7/30/24 19:46,,Cisplatin Injection,"Fresenius Kabi USA, LLC",2/10/23,6/27/24
+20,00143-9505-02/10/2023,00143-9505,resolved,7/30/24 19:46,,Cisplatin Injection,"Hikma Pharmaceuticals USA, Inc.",2/10/23,6/27/24
+20,44567-0511-02/10/2023,44567-0511,resolved,7/30/24 19:46,,Cisplatin Injection,HQ Specialty Pharma,2/10/23,6/27/24
+20,44567-0530-02/10/2023,44567-0530,resolved,7/30/24 19:46,,Cisplatin Injection,HQ Specialty Pharma,2/10/23,6/27/24
+20,00703-5747-02/10/2023,00703-5747,resolved,7/30/24 19:46,,Cisplatin Injection,"Teva Pharmaceuticals USA, Inc.",2/10/23,6/27/24
+20,00703-5748-02/10/2023,00703-5748,resolved,7/30/24 19:46,,Cisplatin Injection,"Teva Pharmaceuticals USA, Inc.",2/10/23,6/27/24
+20,16729-0288-02/10/2023,16729-0288,resolved,7/30/24 19:46,,Cisplatin Injection,Accord Healthcare Inc.,2/10/23,6/27/24
+20,00143-9504-02/10/2023,00143-9504,resolved,7/30/24 19:46,,Cisplatin Injection,"Hikma Pharmaceuticals USA, Inc.",2/10/23,6/27/24
+20,25021-0253-02/10/2023,25021-0253,resolved,7/30/24 19:46,,Cisplatin Injection,Gland Pharma Limited,2/10/23,6/27/24
+20,60505-6279-02/10/2023,60505-6279,resolved,7/30/24 19:46,,Cisplatin Injection,"Qilu Pharmaceutical Co., Ltd.",2/10/23,6/27/24
+20,72266-0252-02/10/2023,72266-0252,resolved,7/30/24 19:46,,Cisplatin Injection,Gland Pharma Limited,2/10/23,6/27/24
+20,72266-0253-02/10/2023,72266-0253,resolved,7/30/24 19:46,,Cisplatin Injection,Gland Pharma Limited,2/10/23,6/27/24
+21,61703-0303-09/24/2021,61703-0303,resolved,7/30/24 19:46,,Cytarabine Injection,"Hospira, Inc., a Pfizer Company",9/24/21,7/12/24
+21,61703-0304-09/24/2021,61703-0304,resolved,7/30/24 19:46,,Cytarabine Injection,"Hospira, Inc., a Pfizer Company",9/24/21,7/12/24
+21,61703-0305-09/24/2021,61703-0305,resolved,7/30/24 19:46,,Cytarabine Injection,"Hospira, Inc., a Pfizer Company",9/24/21,7/12/24
+21,25021-0229-09/24/2021,25021-0229,resolved,7/30/24 19:46,,Cytarabine Injection,Gland Pharma Limited,9/24/21,7/12/24
+21,25021-0223-09/24/2021,25021-0223,resolved,7/30/24 19:46,,Cytarabine Injection,Gland Pharma Limited,9/24/21,7/12/24
+21,63323-0120-09/24/2021,63323-0120,resolved,7/30/24 19:46,,Cytarabine Injection,"Fresenius Kabi USA, LLC",9/24/21,7/12/24
+21,61703-0319-09/24/2021,61703-0319,resolved,7/30/24 19:46,,Cytarabine Injection,"Hospira, Inc., a Pfizer Company",9/24/21,7/12/24
+22,68682-0652-06/15/2022,68682-0652,resolved,7/30/24 19:46,,Diazepam Gel,"Bausch Health Americas, Inc.",6/15/22,4/19/24
+22,68682-0650-06/15/2022,68682-0650,resolved,7/30/24 19:46,,Diazepam Gel,"Bausch Health Americas, Inc.",6/15/22,4/19/24
+22,68682-0655-06/15/2022,68682-0655,resolved,7/30/24 19:46,,Diazepam Gel,"Bausch Health Americas, Inc.",6/15/22,4/19/24
+22,43386-0280-11/06/2023,43386-0280,resolved,7/30/24 19:46,,Diazepam Gel,"Lupin Pharmaceuticals, Inc.",11/6/23,4/19/24
+22,43386-0281-11/06/2023,43386-0281,resolved,7/30/24 19:46,,Diazepam Gel,"Lupin Pharmaceuticals, Inc.",11/6/23,4/19/24
+23,00093-9222-02/25/2022,00093-9222,resolved,1/29/24 5:47,,"Diflunisal Tablet, Film Coated","Teva Pharmaceuticals USA, Inc.",2/25/22,8/4/23
+23,14539-0673-02/25/2022,14539-0673,resolved,1/29/24 5:47,,"Diflunisal Tablet, Film Coated","Avet Pharmaceuticals, Inc.",2/25/22,8/4/23
+24,69238-1380-12/21/2022,69238-1380,resolved,7/30/24 19:46,,Difluprednate Emulsion,Amneal Pharmaceuticals,12/21/22,4/24/24
+24,00078-0862-12/21/2022,00078-0862,resolved,7/30/24 19:46,,Difluprednate Emulsion,Sandoz Inc.,12/21/22,4/24/24
+24,00781-6000-12/21/2022,00781-6000,resolved,7/30/24 19:46,,Difluprednate Emulsion,Sandoz Inc.,12/21/22,4/24/24
+24,69097-0341-12/21/2022,69097-0341,resolved,7/30/24 19:46,,Difluprednate Emulsion,Cipla Limited,12/21/22,4/24/24
+25,00641-1410-06/04/2021,00641-1410,resolved,7/30/24 19:46,,Digoxin Injection,"Hikma Pharmaceuticals USA, Inc.",6/4/21,5/2/24
+25,00781-3059-06/04/2021,00781-3059,resolved,7/30/24 19:46,,Digoxin Injection,Sandoz Inc.,6/4/21,5/2/24
+25,70515-0263-06/04/2021,70515-0263,resolved,7/30/24 19:46,,Digoxin Injection,Covis Pharma,6/4/21,5/2/24
+25,70515-0260-06/04/2021,70515-0260,resolved,7/30/24 19:46,,Digoxin Injection,Covis Pharma,6/4/21,5/2/24
+25,70515-0261-06/04/2021,70515-0261,resolved,7/30/24 19:46,,Digoxin Injection,Covis Pharma,6/4/21,5/2/24
+25,70515-0262-06/04/2021,70515-0262,resolved,7/30/24 19:46,,Digoxin Injection,Covis Pharma,6/4/21,5/2/24
+26,00409-1171-02/21/2018,00409-1171,to be discontinued,8/14/23 0:01,,Diltiazem Hydrochloride Injection,"Hospira, Inc.",6/8/21,5/22/24
+26,17478-0937-04/08/2022,17478-0937,to be discontinued,8/14/23 0:01,,Diltiazem Hydrochloride Injection,Akorn Pharmaceuticals,4/8/22,5/22/24
+26,00641-6014-03/01/2018,00641-6014,resolved,7/30/24 19:46,,Diltiazem Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc.",6/8/21,5/22/24
+26,70860-0301-02/21/2018,70860-0301,resolved,7/30/24 19:46,,Diltiazem Hydrochloride Injection,Sagent Pharmaceuticals,6/8/21,5/22/24
+26,00409-4350-02/21/2018,00409-4350,resolved,7/30/24 19:46,,Diltiazem Hydrochloride Injection,"Hospira, Inc., a Pfizer Company",6/8/21,5/22/24
+26,00641-6013-03/01/2018,00641-6013,resolved,7/30/24 19:46,,Diltiazem Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc.",6/8/21,5/22/24
+26,00641-6015-03/01/2018,00641-6015,resolved,7/30/24 19:46,,Diltiazem Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc.",6/8/21,5/22/24
+27,00025-2732-03/19/2021,00025-2732,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,Pfizer Inc.,3/19/21,6/4/24
+27,00025-2742-03/19/2021,00025-2742,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,Pfizer Inc.,3/19/21,6/4/24
+27,00025-2752-03/19/2021,00025-2752,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,Pfizer Inc.,3/19/21,6/4/24
+27,00025-2762-03/19/2021,00025-2762,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,Pfizer Inc.,3/19/21,6/4/24
+27,59762-0386-03/19/2021,59762-0386,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,Pfizer Inc.,3/19/21,6/4/24
+27,59762-0400-03/19/2021,59762-0400,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,Pfizer Inc.,3/19/21,6/4/24
+27,00093-3127-03/19/2021,00093-3127,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,"Teva Pharmaceuticals USA, Inc.",3/19/21,6/4/24
+27,00093-3129-03/19/2021,00093-3129,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,"Teva Pharmaceuticals USA, Inc.",3/19/21,6/4/24
+27,51862-0095-03/19/2021,51862-0095,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,"Dr. Reddy's Laboratories, Inc.",3/19/21,6/4/24
+27,51862-0096-03/19/2021,51862-0096,resolved,7/30/24 19:46,,Disopyramide Phosphate Capsule,"Dr. Reddy's Laboratories, Inc.",3/19/21,6/4/24
+28,00591-2482-04/20/2018,00591-2482,to be discontinued,8/14/23 0:01,,Dorzolamide Hydrochloride and Timolol Maleate (Cosopt) Ophthalmic Solution,Teva Pharmaceuticals,4/20/18,5/10/21
+28,00591-2482-01/24/2018,00591-2482,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride and Timolol Maleate (Cosopt) Ophthalmic Solution,Teva Pharmaceuticals,4/20/18,5/10/21
+28,24208-0486-01/24/2018,24208-0486,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride and Timolol Maleate (Cosopt) Ophthalmic Solution,Bausch Health,4/20/18,5/10/21
+28,61314-0030-01/24/2018,61314-0030,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride and Timolol Maleate (Cosopt) Ophthalmic Solution,Sandoz,4/20/18,5/10/21
+28,17478-0604-01/24/2018,17478-0604,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride and Timolol Maleate (Cosopt) Ophthalmic Solution,Akorn Pharmaceuticals,4/20/18,5/10/21
+28,50383-0233-01/24/2018,50383-0233,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride and Timolol Maleate (Cosopt) Ophthalmic Solution,Akorn Pharmaceuticals,4/20/18,5/10/21
+28,65862-0947-09/28/2018,65862-0947,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride and Timolol Maleate (Cosopt) Ophthalmic Solution,Aurobindo Pharma,4/20/18,5/10/21
+28,17478-0605-01/24/2018,17478-0605,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride and Timolol Maleate (Cosopt) Ophthalmic Solution,Akorn Pharmaceuticals,4/20/18,5/10/21
+29,00591-2481-04/20/2018,00591-2481,to be discontinued,8/14/23 0:01,,Dorzolamide Hydrochloride Ophthalmic Solution,Teva Pharmaceuticals,4/20/18,5/10/21
+29,50383-0232-01/24/2018,50383-0232,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride Ophthalmic Solution,Akorn Pharmaceuticals,4/20/18,5/10/21
+29,00093-7618-04/20/2018,00093-7618,to be discontinued,8/14/23 0:01,,Dorzolamide Hydrochloride Ophthalmic Solution,Teva Pharmaceuticals,4/20/18,5/10/21
+29,24208-0485-01/24/2018,24208-0485,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride Ophthalmic Solution,Bausch Health,4/20/18,5/10/21
+29,00006-3519-04/11/2022,00006-3519,to be discontinued,8/14/23 0:01,,Dorzolamide Hydrochloride Ophthalmic Solution,Merck Sharp & Dohme Corp.,4/20/18,5/10/21
+29,61314-0019-01/25/2018,61314-0019,resolved,8/14/23 0:01,,Dorzolamide Hydrochloride Ophthalmic Solution,Sandoz,4/20/18,5/10/21
+30,00115-1694-05/09/2018,00115-1694,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Impax Laboratories,5/9/18,12/13/22
+30,49502-0101-05/09/2018,49502-0101,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector","Mylan Specialty, a Viatris Company",5/9/18,12/13/22
+30,49502-0501-05/09/2018,49502-0501,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector","Mylan Specialty, a Viatris Company",5/9/18,12/13/22
+30,49502-0102-05/09/2018,49502-0102,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector","Mylan Specialty, a Viatris Company",5/9/18,12/13/22
+30,49502-0500-05/09/2018,49502-0500,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector","Mylan Specialty, a Viatris Company",5/9/18,12/13/22
+30,00115-1695-05/09/2018,00115-1695,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Impax Laboratories,5/9/18,12/13/22
+30,60842-0023-05/09/2018,60842-0023,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Kaleo,5/9/18,12/13/22
+30,60842-0022-05/09/2018,60842-0022,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Kaleo,5/9/18,12/13/22
+30,00093-5985-12/07/2018,00093-5985,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Teva Pharmaceuticals,12/7/18,12/13/22
+30,78670-0130-12/07/2018,78670-0130,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Adamis Pharmaceuticals Corporation,12/7/18,12/13/22
+30,00093-5986-12/07/2018,00093-5986,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Teva Pharmaceuticals,12/7/18,12/13/22
+30,60842-0021-05/09/2018,60842-0021,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Kaleo,12/7/18,12/13/22
+30,78670-0131-12/07/2018,78670-0131,resolved,8/14/23 0:01,,"Epinephrine Injection, Auto-Injector",Adamis Pharmaceuticals Corporation,12/7/18,12/13/22
+31,00338-5197-05/05/2020,00338-5197,resolved,8/14/23 0:01,,Famotidine Injection,Baxter Healthcare,5/5/20,11/10/21
+31,00641-6023-05/05/2020,00641-6023,resolved,8/14/23 0:01,,Famotidine Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",5/5/20,11/10/21
+31,00641-6022-05/05/2020,00641-6022,resolved,8/14/23 0:01,,Famotidine Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",5/5/20,11/10/21
+31,70860-0751-05/05/2020,70860-0751,resolved,8/14/23 0:01,,Famotidine Injection,"Athenex Pharmaceutical Division, LLC (Athenex)",5/5/20,11/10/21
+31,67457-0433-05/05/2020,67457-0433,resolved,8/14/23 0:01,,Famotidine Injection,"Mylan Institutional, a Viatris company",5/5/20,11/10/21
+31,67457-0457-05/05/2020,67457-0457,resolved,8/14/23 0:01,,Famotidine Injection,"Mylan Institutional, a Viatris company",5/5/20,11/10/21
+31,63323-0738-05/05/2020,63323-0738,resolved,8/14/23 0:01,,Famotidine Injection,"Fresenius Kabi USA, LLC",5/5/20,11/10/21
+31,63323-0739-05/05/2020,63323-0739,resolved,8/14/23 0:01,,Famotidine Injection,"Fresenius Kabi USA, LLC",5/5/20,11/10/21
+31,00641-6021-05/05/2020,00641-6021,resolved,8/14/23 0:01,,Famotidine Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",5/5/20,11/10/21
+32,61442-0122-05/04/2020,61442-0122,resolved,8/14/23 0:01,,Famotidine Tablets,"Carlsbad Technology, Inc.",5/4/20,11/10/21
+32,62332-0001-05/04/2020,62332-0001,resolved,8/14/23 0:01,,Famotidine Tablets,Alembic Pharmaceuticals,5/4/20,11/10/21
+32,65862-0860-05/04/2020,65862-0860,resolved,8/14/23 0:01,,Famotidine Tablets,Aurobindo Pharma,5/4/20,11/10/21
+32,65862-0859-05/04/2020,65862-0859,resolved,8/14/23 0:01,,Famotidine Tablets,Aurobindo Pharma,5/4/20,11/10/21
+32,00172-5729-05/04/2020,00172-5729,resolved,8/14/23 0:01,,Famotidine Tablets,Teva Pharmaceuticals,5/4/20,11/10/21
+32,00172-5728-05/04/2020,00172-5728,resolved,8/14/23 0:01,,Famotidine Tablets,Teva Pharmaceuticals,5/4/20,11/10/21
+32,61442-0121-05/04/2020,61442-0121,resolved,8/14/23 0:01,,Famotidine Tablets,"Carlsbad Technology, Inc.",5/4/20,11/10/21
+32,62332-0002-05/04/2020,62332-0002,resolved,8/14/23 0:01,,Famotidine Tablets,Alembic Pharmaceuticals,5/4/20,11/10/21
+33,00115-7033-12/12/2018,00115-7033,resolved,8/14/23 0:01,,Fludrocortisone Acetate Tablets,Impax Laboratories,12/12/18,8/7/19
+33,00555-0997-12/12/2018,00555-0997,resolved,8/14/23 0:01,,Fludrocortisone Acetate Tablets,Teva Pharmaceuticals,12/12/18,8/7/19
+34,17478-0250-05/02/2022,17478-0250,resolved,4/20/23 14:34,,Fluorescein Injection,Akorn Pharmaceuticals,5/2/22,12/7/22
+34,00065-0092-05/02/2022,00065-0092,resolved,4/20/23 14:34,,Fluorescein Injection,Alcon,5/2/22,12/7/22
+34,17478-0253-05/02/2022,17478-0253,resolved,4/20/23 14:34,,Fluorescein Injection,Akorn Pharmaceuticals,5/2/22,12/7/22
+35,00065-0092-04/21/2023,00065-0092,resolved,5/15/24 14:19,,Fluorescein Sodium Injection,Alcon,4/21/23,12/5/23
+35,17478-0253-04/21/2023,17478-0253,resolved,5/15/24 14:19,,Fluorescein Sodium Injection,Long Grove Pharmaceuticals LLC,4/21/23,12/5/23
+35,17478-0250-04/21/2023,17478-0250,resolved,5/15/24 14:19,,Fluorescein Sodium Injection,Long Grove Pharmaceuticals LLC,4/21/23,12/5/23
+35,14789-0123-04/21/2023,14789-0123,resolved,5/15/24 14:19,,Fluorescein Sodium Injection,"Nexus Pharmaceuticals, LLC",4/21/23,12/5/23
+35,14789-0122-04/21/2023,14789-0122,resolved,5/15/24 14:19,,Fluorescein Sodium Injection,"Nexus Pharmaceuticals, LLC",4/21/23,12/5/23
+36,17478-0404-02/06/2018,17478-0404,resolved,8/14/23 0:01,,Fluorescein Strips,Akorn Pharmaceuticals,2/6/18,6/4/21
+36,17238-0900-02/20/2018,17238-0900,resolved,8/14/23 0:01,,Fluorescein Strips,HUB Pharmaceuticals,2/20/18,6/4/21
+36,17478-0403-02/06/2018,17478-0403,resolved,8/14/23 0:01,,Fluorescein Strips,Akorn Pharmaceuticals,2/6/18,6/4/21
+37,00228-2849-02/05/2019,00228-2849,resolved,8/14/23 0:01,,Fluvoxamine ER Capsules,Teva Pharmaceuticals,2/5/19,12/16/22
+37,00228-2848-02/05/2019,00228-2848,resolved,8/14/23 0:01,,Fluvoxamine ER Capsules,Teva Pharmaceuticals,2/5/19,12/16/22
+37,10370-0176-02/05/2019,10370-0176,resolved,8/14/23 0:01,,Fluvoxamine ER Capsules,Par Pharmaceutical,2/5/19,12/16/22
+37,10370-0175-02/05/2019,10370-0175,resolved,8/14/23 0:01,,Fluvoxamine ER Capsules,Par Pharmaceutical,2/5/19,12/16/22
+38,42806-0296-10/24/2017,42806-0296,resolved,4/5/24 6:05,,Guanfacine Hydrochloride Tablet,"Epic Pharma, LLC",10/24/17,10/10/23
+38,00591-0444-10/24/2017,00591-0444,resolved,4/5/24 6:05,,Guanfacine Hydrochloride Tablet,"Teva Pharmaceuticals USA, Inc.",10/24/17,10/10/23
+38,00591-0453-10/24/2017,00591-0453,resolved,4/5/24 6:05,,Guanfacine Hydrochloride Tablet,"Teva Pharmaceuticals USA, Inc.",10/24/17,10/10/23
+38,65162-0711-10/24/2017,65162-0711,resolved,4/5/24 6:05,,Guanfacine Hydrochloride Tablet,Amneal Pharmaceuticals,10/24/17,10/10/23
+38,65162-0713-10/24/2017,65162-0713,resolved,4/5/24 6:05,,Guanfacine Hydrochloride Tablet,Amneal Pharmaceuticals,10/24/17,10/10/23
+38,42806-0048-10/24/2017,42806-0048,resolved,4/5/24 6:05,,Guanfacine Hydrochloride Tablet,"Epic Pharma, LLC",10/24/17,10/10/23
+39,00781-0083-10/19/2018,00781-0083,resolved,8/14/23 0:01,,Haloperidol Tablets,Sandoz,10/19/18,11/20/19
+39,00781-0013-10/19/2018,00781-0013,resolved,8/14/23 0:01,,Haloperidol Tablets,Sandoz,10/19/18,11/20/19
+39,68382-0081-10/19/2018,68382-0081,resolved,8/14/23 0:01,,Haloperidol Tablets,Zydus Pharmaceuticals USA Inc.,10/19/18,11/20/19
+39,68382-0080-10/19/2018,68382-0080,resolved,8/14/23 0:01,,Haloperidol Tablets,Zydus Pharmaceuticals USA Inc.,10/19/18,11/20/19
+39,68382-0079-10/19/2018,68382-0079,resolved,8/14/23 0:01,,Haloperidol Tablets,Zydus Pharmaceuticals USA Inc.,10/19/18,11/20/19
+39,00378-0355-10/19/2018,00378-0355,resolved,8/14/23 0:01,,Haloperidol Tablets,Mylan Pharmaceuticals Inc.,10/19/18,11/20/19
+39,00378-0334-10/19/2018,00378-0334,resolved,8/14/23 0:01,,Haloperidol Tablets,Mylan Pharmaceuticals Inc.,10/19/18,11/20/19
+39,00378-0327-10/19/2018,00378-0327,resolved,8/14/23 0:01,,Haloperidol Tablets,Mylan Pharmaceuticals Inc.,10/19/18,11/20/19
+39,00378-0257-10/19/2018,00378-0257,resolved,8/14/23 0:01,,Haloperidol Tablets,Mylan Pharmaceuticals Inc.,10/19/18,11/20/19
+39,00378-0351-10/19/2018,00378-0351,resolved,8/14/23 0:01,,Haloperidol Tablets,Mylan Pharmaceuticals Inc.,10/19/18,11/20/19
+39,00378-0214-10/19/2018,00378-0214,resolved,8/14/23 0:01,,Haloperidol Tablets,Mylan Pharmaceuticals Inc.,10/19/18,11/20/19
+40,17478-0934-09/08/2020,17478-0934,resolved,8/14/23 0:01,,Hydralazine Hydrochloride Injection,Akorn Pharmaceuticals,9/8/20,6/29/21
+40,39822-0500-09/08/2020,39822-0500,resolved,8/14/23 0:01,,Hydralazine Hydrochloride Injection,"X-GEN Pharmaceuticals, Inc.",9/8/20,6/29/21
+40,00901-0025-03/17/2021,00901-0025,resolved,8/14/23 0:01,,Hydralazine Hydrochloride Injection,American Regent/Luitpold,3/17/21,6/29/21
+40,67457-0291-09/08/2020,67457-0291,resolved,8/14/23 0:01,,Hydralazine Hydrochloride Injection,"Mylan Institutional, a Viatris company",9/8/20,6/29/21
+40,63323-0614-09/08/2020,63323-0614,resolved,8/14/23 0:01,,Hydralazine Hydrochloride Injection,"Fresenius Kabi USA, LLC",9/8/20,6/29/21
+41,00115-1697-04/02/2020,00115-1697,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Amneal Pharmaceutical,4/2/20,6/8/22
+41,00115-1700-04/02/2020,00115-1700,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Amneal Pharmaceutical,4/2/20,6/8/22
+41,64380-0970-04/02/2020,64380-0970,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Strides Pharma Inc.,4/2/20,6/8/22
+41,00009-0031-04/02/2020,00009-0031,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Pfizer Pharmaceuticals,4/2/20,6/8/22
+41,00009-0044-04/02/2020,00009-0044,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Pfizer Pharmaceuticals,4/2/20,6/8/22
+41,59762-0073-04/02/2020,59762-0073,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Pfizer Pharmaceuticals,4/2/20,6/8/22
+41,59762-0074-04/02/2020,59762-0074,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Pfizer Pharmaceuticals,4/2/20,6/8/22
+41,64380-0972-04/02/2020,64380-0972,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Strides Pharma Inc.,4/2/20,6/8/22
+41,00009-0012-04/02/2020,00009-0012,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Pfizer Pharmaceuticals,4/2/20,6/8/22
+41,59762-0075-04/02/2020,59762-0075,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Pfizer Pharmaceuticals,4/2/20,6/8/22
+41,64380-0971-04/02/2020,64380-0971,resolved,8/14/23 0:01,,Hydrocortisone Tablets,Strides Pharma Inc.,4/2/20,6/8/22
+42,00591-2888-04/20/2021,00591-2888,resolved,8/14/23 0:01,,Hydroxocobalamin Injection,Teva Pharmaceuticals,4/20/21,1/21/22
+42,11704-0370-04/20/2021,11704-0370,resolved,8/14/23 0:01,,Hydroxocobalamin Injection,SERB SA,4/20/21,1/20/22
+43,00517-1767-01/25/2019,00517-1767,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,American Regent/Luitpold,1/25/19,8/2/19
+43,71225-0104-01/25/2019,71225-0104,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,Slayback Pharma,1/25/19,8/2/19
+43,64011-0247-01/25/2019,64011-0247,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,"AMAG Pharmaceuticals, Inc.",1/25/19,8/2/19
+43,64011-0243-01/25/2019,64011-0243,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,"AMAG Pharmaceuticals, Inc.",1/25/19,8/2/19
+43,55150-0309-01/25/2019,55150-0309,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,AuroMedics Pharma LLC (mfd. by Eugia Pharmaceutical Specialities Ltd.),1/25/19,8/2/19
+43,55150-0310-01/25/2019,55150-0310,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,AuroMedics Pharma LLC (mfd. by Eugia Pharmaceutical Specialities Ltd.),1/25/19,8/2/19
+43,71225-0105-01/25/2019,71225-0105,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,Slayback Pharma,1/25/19,8/2/19
+43,66993-0038-01/25/2019,66993-0038,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,"AMAG Pharmaceuticals, Inc.",1/25/19,8/2/19
+43,66993-0038-01/29/2019,66993-0038,resolved,8/14/23 0:01,,Hydroxyprogesterone Caproate Injection,Prasco Laboratories,1/29/19,8/2/19
+44,00115-1803-03/12/2019,00115-1803,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Impax Laboratories,3/12/19,2/17/21
+44,00115-1804-03/12/2019,00115-1804,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Impax Laboratories,3/12/19,2/17/21
+44,00555-0323-03/12/2019,00555-0323,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Teva Pharmaceuticals,3/12/19,2/17/21
+44,00555-0302-03/12/2019,00555-0302,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Teva Pharmaceuticals,3/12/19,2/17/21
+44,00185-0674-03/12/2019,00185-0674,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Sandoz,3/12/19,2/17/21
+44,00555-0324-03/12/2019,00555-0324,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Teva Pharmaceuticals,3/12/19,2/17/21
+44,14539-0675-03/12/2019,14539-0675,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Heritage Pharma,3/12/19,2/17/21
+44,00069-5420-03/12/2019,00069-5420,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Pfizer Pharmaceuticals,3/12/19,2/17/21
+44,14539-0674-03/12/2019,14539-0674,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Heritage Pharma,3/12/19,2/17/21
+44,00069-5410-03/12/2019,00069-5410,resolved,8/14/23 0:01,,Hydroxyzine Pamoate Oral Capsules,Pfizer Pharmaceuticals,3/12/19,2/17/21
+45,00264-4460-10/25/2021,00264-4460,resolved,7/30/24 19:46,,I.V. Fat Emulsion,B. Braun Medical Inc.,10/25/21,1/26/24
+45,63323-0820-10/25/2021,63323-0820,resolved,7/30/24 19:46,,I.V. Fat Emulsion,"Fresenius Kabi USA, LLC",10/25/21,1/26/24
+45,00338-9540-10/25/2021,00338-9540,resolved,7/30/24 19:46,,I.V. Fat Emulsion,Baxter Healthcare,10/25/21,1/26/24
+46,67457-0366-04/29/2022,67457-0366,resolved,3/14/24 19:55,,Ibutilide Fumarate Injection,"Mylan Institutional, a Viatris Company",4/29/22,9/14/23
+46,00009-3794-04/29/2022,00009-3794,resolved,3/14/24 19:55,,Ibutilide Fumarate Injection,Pfizer Inc.,4/29/22,9/14/23
+47,44567-0705-05/22/2015,44567-0705,resolved,8/14/23 0:01,,Imipenem and Cilastatin for Injection,HQ Specialty Pharma,5/22/15,6/8/22
+47,00006-3516-06/16/2015,00006-3516,resolved,8/14/23 0:01,,Imipenem and Cilastatin for Injection,Merck Sharp & Dohme Corp.,6/16/15,6/8/22
+47,63323-0349-05/22/2015,63323-0349,resolved,8/14/23 0:01,,Imipenem and Cilastatin for Injection,"Fresenius Kabi USA, LLC",5/22/15,6/8/22
+47,63323-0322-05/22/2015,63323-0322,resolved,8/14/23 0:01,,Imipenem and Cilastatin for Injection,"Fresenius Kabi USA, LLC",5/22/15,6/8/22
+48,00517-0375-08/23/2022,00517-0375,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Indigotindisulfonate Sodium Injection,"American Regent, Inc.",11/1/23,11/1/23
+48,81284-0315-08/23/2022,81284-0315,resolved,7/30/24 19:46,,Indigotindisulfonate Sodium Injection,Provepharm SAS,11/1/23,3/13/24
+49,00407-2223-05/09/2022,00407-2223,resolved,8/14/23 0:01,,Iodixanol Injection,GE Healthcare,5/9/22,10/12/22
+49,00407-2222-05/09/2022,00407-2222,resolved,8/14/23 0:01,,Iodixanol Injection,GE Healthcare,5/9/22,10/12/22
+49,65219-0381-05/09/2022,65219-0381,resolved,8/14/23 0:01,,Iodixanol Injection,"JIANGSU HENGRUI PHARMACEUTICALS CO LTD (ANDA holder); Fresenius Kabi USA, LLC (marketing and US distribution partner)",5/9/22,10/12/22
+49,65219-0383-05/09/2022,65219-0383,resolved,8/14/23 0:01,,Iodixanol Injection,"JIANGSU HENGRUI PHARMACEUTICALS CO LTD (ANDA holder); Fresenius Kabi USA, LLC (marketing and US distribution partner)",5/9/22,10/12/22
+50,00378-8200-08/03/2018,00378-8200,resolved,8/14/23 0:01,,Ketoprofen Capsules,"Mylan Pharmaceuticals Inc., a Viatris Company",8/3/18,11/8/22
+50,00276-0504-08/03/2018,00276-0504,resolved,8/14/23 0:01,,Ketoprofen Capsules,"Misemer Pharmaceutical, Inc.",8/3/18,11/8/22
+50,00276-0506-08/03/2018,00276-0506,resolved,8/14/23 0:01,,Ketoprofen Capsules,"Misemer Pharmaceutical, Inc.",8/3/18,11/8/22
+51,00074-3346-07/24/2020,00074-3346,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-3473-07/24/2020,00074-3473,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-3642-07/24/2020,00074-3642,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-3683-07/24/2020,00074-3683,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-3641-07/24/2020,00074-3641,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-3663-07/24/2020,00074-3663,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-9694-07/24/2020,00074-9694,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-2282-07/24/2020,00074-2282,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-2108-07/24/2020,00074-2108,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-3779-07/24/2020,00074-3779,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,00074-2440-07/24/2020,00074-2440,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,Abbvie,7/24/20,10/24/22
+51,62935-0753-07/24/2020,62935-0753,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,"Tolmar Pharmaceuticals, Inc.",7/24/20,10/24/22
+51,62935-0453-07/24/2020,62935-0453,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,"Tolmar Pharmaceuticals, Inc.",7/24/20,10/24/22
+51,62935-0153-07/24/2020,62935-0153,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,"Tolmar Pharmaceuticals, Inc.",7/24/20,10/24/22
+51,62935-0223-07/24/2020,62935-0223,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,"Tolmar Pharmaceuticals, Inc.",7/24/20,10/24/22
+51,62935-0303-07/24/2020,62935-0303,resolved,8/14/23 0:01,,Leuprolide Acetate Injection,"Tolmar Pharmaceuticals, Inc.",7/24/20,10/24/22
+52,00338-0357-09/23/2021,00338-0357,resolved,7/30/24 19:46,,Mannitol Injection,Baxter Healthcare,9/23/21,2/20/24
+52,00338-0353-09/23/2021,00338-0353,resolved,7/30/24 19:46,,Mannitol Injection,Baxter Healthcare,9/23/21,2/20/24
+52,00990-7715-09/23/2021,00990-7715,resolved,7/30/24 19:46,,Mannitol Injection,"ICU Medical, Inc.",9/23/21,2/20/24
+52,63323-0024-09/23/2021,63323-0024,resolved,7/30/24 19:46,,Mannitol Injection,"Fresenius Kabi USA, LLC",9/23/21,2/20/24
+52,00409-4031-09/23/2021,00409-4031,resolved,7/30/24 19:46,,Mannitol Injection,"Hospira, Inc., a Pfizer Company",9/23/21,2/20/24
+52,00264-7578-09/23/2021,00264-7578,resolved,7/30/24 19:46,,Mannitol Injection,B. Braun Medical Inc.,9/23/21,2/20/24
+53,00270-0083-03/30/2022,00270-0083,resolved,2/10/24 12:04,,Mebrofenin Injection,Bracco Diagnostics,3/30/22,8/10/23
+53,45567-0455-03/30/2022,45567-0455,resolved,2/10/24 12:04,,Mebrofenin Injection,"Sun Pharmaceutical Industries, Inc.",3/30/22,8/10/23
+54,00409-1041-07/26/2021,00409-1041,to be discontinued,8/14/23 0:01,,Mepivacaine Hydrochloride Injection,"Hospira, Inc.",6/10/22,2/15/24
+54,00409-1038-07/26/2021,00409-1038,to be discontinued,8/14/23 0:01,,Mepivacaine Hydrochloride Injection,"Hospira, Inc.",6/10/22,2/15/24
+54,00409-1067-07/26/2021,00409-1067,to be discontinued,8/14/23 0:01,,Mepivacaine Hydrochloride Injection,"Hospira, Inc.",6/10/22,2/15/24
+54,00409-1036-07/26/2021,00409-1036,to be discontinued,8/14/23 0:01,,Mepivacaine Hydrochloride Injection,"Hospira, Inc.",6/10/22,2/15/24
+54,63323-0293-07/14/2021,63323-0293,resolved,7/30/24 19:46,,Mepivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",6/10/22,2/15/24
+54,63323-0283-07/14/2021,63323-0283,resolved,7/30/24 19:46,,Mepivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",6/10/22,2/15/24
+54,63323-0296-07/14/2021,63323-0296,resolved,7/30/24 19:46,,Mepivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",6/10/22,2/15/24
+54,63323-0260-07/14/2021,63323-0260,resolved,7/30/24 19:46,,Mepivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",6/10/22,2/15/24
+54,63323-0294-07/14/2021,63323-0294,resolved,7/30/24 19:46,,Mepivacaine Hydrochloride Injection,"Fresenius Kabi USA, LLC",6/10/22,2/15/24
+55,67457-0217-04/25/2018,67457-0217,resolved,8/14/23 0:01,,Methadone Hydrochloride Injection,"Mylan Pharmaceuticals Inc., a Viatris Company",4/25/18,6/8/21
+55,17478-0380-04/25/2018,17478-0380,resolved,8/14/23 0:01,,Methadone Hydrochloride Injection,Akorn Pharmaceuticals,4/25/18,6/8/21
+56,47335-0235-07/21/2023,47335-0235,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,"Sun Pharmaceutical Industries, Inc.",7/21/23,6/27/24
+56,69238-1423-07/21/2023,69238-1423,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,Amneal Pharmaceuticals,7/21/23,6/27/24
+56,16729-0486-07/21/2023,16729-0486,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,Accord Healthcare Inc.,7/21/23,6/27/24
+56,00054-4550-07/21/2023,00054-4550,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,"Hikma Pharmaceuticals USA, Inc.",7/21/23,6/27/24
+56,00555-0572-07/21/2023,00555-0572,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,"Teva Pharmaceuticals USA, Inc.",7/21/23,6/27/24
+56,51285-0366-07/21/2023,51285-0366,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,"Teva Pharmaceuticals USA, Inc.",7/21/23,6/27/24
+56,51285-0367-07/21/2023,51285-0367,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,"Teva Pharmaceuticals USA, Inc.",7/21/23,6/27/24
+56,51285-0368-07/21/2023,51285-0368,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,"Teva Pharmaceuticals USA, Inc.",7/21/23,6/27/24
+56,51285-0369-07/21/2023,51285-0369,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,"Teva Pharmaceuticals USA, Inc.",7/21/23,6/27/24
+56,00378-0014-07/21/2023,00378-0014,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,"Mylan Pharmaceuticals Inc., a Viatris Company",7/21/23,6/27/24
+56,68382-0775-07/21/2023,68382-0775,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,Zydus Pharmaceuticals USA Inc.,7/21/23,6/27/24
+56,59651-0182-07/21/2023,59651-0182,resolved,7/30/24 19:46,,Methotrexate Sodium Tablet,Eugia US LLC,7/21/23,6/27/24
+57,43386-0160-12/28/2020,43386-0160,resolved,8/14/23 0:01,,Misoprostol Tablets,Lupin,12/28/20,3/11/22
+57,43386-0161-12/28/2020,43386-0161,resolved,8/14/23 0:01,,Misoprostol Tablets,Lupin,12/28/20,3/11/22
+57,59762-5007-12/28/2020,59762-5007,resolved,8/14/23 0:01,,Misoprostol Tablets,Pfizer Pharmaceuticals,12/28/20,3/11/22
+57,59762-5008-12/28/2020,59762-5008,resolved,8/14/23 0:01,,Misoprostol Tablets,Pfizer Pharmaceuticals,12/28/20,3/11/22
+57,00025-1451-12/28/2020,00025-1451,resolved,8/14/23 0:01,,Misoprostol Tablets,Pfizer Pharmaceuticals,12/28/20,3/11/22
+57,00025-1461-12/28/2020,00025-1461,resolved,8/14/23 0:01,,Misoprostol Tablets,Pfizer Pharmaceuticals,12/28/20,3/11/22
+58,54643-5646-09/15/2023,54643-5646,resolved,7/30/24 19:46,,Multi-Vitamin Infusion (Adult and Pediatric) Injection,Sandoz Inc.,10/30/23,1/22/24
+58,54643-5649-09/15/2023,54643-5649,resolved,7/30/24 19:46,,Multi-Vitamin Infusion (Adult and Pediatric) Injection,Sandoz Inc.,10/30/23,1/22/24
+58,54643-5650-09/15/2023,54643-5650,resolved,7/30/24 19:46,,Multi-Vitamin Infusion (Adult and Pediatric) Injection,Sandoz Inc.,10/30/23,1/22/24
+58,54643-5647-09/15/2023,54643-5647,resolved,7/30/24 19:46,,Multi-Vitamin Infusion (Adult and Pediatric) Injection,Sandoz Inc.,10/30/23,1/22/24
+58,61703-0421-10/30/2013,61703-0421,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Multi-Vitamin Infusion (Adult and Pediatric) Injection,"Hospira, Inc., a Pfizer Company",10/30/13,1/22/24
+58,61703-0422-10/30/2013,61703-0422,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Multi-Vitamin Infusion (Adult and Pediatric) Injection,"Hospira, Inc., a Pfizer Company",10/30/13,1/22/24
+58,61703-0434-10/30/2013,61703-0434,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Multi-Vitamin Infusion (Adult and Pediatric) Injection,"Hospira, Inc., a Pfizer Company",10/30/13,1/22/24
+59,00093-1177-11/16/2022,00093-1177,resolved,7/30/24 19:46,,Neomycin Sulfate Tablet,"Teva Pharmaceuticals USA, Inc.",11/16/22,5/17/24
+59,39822-0310-11/16/2022,39822-0310,resolved,7/30/24 19:46,,Neomycin Sulfate Tablet,"XGen Pharmaceuticals DJB, Inc.",11/16/22,5/17/24
+60,00591-3138-03/27/2020,00591-3138,resolved,7/30/24 19:46,,Nizatidine Capsule,"Teva Pharmaceuticals USA, Inc.",10/26/23,3/11/24
+60,00591-3137-03/27/2020,00591-3137,resolved,7/30/24 19:46,,Nizatidine Capsule,"Teva Pharmaceuticals USA, Inc.",10/26/23,3/11/24
+60,59762-1004-12/27/2023,59762-1004,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,NIFEDIPINE CAPSULE,Pfizer Inc.,10/26/23,3/11/24
+60,59762-1004-10/26/2023,59762-1004,to be discontinued,7/30/24 19:46,Discontinuation of the manufacture of the drug,Nifedipine Capsule,Pfizer Inc.,10/26/23,3/11/24
+61,70860-0777-04/11/2018,70860-0777,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,10/6/21,4/25/22
+61,25021-0777-04/11/2018,25021-0777,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Sagent Pharmaceuticals,10/6/21,4/25/22
+61,00409-4755-04/11/2018,00409-4755,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",10/6/21,4/25/22
+61,00409-1120-04/11/2018,00409-1120,to be discontinued,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",10/6/21,4/25/22
+61,55150-0126-04/11/2018,55150-0126,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Eugia Pharma Specialties LTD. (formerly Aurobindo),10/6/21,4/25/22
+61,60505-6130-04/11/2018,60505-6130,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Apotex Corp.,10/6/21,4/25/22
+61,25021-0782-04/11/2018,25021-0782,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Sagent Pharmaceuticals,10/6/21,4/25/22
+61,70860-0776-04/11/2018,70860-0776,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,10/6/21,4/25/22
+61,72266-0123-04/11/2018,72266-0123,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,10/6/21,4/25/22
+61,72266-0124-04/11/2018,72266-0124,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Gland Pharma Limited,10/6/21,4/25/22
+61,36000-0012-04/11/2018,36000-0012,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Baxter Healthcare,10/6/21,4/25/22
+61,00641-6078-04/11/2018,00641-6078,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",10/6/21,4/25/22
+61,00409-4759-04/11/2018,00409-4759,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hospira, Inc.",10/6/21,4/25/22
+61,23155-0547-04/11/2018,23155-0547,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,10/6/21,4/25/22
+61,55150-0125-04/11/2018,55150-0125,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Eugia Pharma Specialties LTD. (formerly Aurobindo),10/6/21,4/25/22
+61,23155-0549-04/11/2018,23155-0549,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,10/6/21,4/25/22
+61,23155-0548-04/11/2018,23155-0548,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,Heritage Pharma,10/6/21,4/25/22
+61,63323-0373-04/11/2018,63323-0373,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",10/6/21,4/25/22
+61,63323-0374-04/11/2018,63323-0374,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",10/6/21,4/25/22
+61,76045-0103-04/11/2018,76045-0103,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Fresenius Kabi USA, LLC",10/6/21,4/25/22
+61,00143-9890-04/11/2018,00143-9890,resolved,8/14/23 0:01,,Ondansetron Hydrochloride Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",10/6/21,4/25/22
+62,63323-0012-09/23/2022,63323-0012,resolved,2/10/24 12:04,,Oxytocin Injection,"Fresenius Kabi USA, LLC",9/23/22,8/14/23
+62,63323-0112-09/23/2022,63323-0112,resolved,2/10/24 12:04,,Oxytocin Injection,"Fresenius Kabi USA, LLC",9/23/22,8/14/23
+62,42023-0130-09/23/2022,42023-0130,resolved,2/10/24 12:04,,Oxytocin Injection,"Par Pharmaceutical, Inc.",9/23/22,8/14/23
+62,42023-0116-09/23/2022,42023-0116,resolved,2/10/24 12:04,,Oxytocin Injection,"Par Pharmaceutical, Inc.",9/23/22,8/14/23
+63,24979-0710-10/05/2021,24979-0710,resolved,4/20/23 14:34,,Paclitaxel Injection (protein-bound particles),Bristol Myers Squibb Co.,10/5/21,2/8/23
+63,00517-4300-10/05/2021,00517-4300,resolved,8/14/23 0:01,,Paclitaxel Injection (protein-bound particles),"American Regent, Inc.",10/5/21,5/11/23
+63,68817-0134-10/05/2021,68817-0134,resolved,8/14/23 0:01,,Paclitaxel Injection (protein-bound particles),Bristol Myers Squibb Co.,10/5/21,2/7/23
+64,71288-0600-05/24/2019,71288-0600,resolved,3/14/24 19:55,,Pantoprazole Sodium Injection,"Meitheal Pharmaceuticals, Inc.",5/24/19,9/15/23
+64,72603-0128-05/24/2019,72603-0128,resolved,3/14/24 19:55,,Pantoprazole Sodium Injection,"Meitheal Pharmaceuticals, Inc.",5/24/19,9/15/23
+64,00008-4001-05/28/2019,00008-4001,resolved,3/14/24 19:55,,Pantoprazole Sodium Injection,"Hospira, Inc., a Pfizer Company",5/28/19,9/15/23
+64,00008-0923-05/28/2019,00008-0923,resolved,3/14/24 19:55,,Pantoprazole Sodium Injection,"Hospira, Inc., a Pfizer Company",5/28/19,9/15/23
+64,55150-0202-05/24/2019,55150-0202,resolved,3/14/24 19:55,,Pantoprazole Sodium Injection,Eugia US LLC,5/24/19,9/15/23
+64,00781-3232-06/04/2019,00781-3232,resolved,3/14/24 19:55,,Pantoprazole Sodium Injection,Sandoz Inc.,6/4/19,9/15/23
+64,65219-0433-06/04/2019,65219-0433,resolved,3/14/24 19:55,,Pantoprazole Sodium Injection,Sandoz Inc.,6/4/19,9/15/23
+64,72572-0550-06/04/2019,72572-0550,resolved,3/14/24 19:55,,Pantoprazole Sodium Injection,Sandoz Inc.,6/4/19,9/15/23
+65,57664-0655-02/21/2020,57664-0655,resolved,8/14/23 0:01,,Pindolol Tablets,Sun Pharmaceutical Industries Inc.,2/21/20,1/11/22
+65,57664-0656-02/21/2020,57664-0656,resolved,8/14/23 0:01,,Pindolol Tablets,Sun Pharmaceutical Industries Inc.,2/21/20,1/11/22
+65,00378-0052-02/21/2020,00378-0052,resolved,8/14/23 0:01,,Pindolol Tablets,"Mylan Pharmaceuticals Inc., a Viatris Company",2/21/20,1/11/22
+65,00378-0127-02/21/2020,00378-0127,resolved,8/14/23 0:01,,Pindolol Tablets,"Mylan Pharmaceuticals Inc., a Viatris Company",2/21/20,1/11/22
+65,76385-0132-02/21/2020,76385-0132,resolved,8/14/23 0:01,,Pindolol Tablets,Bayshore Pharmaceuticals,2/21/20,1/11/22
+65,76385-0131-02/21/2020,76385-0131,resolved,8/14/23 0:01,,Pindolol Tablets,Bayshore Pharmaceuticals,2/21/20,1/11/22
+65,29033-0028-02/21/2020,29033-0028,resolved,8/14/23 0:01,,Pindolol Tablets,"Nostrum Laboratories, Inc.",2/21/20,1/11/22
+65,29033-0029-02/21/2020,29033-0029,resolved,8/14/23 0:01,,Pindolol Tablets,"Nostrum Laboratories, Inc.",2/21/20,1/11/22
+65,62559-0561-02/21/2020,62559-0561,resolved,8/14/23 0:01,,Pindolol Tablets,"ANI Pharmaceuticals, Inc.",2/21/20,1/11/22
+65,62559-0560-02/21/2020,62559-0560,resolved,8/14/23 0:01,,Pindolol Tablets,"ANI Pharmaceuticals, Inc.",2/21/20,1/11/22
+66,00338-0703-11/02/2021,00338-0703,resolved,7/30/24 19:46,,Potassium Chloride Injection,Baxter Healthcare,11/2/21,5/7/24
+66,00409-6635-11/02/2021,00409-6635,resolved,7/30/24 19:46,,Potassium Chloride Injection,"Hospira, Inc., a Pfizer Company",11/2/21,5/7/24
+66,00409-6651-11/02/2021,00409-6651,resolved,7/30/24 19:46,,Potassium Chloride Injection,"Hospira, Inc., a Pfizer Company",11/2/21,5/7/24
+66,00409-6653-11/02/2021,00409-6653,resolved,7/30/24 19:46,,Potassium Chloride Injection,"Hospira, Inc., a Pfizer Company",11/2/21,5/7/24
+66,63323-0967-11/02/2021,63323-0967,resolved,7/30/24 19:46,,Potassium Chloride Injection,"Fresenius Kabi USA, LLC",11/2/21,5/7/24
+66,63323-0965-11/02/2021,63323-0965,resolved,7/30/24 19:46,,Potassium Chloride Injection,"Fresenius Kabi USA, LLC",11/2/21,5/7/24
+66,00264-1940-11/02/2021,00264-1940,to be discontinued,7/30/24 19:46,,Potassium Chloride Injection,B. Braun Medical Inc.,11/2/21,2/2/24
+66,00338-0709-11/02/2021,00338-0709,resolved,7/30/24 19:46,,Potassium Chloride Injection,Baxter Healthcare,11/2/21,5/7/24
+66,00338-0705-11/02/2021,00338-0705,resolved,7/30/24 19:46,,Potassium Chloride Injection,Baxter Healthcare,11/2/21,5/7/24
+66,00990-7075-11/02/2021,00990-7075,resolved,7/30/24 19:46,,Potassium Chloride Injection,"ICU Medical, Inc.",11/2/21,5/7/24
+66,00990-7074-11/02/2021,00990-7074,resolved,7/30/24 19:46,,Potassium Chloride Injection,"ICU Medical, Inc.",11/2/21,5/7/24
+66,00990-7077-11/02/2021,00990-7077,resolved,7/30/24 19:46,,Potassium Chloride Injection,"ICU Medical, Inc.",11/2/21,5/7/24
+66,14789-0108-11/02/2021,14789-0108,resolved,7/30/24 19:46,,Potassium Chloride Injection,"Nexus Pharmaceuticals, LLC",11/2/21,5/7/24
+66,14789-0109-11/02/2021,14789-0109,resolved,7/30/24 19:46,,Potassium Chloride Injection,"Nexus Pharmaceuticals, LLC",11/2/21,5/7/24
+66,00264-1944-11/02/2021,00264-1944,resolved,7/30/24 19:46,,Potassium Chloride Injection,B. Braun Medical Inc.,11/2/21,5/7/24
+66,14789-0107-11/02/2021,14789-0107,resolved,7/30/24 19:46,,Potassium Chloride Injection,"Nexus Pharmaceuticals, LLC",11/2/21,5/7/24
+67,60758-0119-03/15/2019,60758-0119,resolved,8/14/23 0:01,,Prednisolone Acetate 1% Ophthalmic Suspension,Allergan,3/15/19,10/31/19
+67,11980-0180-03/15/2019,11980-0180,resolved,8/14/23 0:01,,Prednisolone Acetate 1% Ophthalmic Suspension,Allergan,3/15/19,10/31/19
+67,61314-0637-03/15/2019,61314-0637,resolved,8/14/23 0:01,,Prednisolone Acetate 1% Ophthalmic Suspension,Novartis,3/15/19,10/31/19
+68,00641-0928-03/23/2017,00641-0928,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",3/23/17,12/1/22
+68,00641-0929-03/23/2017,00641-0929,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",3/23/17,12/1/22
+68,00641-1495-03/23/2017,00641-1495,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",3/23/17,12/1/22
+68,00641-1496-03/23/2017,00641-1496,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",3/23/17,12/1/22
+68,00641-6084-03/23/2017,00641-6084,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",3/23/17,12/1/22
+68,00641-6085-03/23/2017,00641-6085,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",3/23/17,12/1/22
+68,00641-6082-03/23/2017,00641-6082,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",3/23/17,12/1/22
+68,00641-6083-03/23/2017,00641-6083,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",3/23/17,12/1/22
+68,39822-5525-03/23/2017,39822-5525,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"X-GEN Pharmaceuticals, Inc.",3/23/17,12/1/22
+68,39822-5550-03/23/2017,39822-5550,resolved,8/14/23 0:01,,Promethazine (Phenergan) Injection,"X-GEN Pharmaceuticals, Inc.",3/23/17,12/1/22
+69,00069-0248-04/10/2020,00069-0248,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Hospira, Inc.",4/10/20,11/21/22
+69,23155-0235-04/10/2020,23155-0235,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,Avet Pharmaceuticals Inc,4/10/20,11/21/22
+69,23155-0345-04/10/2020,23155-0345,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,Avet Pharmaceuticals Inc,4/10/20,11/21/22
+69,00409-4699-04/10/2020,00409-4699,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Hospira, Inc.",4/10/20,11/21/22
+69,43598-0548-04/10/2020,43598-0548,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Dr. Reddy's Laboratories, Inc.",4/10/20,11/21/22
+69,00591-2136-04/10/2020,00591-2136,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,Teva Pharmaceuticals,4/10/20,11/21/22
+69,00641-6196-04/10/2020,00641-6196,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",4/10/20,11/21/22
+69,00641-6195-04/10/2020,00641-6195,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",4/10/20,11/21/22
+69,00641-6194-04/10/2020,00641-6194,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Hikma Pharmaceuticals USA, Inc. (formerly West-Ward)",4/10/20,11/21/22
+69,00250-0021-04/10/2020,00250-0021,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,Sagent Pharmaceuticals,4/10/20,11/21/22
+69,00069-0234-04/10/2020,00069-0234,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Hospira, Inc.",4/10/20,11/21/22
+69,25021-0608-04/10/2020,25021-0608,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,Sagent Pharmaceuticals,4/10/20,11/21/22
+69,63323-0269-04/10/2020,63323-0269,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Fresenius Kabi USA, LLC",4/10/20,11/21/22
+69,00069-0209-04/10/2020,00069-0209,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Hospira, Inc.",4/10/20,11/21/22
+69,43598-0549-04/10/2020,43598-0549,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Dr. Reddy's Laboratories, Inc.",4/10/20,11/21/22
+69,43598-0265-04/10/2020,43598-0265,resolved,8/14/23 0:01,,Propofol Injectable Emulsion,"Dr. Reddy's Laboratories, Inc.",4/10/20,11/21/22
+70,68180-0352-05/29/2020,68180-0352,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Lupin,5/29/20,3/9/21
+70,59762-6347-05/29/2020,59762-6347,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Viatris,5/29/20,3/15/21
+70,00049-4910-05/29/2020,00049-4910,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Viatris,5/29/20,3/15/21
+70,00049-4900-05/29/2020,00049-4900,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Viatris,5/29/20,3/15/21
+70,00049-4960-05/29/2020,00049-4960,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Viatris,5/29/20,3/15/21
+70,16714-0613-05/29/2020,16714-0613,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Aurobindo Pharma,5/29/20,3/9/21
+70,16714-0612-05/29/2020,16714-0612,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Aurobindo Pharma,5/29/20,3/9/21
+70,59762-6443-05/29/2020,59762-6443,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Viatris,5/29/20,3/15/21
+70,59762-5160-05/29/2020,59762-5160,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Viatris,5/29/20,3/15/21
+70,68180-0351-05/29/2020,68180-0351,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Lupin,5/29/20,3/9/21
+70,16714-0611-05/29/2020,16714-0611,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Aurobindo Pharma,5/29/20,3/9/21
+70,65862-0012-05/29/2020,65862-0012,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Aurobindo Pharma,5/29/20,3/9/21
+70,65862-0011-05/29/2020,65862-0011,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Aurobindo Pharma,5/29/20,3/9/21
+70,16729-0217-05/29/2020,16729-0217,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Accord Healthcare Inc.,5/29/20,3/9/21
+70,16729-0216-05/29/2020,16729-0216,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Accord Healthcare Inc.,5/29/20,3/9/21
+70,16729-0215-05/29/2020,16729-0215,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Accord Healthcare Inc.,5/29/20,3/9/21
+70,65862-0013-05/29/2020,65862-0013,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Aurobindo Pharma,5/29/20,3/9/21
+70,76282-0214-05/29/2020,76282-0214,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,InvaGen Pharmaceuticals (a subsidiary of Cipla Ltd),5/29/20,3/9/21
+70,68180-0353-05/29/2020,68180-0353,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,Lupin,5/29/20,3/9/21
+70,69097-0833-05/29/2020,69097-0833,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,InvaGen Pharmaceuticals (a subsidiary of Cipla Ltd),5/29/20,3/9/21
+70,76282-0213-05/29/2020,76282-0213,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,InvaGen Pharmaceuticals (a subsidiary of Cipla Ltd),5/29/20,3/9/21
+70,76282-0212-05/29/2020,76282-0212,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,InvaGen Pharmaceuticals (a subsidiary of Cipla Ltd),5/29/20,3/9/21
+70,69097-0835-05/29/2020,69097-0835,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,InvaGen Pharmaceuticals (a subsidiary of Cipla Ltd),5/29/20,3/9/21
+70,69097-0834-05/29/2020,69097-0834,resolved,8/14/23 0:01,,Sertraline Hydrochloride Tablets,InvaGen Pharmaceuticals (a subsidiary of Cipla Ltd),5/29/20,3/9/21
+71,00069-0336-05/21/2019,00069-0336,resolved,8/14/23 0:01,,Sildenafil Citrate (REVATIO),Pfizer Pharmaceuticals,5/21/19,10/24/19
+71,00069-4190-05/21/2019,00069-4190,resolved,8/14/23 0:01,,Sildenafil Citrate (REVATIO),Pfizer Pharmaceuticals,5/21/19,10/24/19
+71,00069-0338-05/21/2019,00069-0338,resolved,8/14/23 0:01,,Sildenafil Citrate (REVATIO),Pfizer Pharmaceuticals,5/21/19,10/24/19
+71,70954-0168-05/21/2019,70954-0168,resolved,8/14/23 0:01,,Sildenafil Citrate (REVATIO),Novitium Pharma LLC,5/21/19,10/24/19
+72,59762-0040-01/04/2023,59762-0040,resolved,7/30/24 19:46,,Sucralfate Tablet,"Allergan, Inc.",1/4/23,7/15/24
+72,58914-0171-01/04/2023,58914-0171,resolved,7/30/24 19:46,,Sucralfate Tablet,"Allergan, Inc.",1/4/23,7/15/24
+72,69238-1656-01/04/2023,69238-1656,resolved,7/30/24 19:46,,Sucralfate Tablet,Amneal Pharmaceuticals,1/4/23,7/15/24
+72,29033-0003-01/04/2023,29033-0003,resolved,7/30/24 19:46,,Sucralfate Tablet,"Nostrum Laboratories, Inc.",1/4/23,7/15/24
+73,59762-5000-04/27/2020,59762-5000,resolved,7/30/24 19:46,,Sulfasalazine Tablet,Pfizer Inc.,4/27/20,5/21/24
+73,59762-0104-04/27/2020,59762-0104,resolved,7/30/24 19:46,,Sulfasalazine Tablet,Pfizer Inc.,4/27/20,5/21/24
+73,00013-0102-06/13/2023,00013-0102,resolved,7/30/24 19:46,,Sulfasalazine Tablet,Pfizer Inc.,6/13/23,5/21/24
+73,00013-0101-04/24/2020,00013-0101,resolved,7/30/24 19:46,,Sulfasalazine Tablet,Pfizer Inc.,4/24/20,5/21/24
+73,00093-3234-04/24/2020,00093-3234,resolved,7/30/24 19:46,,Sulfasalazine Tablet,"Teva Pharmaceuticals USA, Inc.",4/24/20,5/21/24
+73,59762-5000-04/24/2020,59762-5000,resolved,7/30/24 19:46,,Sulfasalazine Tablet,Pfizer Inc.,4/24/20,5/21/24
+73,59762-0104-04/24/2020,59762-0104,resolved,7/30/24 19:46,,Sulfasalazine Tablet,Pfizer Inc.,4/24/20,5/21/24
+73,62135-0960-04/24/2020,62135-0960,resolved,7/30/24 19:46,,Sulfasalazine Tablet,Chartwell Molecular Holdings LLC,4/24/20,5/21/24
+73,00013-0102-04/24/2020,00013-0102,resolved,7/30/24 19:46,,Sulfasalazine Tablet,Pfizer Inc.,4/24/20,5/21/24
+74,16729-0041-05/17/2019,16729-0041,resolved,8/14/23 0:01,,Tacrolimus Capsules,Accord Healthcare Inc.,5/17/19,5/2/22
+74,16729-0042-05/17/2019,16729-0042,resolved,8/14/23 0:01,,Tacrolimus Capsules,Accord Healthcare Inc.,5/17/19,5/2/22
+74,16729-0043-05/17/2019,16729-0043,resolved,8/14/23 0:01,,Tacrolimus Capsules,Accord Healthcare Inc.,5/17/19,5/2/22
+74,00469-1330-05/17/2019,00469-1330,resolved,8/14/23 0:01,,Tacrolimus Capsules,Astellas,5/17/19,5/2/22
+74,00469-1230-05/17/2019,00469-1230,resolved,8/14/23 0:01,,Tacrolimus Capsules,Astellas,5/17/19,5/2/22
+74,00469-0687-05/17/2019,00469-0687,resolved,8/14/23 0:01,,Tacrolimus Capsules,Astellas,5/17/19,5/2/22
+74,00469-0677-05/17/2019,00469-0677,resolved,8/14/23 0:01,,Tacrolimus Capsules,Astellas,5/17/19,5/2/22
+74,00469-0647-05/17/2019,00469-0647,resolved,8/14/23 0:01,,Tacrolimus Capsules,Astellas,5/17/19,5/2/22
+74,00469-0617-05/17/2019,00469-0617,resolved,8/14/23 0:01,,Tacrolimus Capsules,Astellas,5/17/19,5/2/22
+74,00469-0657-05/17/2019,00469-0657,resolved,8/14/23 0:01,,Tacrolimus Capsules,Astellas,5/17/19,5/2/22
+74,00469-0607-05/17/2019,00469-0607,resolved,8/14/23 0:01,,Tacrolimus Capsules,Astellas,5/17/19,5/2/22
+74,00781-2104-05/17/2019,00781-2104,resolved,8/14/23 0:01,,Tacrolimus Capsules,Sandoz,5/17/19,5/2/22
+74,68992-3075-05/17/2019,68992-3075,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Veloxis Pharmaceuticals, Inc.",5/17/19,5/2/22
+74,00378-2047-05/17/2019,00378-2047,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Mylan Pharmaceuticals Inc., a Viatris Company",5/17/19,5/2/22
+74,00378-2046-05/17/2019,00378-2046,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Mylan Pharmaceuticals Inc., a Viatris Company",5/17/19,5/2/22
+74,00378-2045-05/17/2019,00378-2045,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Mylan Pharmaceuticals Inc., a Viatris Company",5/17/19,5/2/22
+74,55111-0526-05/17/2019,55111-0526,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Dr. Reddy's Laboratories, Inc.",5/17/19,5/2/22
+74,68992-3010-05/17/2019,68992-3010,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Veloxis Pharmaceuticals, Inc.",5/17/19,5/2/22
+74,55111-0525-05/17/2019,55111-0525,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Dr. Reddy's Laboratories, Inc.",5/17/19,5/2/22
+74,68462-0686-05/17/2019,68462-0686,resolved,8/14/23 0:01,,Tacrolimus Capsules,Glenmark Pharmaceuticals,5/17/19,5/2/22
+74,68462-0685-05/17/2019,68462-0685,resolved,8/14/23 0:01,,Tacrolimus Capsules,Glenmark Pharmaceuticals,5/17/19,5/2/22
+74,67877-0280-05/17/2019,67877-0280,resolved,8/14/23 0:01,,Tacrolimus Capsules,Ascend Laboratories LLC.,5/17/19,5/2/22
+74,68462-0687-05/17/2019,68462-0687,resolved,8/14/23 0:01,,Tacrolimus Capsules,Glenmark Pharmaceuticals,5/17/19,5/2/22
+74,68992-3040-05/17/2019,68992-3040,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Veloxis Pharmaceuticals, Inc.",5/17/19,5/2/22
+74,64380-0720-05/17/2019,64380-0720,resolved,8/14/23 0:01,,Tacrolimus Capsules,Strides Pharma Inc.,5/17/19,5/2/22
+74,54288-0135-05/17/2019,54288-0135,resolved,8/14/23 0:01,,Tacrolimus Capsules,"BPI Labs, LLC",5/17/19,5/2/22
+74,64338-0721-05/17/2019,64338-0721,resolved,8/14/23 0:01,,Tacrolimus Capsules,Strides Pharma Inc.,5/17/19,5/2/22
+74,67877-0278-05/17/2019,67877-0278,resolved,8/14/23 0:01,,Tacrolimus Capsules,Ascend Laboratories LLC.,5/17/19,5/2/22
+74,67877-0279-05/17/2019,67877-0279,resolved,8/14/23 0:01,,Tacrolimus Capsules,Ascend Laboratories LLC.,5/17/19,5/2/22
+74,00781-2103-05/17/2019,00781-2103,resolved,8/14/23 0:01,,Tacrolimus Capsules,Sandoz,5/17/19,5/2/22
+74,00781-2102-05/17/2019,00781-2102,resolved,8/14/23 0:01,,Tacrolimus Capsules,Sandoz,5/17/19,5/2/22
+74,64380-0722-05/17/2019,64380-0722,resolved,8/14/23 0:01,,Tacrolimus Capsules,Strides Pharma Inc.,5/17/19,5/2/22
+74,55111-0527-05/17/2019,55111-0527,resolved,8/14/23 0:01,,Tacrolimus Capsules,"Dr. Reddy's Laboratories, Inc.",5/17/19,5/2/22
+75,69945-0160-11/17/2022,69945-0160,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,11994-0090-11/17/2022,11994-0090,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,"Lantheus Medical Imaging, Inc.",11/17/22,1/18/23
+75,69945-0010-11/17/2022,69945-0010,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0015-11/17/2022,69945-0015,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0020-11/17/2022,69945-0020,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,71612-0190-11/17/2022,71612-0190,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Northstar Medical Radioisotopes LLC,11/17/22,1/18/23
+75,69945-0190-11/17/2022,69945-0190,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0140-11/17/2022,69945-0140,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,79945-0075-11/17/2022,79945-0075,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0060-11/17/2022,69945-0060,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0051-11/17/2022,69945-0051,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0035-11/17/2022,69945-0035,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0030-11/17/2022,69945-0030,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0025-11/17/2022,69945-0025,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,69945-0110-11/17/2022,69945-0110,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Curium US LLC,11/17/22,1/18/23
+75,71612-0150-11/17/2022,71612-0150,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Northstar Medical Radioisotopes LLC,11/17/22,1/18/23
+75,71612-0120-11/17/2022,71612-0120,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Northstar Medical Radioisotopes LLC,11/17/22,1/18/23
+75,71612-0075-11/17/2022,71612-0075,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Northstar Medical Radioisotopes LLC,11/17/22,1/18/23
+75,00022-0030-11/17/2022,00022-0030,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Northstar Medical Radioisotopes LLC,11/17/22,1/18/23
+75,00030-1153-11/17/2022,00030-1153,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,Northstar Medical Radioisotopes LLC,11/17/22,1/18/23
+75,11994-0091-11/17/2022,11994-0091,resolved,8/14/23 0:01,,Technetium TC-99m Sodium Pertechnetate Generator,"Lantheus Medical Imaging, Inc.",11/17/22,1/18/23
+76,60219-1675-04/24/2019,60219-1675,resolved,8/14/23 0:01,,Thiothixene Capsules,Amneal Pharmaceutical,4/24/19,10/14/22
+76,60219-1674-04/24/2019,60219-1674,resolved,8/14/23 0:01,,Thiothixene Capsules,Amneal Pharmaceutical,4/24/19,10/14/22
+76,60219-1673-04/24/2019,60219-1673,resolved,8/14/23 0:01,,Thiothixene Capsules,Amneal Pharmaceutical,4/24/19,10/14/22
+76,60219-1676-04/24/2019,60219-1676,resolved,8/14/23 0:01,,Thiothixene Capsules,Amneal Pharmaceutical,4/24/19,10/14/22
+76,70954-0014-04/24/2019,70954-0014,resolved,8/14/23 0:01,,Thiothixene Capsules,Novitium Pharma LLC,4/24/19,10/14/22
+76,70954-0016-04/24/2019,70954-0016,resolved,8/14/23 0:01,,Thiothixene Capsules,Novitium Pharma LLC,4/24/19,10/14/22
+76,70954-0015-04/24/2019,70954-0015,resolved,8/14/23 0:01,,Thiothixene Capsules,Novitium Pharma LLC,4/24/19,10/14/22
+76,70954-0017-04/24/2019,70954-0017,resolved,8/14/23 0:01,,Thiothixene Capsules,Novitium Pharma LLC,4/24/19,10/14/22
+77,68682-0045-05/29/2020,68682-0045,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,"Bausch Health Americas, Inc.",5/29/20,4/16/21
+77,61314-0226-05/29/2020,61314-0226,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,Sandoz,5/29/20,4/16/21
+77,61314-0227-05/29/2020,61314-0227,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,Sandoz,5/29/20,4/16/21
+77,17478-0288-05/29/2020,17478-0288,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,Akorn Pharmaceuticals,5/29/20,4/16/21
+77,60758-0801-05/29/2020,60758-0801,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,Allergan,5/29/20,4/16/21
+77,60758-0802-05/29/2020,60758-0802,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,Allergan,5/29/20,4/16/21
+77,64980-0514-05/29/2020,64980-0514,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,FDC Limited,5/29/20,4/16/21
+77,64980-0513-05/29/2020,64980-0513,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,FDC Limited,5/29/20,4/16/21
+77,24208-0004-05/29/2020,24208-0004,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,"Bausch Health Americas, Inc.",5/29/20,4/16/21
+77,00187-1496-05/29/2020,00187-1496,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,"Bausch Health Americas, Inc.",5/29/20,4/16/21
+77,00187-1498-05/29/2020,00187-1498,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,"Bausch Health Americas, Inc.",5/29/20,4/16/21
+77,68682-0813-05/29/2020,68682-0813,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,"Bausch Health Americas, Inc.",5/29/20,4/16/21
+77,24208-0813-05/29/2020,24208-0813,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,"Bausch Health Americas, Inc.",5/29/20,4/16/21
+77,24208-0812-05/29/2020,24208-0812,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,"Bausch Health Americas, Inc.",5/29/20,4/16/21
+77,60505-1005-05/29/2020,60505-1005,resolved,8/14/23 0:01,,Timolol Maleate Ophthalmic Solution,Apotex Corp.,5/29/20,4/16/21
+78,63323-0303-08/24/2020,63323-0303,resolved,8/14/23 0:01,,Tobramycin Lyophilized Powder for Injection,"Fresenius Kabi USA, LLC",8/24/20,4/12/21
+78,39822-0412-08/24/2020,39822-0412,resolved,8/14/23 0:01,,Tobramycin Lyophilized Powder for Injection,"X-GEN Pharmaceuticals, Inc.",8/24/20,4/12/21
+79,53489-0376-10/26/2021,53489-0376,to be discontinued,8/14/23 0:01,,Trimethobenzamide Hydrochloride Capsules,Sun Pharmaceutical Industries Inc.,10/26/21,2/27/24
+79,62135-0773-02/16/2021,62135-0773,resolved,7/30/24 19:46,,Trimethobenzamide Hydrochloride Capsule,"Avet Pharmaceuticals, Inc.",10/26/21,2/27/24
+79,61570-0079-02/16/2021,61570-0079,to be discontinued,2/10/24 12:04,Discontinuation of the manufacture of the drug,Trimethobenzamide Hydrochloride Capsule,Pfizer Inc.,12/28/23,2/27/24
+80,00069-0468-06/24/2021,00069-0468,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Pfizer Pharmaceuticals,6/24/21,5/26/22
+80,00069-0471-06/24/2021,00069-0471,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Pfizer Pharmaceuticals,6/24/21,5/26/22
+80,00069-0469-06/24/2021,00069-0469,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Pfizer Pharmaceuticals,6/24/21,5/26/22
+80,49884-0155-06/24/2021,49884-0155,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Par Pharmaceutical,6/24/21,5/26/22
+80,49884-0156-06/24/2021,49884-0156,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Par Pharmaceutical,6/24/21,5/26/22
+80,49884-0944-06/24/2021,49884-0944,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Par Pharmaceutical,6/24/21,5/26/22
+80,60505-4766-06/24/2021,60505-4766,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Apotex Corp.,6/24/21,5/26/22
+80,60505-4765-06/24/2021,60505-4765,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Apotex Corp.,6/24/21,5/26/22
+80,60505-4767-06/24/2021,60505-4767,resolved,8/14/23 0:01,,Varenicline Tartrate (Chantix) Tablets,Apotex Corp.,6/24/21,5/26/22
