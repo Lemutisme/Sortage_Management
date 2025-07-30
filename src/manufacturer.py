@@ -102,12 +102,13 @@ class ManufacturerAgent(BaseAgent):
         
         # Log decision outcome
         decision = result.get("decision", {})
-        investment = decision.get("capacity_investment", 0.0)
+        investment = float(decision.get("capacity_investment", 0.0))
+        investment_pct = decision.get("investment_percentage", "0").replace("%","")
         confidence = result.get("confidence", "unknown")
         
         self.logger.info(
-            f"Investment decision made - Amount: {investment}, "
-            f"Percentage: {decision.get('investment_percentage', 0)}%, "
+            f"Investment decision made - Amount: {investment:.3f}, "
+            f"Percentage: {investment_pct}%, "
             f"Confidence: {confidence}"
         )
         
@@ -143,7 +144,7 @@ class ManufacturerAgent(BaseAgent):
             self.logger.info(f"Manufacturer {self.manufacturer_id} cannot invest while disrupted")
             return 0.0
         
-        investment = decision.get("decision", {}).get("capacity_investment", 0.0)
+        investment = float(decision.get("decision", {}).get("capacity_investment", 0.0))
         
         # Investment takes 1 period to become effective
         self.state.investment_history.append(investment)

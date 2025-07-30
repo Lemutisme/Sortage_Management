@@ -1,0 +1,3 @@
+period,total_demand,total_supply,shortage_amount,unsold,shortage_percentage,disrupted_manufacturers,fda_announcement
+0,1.2,0.7,0.5,0,0.4166666666666667,[0],The FDA is monitoring the market conditions for this drug closely and encourages manufacturers and healthcare providers to report any disruptions in supply chains. Current assessments indicate adequate supply with no immediate shortage concerns.
+1,1.5,0.7,0.8,0,0.5333333333333333,[0],The FDA confirms an emerging drug shortage and advises relevant stakeholders to coordinate efforts to stabilize supply. We encourage manufacturers to report any production capacity changes and buyers to manage stock levels responsibly.
