@@ -106,7 +106,7 @@ class ManufacturerAgent(BaseAgent):
         confidence = result.get("confidence", "unknown")
         
         self.logger.info(
-            f"Investment decision made - Amount: {investment:.3f}, "
+            f"Investment decision made - Amount: {investment}, "
             f"Percentage: {decision.get('investment_percentage', 0)}%, "
             f"Confidence: {confidence}"
         )

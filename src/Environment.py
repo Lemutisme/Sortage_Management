@@ -36,35 +36,39 @@ class Environment:
     def generate_disruptions(self, force_disruption: bool = False) -> List[DisruptionEvent]:
         """Generate random disruptions for the current period."""
         new_disruptions = []
-        
-        if not force_disruption:
-            for manufacturer_id in range(self.config.n_manufacturers):
-                if random.random() < self.config.disruption_probability:
-                    duration = random.randint(1, 4)
-                    disruption = DisruptionEvent(
-                        manufacturer_id=manufacturer_id,
-                        start_period=self.current_period,
-                        duration=duration,
-                        magnitude=self.config.disruption_magnitude,
-                        remaining_periods=duration
-                    )
-                    new_disruptions.append(disruption)
-                    self.logger.info(f"New disruption: Manufacturer {manufacturer_id}, duration {duration}")
 
-        if force_disruption and not new_disruptions:
-            # Force a disruption if starting with one
-            duration = random.randint(1, 4)
-            # force duration to be 8 for this situation
-            # duration = 10
-            disruption = DisruptionEvent(
-                manufacturer_id=random.choice(range(self.config.n_manufacturers)),
-                start_period=self.current_period,
-                duration=duration,
-                magnitude=self.config.disruption_magnitude,
-                remaining_periods=duration
-            )
-            new_disruptions.append(disruption)
-            self.logger.info(f"Forced disruption: Manufacturer {disruption.manufacturer_id}, duration {duration}")
+        for manufacturer_id in range(self.config.n_manufacturers):
+            if random.random() < self.config.disruption_probability:
+                duration = random.randint(1, 4)
+                disruption = DisruptionEvent(
+                    manufacturer_id=manufacturer_id,
+                    start_period=self.current_period,
+                    duration=duration,
+                    magnitude=self.config.disruption_magnitude,
+                    remaining_periods=duration
+                )
+                new_disruptions.append(disruption)
+                self.logger.info(f"New disruption: Manufacturer {manufacturer_id}, duration {duration}")
+
+        if self.config.n_disruptions_if_forced_disruption > self.config.n_manufacturers:
+            raise ValueError(f"Cannot create {self.config.n_disruptions_if_forced_disruption} unique disruptions with only {self.config.n_manufacturers} manufacturers.")
+
+        if force_disruption:
+            # duration = random.randint(1, 4)
+            duration = self.config.n_periods
+            manufacturers_disrupted = random.sample(range(self.config.n_manufacturers), k = self.config.n_disruptions_if_forced_disruption)
+            for mfr_disrupted in manufacturers_disrupted:
+                disruption = DisruptionEvent(
+                    # manufacturer_id=random.choice(range(self.config.n_manufacturers)),
+                    manufacturer_id=mfr_disrupted,
+                    start_period=self.current_period,
+                    duration=duration,
+                    magnitude=self.config.disruption_magnitude,
+                    remaining_periods=duration
+                )
+                new_disruptions.append(disruption)
+                self.logger.info(f"Forced disruption: Manufacturer {disruption.manufacturer_id}, duration {duration}")
+            
         return new_disruptions
     
     def update_disruptions(self, force_disruption: bool = False):

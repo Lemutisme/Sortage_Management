@@ -1,0 +1,9 @@
+period,total_demand,total_supply,shortage_amount,unsold,shortage_percentage,disrupted_manufacturers,fda_announcement
+0,1.0,1.0,0.0,0.0,0.0,[],
+1,1.0,1.0,0.0,0.0,0.0,[],
+2,1.0,0.96,0.040000000000000036,0.0,0.040000000000000036,[1],
+3,1.2,0.96,0.24,0.0,0.2,[1],"The FDA is aware of a minor disruption with a single manufacturer affecting supply, and we are actively monitoring the situation. We encourage voluntary reporting by manufacturers to facilitate awareness and coordination."
+4,1.2,0.96,0.24,0.0,0.2,[1],The FDA is closely monitoring the situation surrounding the emerging drug shortage and encourages all stakeholders to report supply disruptions. We are working to coordinate efforts to mitigate potential impacts on patient care.
+5,1.2,1.1600000000000001,0.039999999999999813,0.16000000000000014,0.03333333333333318,[1],"The FDA is aware of recent disruptions affecting the supply of certain medications. While the current supply is adequate, we encourage manufacturers to voluntarily report any anticipated issues. The FDA is monitoring the situation closely."
+6,1.0,0.96,0.040000000000000036,0.0,0.040000000000000036,[],
+7,1.0,0.96,0.040000000000000036,0.0,0.040000000000000036,[],

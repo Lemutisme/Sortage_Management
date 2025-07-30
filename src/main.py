@@ -11,9 +11,11 @@ import pandas as pd
 import asyncio
 import os
 from pathlib import Path
+from datetime import datetime
 
 from simulator import SimulationCoordinator
 from configs import SimulationConfig
+from tqdm import tqdm
 
 # =============================================================================
 # Enhanced Example Usage with Logging
@@ -54,11 +56,16 @@ async def run_logged_simulation(config: SimulationConfig,
         # Print simulation results summary
         print(f"\n📈 Simulation Results:")
         metrics = results['summary_metrics']
-        print(f"  Peak shortage: {metrics['peak_shortage_percentage']:.1%}")
+        # print(f"  Peak shortage: {metrics['peak_shortage_percentage']:.1%}")
+        # print(f"  Shortage periods: {metrics['total_shortage_periods']}/{config.n_periods}")
+        # print(f"  Total buyer cost: {results['buyer_total_cost']:.3f}")
+        # print(f"  Total manufacturer profit: {metrics['total_manufacturer_profit']:.3f}")
+        # print(f"  FDA interventions: {metrics['fda_intervention_rate']:.1%} of periods")
+        print(f"  Peak shortage: {metrics['peak_shortage_percentage']}")
         print(f"  Shortage periods: {metrics['total_shortage_periods']}/{config.n_periods}")
-        print(f"  Total buyer cost: {results['buyer_total_cost']:.3f}")
-        print(f"  Total manufacturer profit: {metrics['total_manufacturer_profit']:.3f}")
-        print(f"  FDA interventions: {metrics['fda_intervention_rate']:.1%} of periods")
+        print(f"  Total buyer cost: {results['buyer_total_cost']}")
+        print(f"  Total manufacturer profit: {metrics['total_manufacturer_profit']}")
+        print(f"  FDA interventions: {metrics['fda_intervention_rate']} of periods")
         
         return results
         
@@ -182,7 +189,7 @@ async def analyze_agent_decisions(simulation_results: Dict[str, Any]):
             
             for decision in decisions:
                 final_decision = decision.get('final_decision', {})
-                investment = final_decision.get('decision', {}).get('capacity_investment', 0)
+                investment = float(final_decision.get('decision', {}).get('capacity_investment', 0))
                 confidence = final_decision.get('confidence', 'unknown')
                 
                 investments.append(investment)
@@ -279,6 +286,7 @@ async def run_single_example(start_with_disruption: bool = False):
         disruption_probability=0.05,
         disruption_magnitude=0.3,
         llm_temperature=0.3,
+        n_disruptions_if_forced_disruption=1
         # Uncomment and set your API key:
         # api_key=os.getenv("OPENAI_API_KEY")
     )
@@ -292,6 +300,77 @@ async def run_single_example(start_with_disruption: bool = False):
     export_detailed_analysis(results)
     
     return results
+
+async def run_gt_experiments(
+        df: pd.DataFrame,
+        show_progress: bool = True,
+        export_dir: str = "gt_evaluation",
+        n_simulations: int = 3
+):
+    export_path = Path(export_dir)
+    export_path.mkdir(exist_ok=True)
+
+    iterator = tqdm(df.itertuples(index=False), total=len(df)) if show_progress else df.itertuples(index=False)
+    comparative_results = []
+    for row in iterator:
+        row_dict = row._asdict()
+        for sim in range(n_simulations):
+            print(f"\n📊 Running Ground Truth Experiment: gt_id_{row_dict['gt_id']}_simulation_{sim}")
+            print("=" * 80)
+            try:
+                config = SimulationConfig(
+                    n_manufacturers=int(row_dict['n_manufacturers']),
+                    n_periods=int(row_dict['periods']),
+                    disruption_probability=0.05,
+                    disruption_magnitude=row_dict['disruption_magnitude'],
+                    llm_temperature=0.3,
+                    n_disruptions_if_forced_disruption=int(row_dict['disruption_number'])
+                )
+                
+                start_with_disruption = True if row_dict['disruption_number'] > 0 else False
+
+                results = await run_logged_simulation(config, start_with_disruption, "gt_id_" + str(row_dict['gt_id']))
+                # Analyze agent decisions
+                await analyze_agent_decisions(results)
+                # Export detailed analysis
+                export_detailed_analysis(results)
+
+                # Extract key metrics for comparison
+                metrics = results['summary_metrics']
+                comparative_results.append({
+                    "scenario": "gt_id_" + str(row_dict['gt_id']),
+                    "simulation_id": results['logging_session']['simulation_id'],
+                    "#simulation": sim,
+                    "gt_type":row_dict['gt_type'],
+                    "n_manufacturers": config.n_manufacturers,
+                    "periods":row_dict['periods'],
+                    "disruption_prob": config.disruption_probability,
+                    "disruption_magnitude": config.disruption_magnitude,
+                    "trajectory": results['market_trajectory'],
+                    "peak_shortage": metrics['peak_shortage_percentage'],
+                    "avg_shortage": metrics['average_shortage_percentage'],
+                    "shortage_periods": metrics['total_shortage_periods'],
+                    "resolution_time": metrics['time_to_resolution'],
+                    "total_profit": metrics['total_manufacturer_profit'],
+                    "buyer_cost": results['buyer_total_cost'],
+                    "fda_interventions": len(results['fda_announcements']),
+                })
+            except Exception as e:
+                print(f"❌ Scenario gt_id_{str(row_dict['gt_id'])}_simulation_{sim} failed: {e}")
+                comparative_results.append({
+                    "scenario": "gt_id_" + str(row_dict['gt_id']),
+                    "error": str(e)
+                })
+    
+    if comparative_results:
+        comparison_df = pd.DataFrame([r for r in comparative_results if 'error' not in r])
+        
+        if not comparison_df.empty:
+            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+            comparison_df.to_csv(export_path/f"gt_experiments_{ts}.csv", index=False)
+            print(f"\n💾 Comparative results saved to: gt_experiments_{ts}.csv")
+            return comparison_df
+
 
 async def run_quick_policy_test():
     """Quick test of different policy scenarios."""
@@ -344,12 +423,27 @@ if __name__ == "__main__":
         elif mode == "policy":
             print("Running policy test...")
             asyncio.run(run_quick_policy_test())
+        elif mode == "gt_experiment_dic":
+            print("Running ground truth experiment...")
+            HERE = Path(__file__).resolve().parent
+            csv_path = HERE/"../data"/"GT_Disc.csv"
+            # csv_path = HERE/"../data"/"GT_Disc_tester.csv"
+            df = pd.read_csv(csv_path)
+            print(df.shape)
+            asyncio.run(run_gt_experiments(df))
+        elif mode == "gt_experiment_nodic":
+            print("Running ground truth experiment (No discontinued)...")
+            HERE = Path(__file__).resolve().parent
+            csv_path = HERE/"../data"/"GT_NoDisc.csv"
+            df = pd.read_csv(csv_path)
+            print(df.shape)
+            asyncio.run(run_gt_experiments(df))
         else:
             print("Unknown mode. Running single example...")
             asyncio.run(run_single_example())
     else:
         print("Running single example simulation...")
-        asyncio.run(run_single_example(start_with_disruption=False))
+        asyncio.run(run_single_example(start_with_disruption=True))
     
     print("\n✅ Simulation completed! Check the generated log files for detailed analysis.")
     print("💡 Log files include:")

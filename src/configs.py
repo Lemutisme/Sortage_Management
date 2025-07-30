@@ -52,6 +52,7 @@ class SimulationConfig:
     unit_profit: float = 1.0
     holding_cost: float = 0.1
     stockout_penalty: float = 1.1
+    n_disruptions_if_forced_disruption: int = 1
 
     # LLM Configuration
     llm_model: str = "gpt-4o"
