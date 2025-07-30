@@ -315,6 +315,7 @@ async def run_gt_experiments(
 
     iterator = tqdm(df.itertuples(index=False), total=len(df)) if show_progress else df.itertuples(index=False)
     comparative_results = []
+    comparison_df = pd.DataFrame()
     for row in iterator:
         row_dict = row._asdict()
         for sim in range(n_simulations):
@@ -340,7 +341,8 @@ async def run_gt_experiments(
 
                 # Extract key metrics for comparison
                 metrics = results['summary_metrics']
-                comparative_results.append({
+                temp_results = []
+                temp_results.append({
                     "scenario": "gt_id_" + str(row_dict['gt_id']),
                     "simulation_id": results['logging_session']['simulation_id'],
                     "#simulation": sim,
@@ -365,15 +367,17 @@ async def run_gt_experiments(
                     "error": str(e)
                 })
     
-        if comparative_results:
-            comparison_df = pd.DataFrame([r for r in comparative_results if 'error' not in r])
+        if temp_results:
+            temp_df = pd.DataFrame([r for r in temp_results if 'error' not in r])
+            comparison_df = pd.concat([comparison_df, temp_df], ignore_index=True) 
+            comparative_results+=temp_results
         
-            if not comparison_df.empty:
+            if not temp_df.empty:
                 if not exists_header:
-                    comparison_df.to_csv(csv_path, index=False)
+                    temp_df.to_csv(csv_path, index=False)
                     exists_header = True
                 else:
-                    comparison_df.to_csv(csv_path, mode='a', header=False, index=False)
+                    temp_df.to_csv(csv_path, mode='a', header=False, index=False)
                 print(f"\n💾 Comparative results saved to: gt_experiments_{ts}.csv")
     return comparison_df
 
@@ -443,7 +447,7 @@ if __name__ == "__main__":
             csv_path = HERE/"../data"/"GT_NoDisc.csv"
             df = pd.read_csv(csv_path)
             print(df.shape)
-            asyncio.run(run_gt_experiments(df.iloc[[7]]))
+            asyncio.run(run_gt_experiments(df))
         else:
             print("Unknown mode. Running single example...")
             asyncio.run(run_single_example())
