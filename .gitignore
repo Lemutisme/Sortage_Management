@@ -1,5 +1,7 @@
 src/__pycache__/
 keys/*.txt
 simulation_logs/
+analysis_exports/
+experiments_logs/
 .venv/
 data/FDA_final.csv
