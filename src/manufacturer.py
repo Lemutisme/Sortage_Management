@@ -103,7 +103,10 @@ class ManufacturerAgent(BaseAgent):
         # Log decision outcome
         decision = result.get("decision", {})
         investment = float(decision.get("capacity_investment", 0.0))
-        investment_pct = decision.get("investment_percentage", "0").replace("%","")
+        if isinstance(decision.get("investment_percentage", "0"), str):
+            investment_pct = decision.get("investment_percentage", "0").replace("%","")
+        else:
+            investment_pct = decision.get("investment_percentage", "0")
         confidence = result.get("confidence", "unknown")
         
         self.logger.info(

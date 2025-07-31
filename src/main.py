@@ -437,7 +437,7 @@ if __name__ == "__main__":
             print("Running ground truth experiment...")
             HERE = Path(__file__).resolve().parent
             csv_path = HERE/"../data"/"GT_Disc.csv"
-            csv_path = HERE/"../data"/"GT_Disc_tester.csv"
+            # csv_path = HERE/"../data"/"GT_Disc_tester.csv"
             df = pd.read_csv(csv_path)
             print(df.shape)
             asyncio.run(run_gt_experiments(df))
