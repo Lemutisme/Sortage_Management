@@ -438,9 +438,10 @@ if __name__ == "__main__":
             HERE = Path(__file__).resolve().parent
             csv_path = HERE/"../data"/"GT_Disc.csv"
             # csv_path = HERE/"../data"/"GT_Disc_tester.csv"
-            df = pd.read_csv(csv_path)
+            df = pd.read_csv(csv_path).iloc[2:,:]
+            print(df)
             print(df.shape)
-            asyncio.run(run_gt_experiments(df))
+            asyncio.run(run_gt_experiments(df, n_simulations=1))
         elif mode == "gt_experiment_nodic":
             print("Running ground truth experiment (No discontinued)...")
             HERE = Path(__file__).resolve().parent

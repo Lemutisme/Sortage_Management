@@ -37,18 +37,18 @@ class Environment:
         """Generate random disruptions for the current period."""
         new_disruptions = []
 
-        for manufacturer_id in range(self.config.n_manufacturers):
-            if random.random() < self.config.disruption_probability:
-                duration = random.randint(1, 4)
-                disruption = DisruptionEvent(
-                    manufacturer_id=manufacturer_id,
-                    start_period=self.current_period,
-                    duration=duration,
-                    magnitude=self.config.disruption_magnitude,
-                    remaining_periods=duration
-                )
-                new_disruptions.append(disruption)
-                self.logger.info(f"New disruption: Manufacturer {manufacturer_id}, duration {duration}")
+        # for manufacturer_id in range(self.config.n_manufacturers):
+        #     if random.random() < self.config.disruption_probability:
+        #         duration = random.randint(1, 4)
+        #         disruption = DisruptionEvent(
+        #             manufacturer_id=manufacturer_id,
+        #             start_period=self.current_period,
+        #             duration=duration,
+        #             magnitude=self.config.disruption_magnitude,
+        #             remaining_periods=duration
+        #         )
+        #         new_disruptions.append(disruption)
+        #         self.logger.info(f"New disruption: Manufacturer {manufacturer_id}, duration {duration}")
 
         if self.config.n_disruptions_if_forced_disruption > self.config.n_manufacturers:
             raise ValueError(f"Cannot create {self.config.n_disruptions_if_forced_disruption} unique disruptions with only {self.config.n_manufacturers} manufacturers.")
