@@ -318,6 +318,7 @@ async def run_gt_experiments(
     comparison_df = pd.DataFrame()
     for row in iterator:
         row_dict = row._asdict()
+        temp_results = []
         for sim in range(n_simulations):
             print(f"\n📊 Running Ground Truth Experiment: gt_id_{row_dict['gt_id']}_simulation_{sim}")
             print("=" * 80)
@@ -341,7 +342,6 @@ async def run_gt_experiments(
 
                 # Extract key metrics for comparison
                 metrics = results['summary_metrics']
-                temp_results = []
                 temp_results.append({
                     "scenario": "gt_id_" + str(row_dict['gt_id']),
                     "simulation_id": results['logging_session']['simulation_id'],
