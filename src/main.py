@@ -305,7 +305,7 @@ async def run_gt_experiments(
         df: pd.DataFrame,
         show_progress: bool = True,
         export_dir: str = "gt_evaluation",
-        n_simulations: int = 3
+        n_simulations: int = 1
 ):
     export_path = Path(export_dir)
     export_path.mkdir(exist_ok=True)
@@ -437,7 +437,7 @@ if __name__ == "__main__":
             print("Running ground truth experiment...")
             HERE = Path(__file__).resolve().parent
             csv_path = HERE/"../data"/"GT_Disc.csv"
-            csv_path = HERE/"../data"/"GT_Disc_tester.csv"
+            # csv_path = HERE/"../data"/"GT_Disc_tester.csv"
             df = pd.read_csv(csv_path)
             print(df.shape)
             asyncio.run(run_gt_experiments(df))
@@ -447,7 +447,7 @@ if __name__ == "__main__":
             csv_path = HERE/"../data"/"GT_NoDisc.csv"
             df = pd.read_csv(csv_path)
             print(df.shape)
-            asyncio.run(run_gt_experiments(df))
+            asyncio.run(run_gt_experiments(df.iloc[6:]))
         else:
             print("Unknown mode. Running single example...")
             asyncio.run(run_single_example())
