@@ -1,8 +1,4 @@
-
 # ShortageSim: LLM-based Multi-Agent Simulation for Drug Shortage Management
-
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📋 Overview
 
@@ -55,39 +51,6 @@ python src/main.py
 
 ## 🎮 Usage
 
-### Basic Simulation
-
-```python
-import asyncio
-from src.simulator import SimulationCoordinator
-from src.configs import SimulationConfig
-
-async def run_simulation():
-    # Configure simulation parameters
-    config = SimulationConfig(
-        n_manufacturers=4,          # Number of competing manufacturers
-        n_periods=4,               # Simulation horizon (quarters)
-        disruption_probability=0.05,  # 5% chance of disruption per period
-        disruption_magnitude=0.2,     # 20% capacity reduction when disrupted
-        llm_temperature=0.3          # LLM creativity parameter
-    )
-  
-    # Run simulation
-    coordinator = SimulationCoordinator(config)
-    results = await coordinator.run_simulation()
-  
-    # Display key metrics
-    metrics = results['summary_metrics']
-    print(f"Peak shortage: {metrics['peak_shortage_percentage']:.1%}")
-    print(f"Resolution time: {metrics['total_shortage_periods']} periods")
-    print(f"FDA interventions: {metrics['fda_intervention_rate']:.1%}")
-  
-    return results
-
-# Execute
-asyncio.run(run_simulation())
-```
-
 ### Running Experiments
 
 ```bash
@@ -107,12 +70,13 @@ python src/main.py policy
 
 ## 🏗️ System Architecture
 
-<img src="figures/system_overview.png" alt="System Architecture" width="100%">
+![System Architecture](figures/system_overview.png)
+
 ### Core Components
 
 1. **Environment Module** : Manages market dynamics, disruptions, and state transitions
 2. **Agent System** : LLM-powered decision makers (manufacturers, buyers, FDA)
-3. **Information Broker** : Controls inter-agent communication and enforces information asymmetry
+3. **Information Flow** : Controls inter-agent communication and enforces information asymmetry
 4. **Simulation Controller** : Orchestrates execution and comprehensive logging
 
 ### Agent Decision Pipeline
@@ -135,17 +99,17 @@ Stage 2: Decision Maker
 
 ### Disruption Modeling
 
-* **Probability** : λ = 0.05 per manufacturer per period
-* **Magnitude** : δ = 20% capacity reduction
-* **Duration** : Uniform{1,2,3,4} periods
+* **Probability** : $\lambda = 0.05$ per manufacturer per period
+* **Magnitude** : $\delta = 20\%$ capacity reduction
+* **Duration** : $U\{n\}$ periods
 * **Recovery** : Gradual capacity restoration
 
 ### Supply-Demand Allocation
 
-1. Equal initial allocation: `D_t / N` per manufacturer
-2. Disrupted firms produce: `min(capacity, allocation)`
+1. Equal initial allocation: $D_t / N$ per manufacturer
+2. Disrupted firms produce: $\min(capacity, allocation)$
 3. Unfilled demand redistributed to healthy firms
-4. Market shortage calculated as: `max(0, D_t - total_supply)`
+4. Market shortage calculated as: $\max(0, D_t - total\_supply)$
 
 ### Agent Objectives
 
@@ -162,9 +126,9 @@ Stage 2: Decision Maker
 1. **FDA Intervention Percentage (FIP)** : Fraction of periods with FDA announcements
 2. **Resolution-Lag Percentage (RLP)** : Timing accuracy vs ground truth
 
-```
-   RLP = 100 × (t_sim - t_GT) / t_GT
-```
+$$
+RLP = 100 × (t_{sim} - t_{GT}) / t_{GT}
+$$
 
 ### Performance Results
 
@@ -172,36 +136,6 @@ Stage 2: Decision Maker
 | -------- | ----------- | ---------------- | ------------------------------- |
 | FDA-Disc | 79.1        | **1.40**   | Discontinued manufacturer cases |
 | FDA-NR   | 37.5        | **-22.70** | No disclosed reason cases       |
-
-## 📁 Repository Structure
-
-```
-Sortage_Management/
-├── src/
-│   ├── simulator.py         # Main simulation coordinator
-│   ├── base.py             # Base agent class with LLM integration
-│   ├── manufacturer.py      # Manufacturer agent implementation
-│   ├── buyer.py            # Buyer consortium agent
-│   ├── fda.py              # FDA regulatory agent
-│   ├── Environment.py      # Market environment and dynamics
-│   ├── configs.py          # Configuration and data structures
-│   ├── prompts.py          # LLM prompt templates
-│   ├── logger.py           # Comprehensive logging system
-│   ├── main.py             # Entry point and experiments
-│   └── test_setup.py       # Installation verification
-├── data/
-│   ├── FDA_final.csv       # Historical FDA shortage database
-│   ├── ASHP_Detailed_data.csv  # ASHP narrative reports
-│   ├── GT_Disc.csv         # Ground truth - discontinued cases
-│   └── GT_NoDisc.csv       # Ground truth - no disclosed reason
-├── prompts/                # Detailed prompt documentation
-├── gt_evaluation/          # Ground truth experiment results
-├── analysis_exports/       # Simulation analysis outputs
-├── figures/               # Visualization and diagrams
-├── experiments_logs/       # Detailed experiment logs
-├── requirements.txt
-└── README.md
-```
 
 ## 🔬 Experimental Framework
 
@@ -256,37 +190,3 @@ We welcome contributions! Areas of particular interest:
 * [ ] International supply chain modeling
 * [ ] Alternative LLM backends (Claude, Llama, etc.)
 * [ ] Interactive visualization dashboard
-
-Please see our [contributing guidelines](https://claude.ai/chat/CONTRIBUTING.md) for details.
-
-## 📚 Citation
-
-If you use ShortageSim in your research, please cite:
-
-```bibtex
-@software{shortagesim2025,
-  title={ShortageSim: LLM-based Multi-Agent Simulation for Drug Shortage Management},
-  author={Your Name},
-  year={2025},
-  url={https://github.com/Lemutisme/Sortage_Management}
-}
-```
-
-## 📄 Related Publications
-
-* Naumov, S., Noh, I. J., & Zhao, H. (2025). Evaluating quality reward and other interventions to mitigate US drug shortages.  *Journal of Operations Management* , 71(3), 335–372.
-* Qian, Cheng, et al. (2025). ModelingAgent: Bridging LLMs and Mathematical Modeling for Real-World Challenges.  *arXiv preprint arXiv:2505.15068* .
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](https://claude.ai/chat/LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-* FDA Drug Shortage Database for historical data
-* ASHP for detailed shortage reports
-* OpenAI for GPT API access
-
----
-
-**For questions or support, please open an issue or contact the maintainers.**
