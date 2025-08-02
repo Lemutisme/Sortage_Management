@@ -1,2 +1,0 @@
-total_periods,total_demand,total_supply_received,total_shortage,overall_fill_rate,average_demand_per_period,total_cost,total_purchase_cost,total_holding_cost,total_stockout_cost,periods_with_shortage
-10,14.3,4.750719999999999,9.549280000000001,0.33221818181818175,1.4300000000000002,15.274928000000003,4.750719999999999,0.02000000000000135,10.504208000000002,10
