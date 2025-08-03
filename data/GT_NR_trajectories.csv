@@ -1,0 +1,234 @@
+,scenario,simulation_id,#simulation,gt_type,n_manufacturers,periods,disruption_prob,disruption_magnitude,peak_shortage,avg_shortage,shortage_periods,resolution_time,total_profit,buyer_cost,fda_interventions,trajectory_period,trajectory_total_demand,trajectory_total_supply,trajectory_shortage_amount,trajectory_unsold,trajectory_shortage_percentage,trajectory_disrupted_manufacturers,trajectory_fda_announcement,shortage_flag
+0,gt_id_22,5207632f,0,1,2,8,0.05,0.2,0.44,0.257001748,7,,7.183,10.4194,7,0,1,1,0,0,0,[],,FALSE
+1,gt_id_22,5207632f,0,1,2,8,0.05,0.2,0.44,0.257001748,7,,7.183,10.4194,7,1,1.2,0.9,0.3,0,0.25,[1],"The FDA is aware of a potential disruption by one manufacturer, but current supply levels are adequate. We encourage stakeholders to report any changes in supply to help us monitor the situation. No immediate action is required.",TRUE
+2,gt_id_22,5207632f,0,1,2,8,0.05,0.2,0.44,0.257001748,7,,7.183,10.4194,7,2,1.3,0.82,0.48,0,0.369230769,[1],The FDA is aware of an emerging shortage situation concerning a specific drug due to manufacturer disruption. We are closely monitoring the situation and encourage manufacturers and other stakeholders to report any changes in supply status. Coordination efforts are underway to minimize patient impact.,TRUE
+3,gt_id_22,5207632f,0,1,2,8,0.05,0.2,0.44,0.257001748,7,,7.183,10.4194,7,3,1.3,0.97,0.33,0,0.253846154,[1],The FDA is aware of an emerging drug shortage due to manufacturer disruptions. We are actively coordinating with stakeholders to address supply issues. Healthcare providers are encouraged to conserve inventory and report any additional supply disruptions.,TRUE
+4,gt_id_22,5207632f,0,1,2,8,0.05,0.2,0.44,0.257001748,7,,7.183,10.4194,7,4,1.3,0.97,0.33,0,0.253846154,[1],The FDA is closely monitoring the emerging drug shortage and encourages all manufacturers to report any potential disruptions. Stakeholders are advised of our continued oversight and guidance as needed.,TRUE
+5,gt_id_22,5207632f,0,1,2,8,0.05,0.2,0.44,0.257001748,7,,7.183,10.4194,7,5,1.1,0.87,0.23,0,0.209090909,[],The FDA is actively monitoring the current situation of an emerging shortage. We encourage manufacturers to report any production issues and buyers to engage in prudent purchasing practices. No immediate actions are needed from the general public.,TRUE
+6,gt_id_22,5207632f,0,1,2,8,0.05,0.2,0.44,0.257001748,7,,7.183,10.4194,7,6,1.5,0.84,0.66,0,0.44,[0],The FDA is aware of emerging supply disruptions affecting one manufacturer of this product. We are actively monitoring the situation and encourage stakeholders to continue reporting supply issues.,TRUE
+7,gt_id_22,5207632f,0,1,2,8,0.05,0.2,0.44,0.257001748,7,,7.183,10.4194,7,7,1.3,0.936,0.364,0,0.28,[0],The FDA is aware of the emerging drug shortage and is actively working with stakeholders to mitigate supply disruptions. Manufacturers are encouraged to communicate any production capacity changes promptly. Patients and healthcare providers are advised to follow updates and manage inventory responsibly to prevent exacerbating the situation.,TRUE
+8,gt_id_23,e35604ff,0,1,2,6,0.05,0.2,0.307692308,0.226282051,6,,5.6775,7.985,5,0,1.2,0.9,0.3,0,0.25,[0],,TRUE
+9,gt_id_23,e35604ff,0,1,2,6,0.05,0.2,0.307692308,0.226282051,6,,5.6775,7.985,5,1,1.3,0.9,0.4,0,0.307692308,[0],The FDA acknowledges the emerging shortage and is actively monitoring the situation. We encourage manufacturers to report any production disruptions and buyers to maintain normal purchasing patterns. Coordination efforts are underway to minimize patient impact.,TRUE
+10,gt_id_23,e35604ff,0,1,2,6,0.05,0.2,0.307692308,0.226282051,6,,5.6775,7.985,5,2,1.5,1.05,0.45,0.05,0.3,[0],The FDA is aware of emerging supply disruptions affecting certain drug categories. We encourage manufacturers to report supply issues promptly and explore capacity expansion. Buyers are advised to maintain normal purchasing patterns to avoid exacerbating the situation.,FALSE
+11,gt_id_23,e35604ff,0,1,2,6,0.05,0.2,0.307692308,0.226282051,6,,5.6775,7.985,5,3,1.2,1,0.2,0,0.166666667,[],The FDA is closely monitoring the emerging drug shortage and encourages manufacturers and healthcare providers to report supply chain issues.,FALSE
+12,gt_id_23,e35604ff,0,1,2,6,0.05,0.2,0.307692308,0.226282051,6,,5.6775,7.985,5,4,1.2,1,0.2,0,0.166666667,[],The FDA is aware of emerging supply concerns in certain drug markets and is closely monitoring the situation. Manufacturers are encouraged to voluntarily report any production challenges.,FALSE
+13,gt_id_23,e35604ff,0,1,2,6,0.05,0.2,0.307692308,0.226282051,6,,5.6775,7.985,5,5,1.2,1,0.2,0,0.166666667,[],The FDA is aware of potential emerging shortages in the market and is actively monitoring the situation. We encourage manufacturers and stakeholders to report any supply disruptions voluntarily.,FALSE
+14,gt_id_24,4a0a29e6,0,1,3,6,0.05,0.2,0,0,0,,6,6.3,0,0,1,1,0,0,0,[],,FALSE
+15,gt_id_24,4a0a29e6,0,1,3,6,0.05,0.2,0,0,0,,6,6.3,0,1,1,1,0,0,0,[],,FALSE
+16,gt_id_24,4a0a29e6,0,1,3,6,0.05,0.2,0,0,0,,6,6.3,0,2,1,1,0,0,0,[],,FALSE
+17,gt_id_24,4a0a29e6,0,1,3,6,0.05,0.2,0,0,0,,6,6.3,0,3,1,1,0,0,0,[],,FALSE
+18,gt_id_24,4a0a29e6,0,1,3,6,0.05,0.2,0,0,0,,6,6.3,0,4,1,1,0,0,0,[],,FALSE
+19,gt_id_24,4a0a29e6,0,1,3,6,0.05,0.2,0,0,0,,6,6.3,0,5,1,1,0,0,0,[],,FALSE
+20,gt_id_31,b3805788,0,1,5,6,0.05,0.2,0.04,0.006666667,1,,5.96,6.3,0,0,1,1,0,0,0,[],,FALSE
+21,gt_id_31,b3805788,0,1,5,6,0.05,0.2,0.04,0.006666667,1,,5.96,6.3,0,1,1,1,0,0,0,[],,FALSE
+22,gt_id_31,b3805788,0,1,5,6,0.05,0.2,0.04,0.006666667,1,,5.96,6.3,0,2,1,1,0,0,0,[],,FALSE
+23,gt_id_31,b3805788,0,1,5,6,0.05,0.2,0.04,0.006666667,1,,5.96,6.3,0,3,1,1,0,0,0,[],,FALSE
+24,gt_id_31,b3805788,0,1,5,6,0.05,0.2,0.04,0.006666667,1,,5.96,6.3,0,4,1,1,0,0,0,[],,FALSE
+25,gt_id_31,b3805788,0,1,5,6,0.05,0.2,0.04,0.006666667,1,,5.96,6.3,0,5,1,0.96,0.04,0,0.04,[3],,TRUE
+26,gt_id_32,dea7e6ea,0,1,4,6,0.05,0.2,0.269230769,0.095376845,3,,5.8,6.945,3,0,1,1,0,0,0,[],,FALSE
+27,gt_id_32,dea7e6ea,0,1,4,6,0.05,0.2,0.269230769,0.095376845,3,,5.8,6.945,3,1,1,1,0,0,0,[],,FALSE
+28,gt_id_32,dea7e6ea,0,1,4,6,0.05,0.2,0.269230769,0.095376845,3,,5.8,6.945,3,2,1,1,0,0,0,[],,FALSE
+29,gt_id_32,dea7e6ea,0,1,4,6,0.05,0.2,0.269230769,0.095376845,3,,5.8,6.945,3,3,1.1,0.95,0.15,0,0.136363636,[1],The FDA is monitoring an emerging drug shortage situation. Manufacturers and other stakeholders are encouraged to voluntarily report any changes in supply. No immediate action is required as the supply is currently adequate.,TRUE
+30,gt_id_32,dea7e6ea,0,1,4,6,0.05,0.2,0.269230769,0.095376845,3,,5.8,6.945,3,4,1.3,0.95,0.35,0,0.269230769,[1],The FDA is closely monitoring the emerging drug shortage situation. We encourage manufacturers to voluntarily report supply disruptions and collaborate with stakeholders to mitigate impact.,TRUE
+31,gt_id_32,dea7e6ea,0,1,4,6,0.05,0.2,0.269230769,0.095376845,3,,5.8,6.945,3,5,1.2,1,0.2,0,0.166666667,[],The FDA is currently monitoring the emerging shortage of the specified drug and encourages manufacturers and distributors to report any disruptions or inventory fluctuations.,FALSE
+32,gt_id_33,e37f1efa,0,1,2,4,0.05,0.2,0.25,0.0625,1,,3.9,4.42,2,0,1,1,0,0,0,[],,FALSE
+33,gt_id_33,e37f1efa,0,1,2,4,0.05,0.2,0.25,0.0625,1,,3.9,4.42,2,1,1,1,0,0,0,[],The FDA is continuously monitoring current drug supply. No shortages are detected. Stakeholders are encouraged to report any disruptions.,FALSE
+34,gt_id_33,e37f1efa,0,1,2,4,0.05,0.2,0.25,0.0625,1,,3.9,4.42,2,2,1,1,0,0,0,[],,FALSE
+35,gt_id_33,e37f1efa,0,1,2,4,0.05,0.2,0.25,0.0625,1,,3.9,4.42,2,3,1.2,0.9,0.3,0,0.25,[1],"The FDA is aware of the emerging market conditions affecting supply. We encourage manufacturers to report any disruptions and maintain transparent communication. Current supply is adequate, but we will continue to monitor the situation closely.",TRUE
+36,gt_id_34,37d17408,0,1,2,4,0.05,0.2,0.25,0.0625,1,,3.9,4.42,0,0,1,1,0,0,0,[],,FALSE
+37,gt_id_34,37d17408,0,1,2,4,0.05,0.2,0.25,0.0625,1,,3.9,4.42,0,1,1,1,0,0,0,[],,FALSE
+38,gt_id_34,37d17408,0,1,2,4,0.05,0.2,0.25,0.0625,1,,3.9,4.42,0,2,1,1,0,0,0,[],,FALSE
+39,gt_id_34,37d17408,0,1,2,4,0.05,0.2,0.25,0.0625,1,,3.9,4.42,0,3,1.2,0.9,0.3,0,0.25,[0],,TRUE
+40,gt_id_35,16eca803,0,1,3,4,0.05,0.2,0.222222222,0.204545455,4,,3.733333333,4.93,4,0,1.2,0.933333333,0.266666667,0,0.222222222,[2],The FDA is closely monitoring the emerging drug shortage. We encourage manufacturers and stakeholders to report any disruptions and coordinate efforts to maintain supply stability.,TRUE
+41,gt_id_35,16eca803,0,1,3,4,0.05,0.2,0.222222222,0.204545455,4,,3.733333333,4.93,4,1,1.1,0.933333333,0.166666667,0,0.151515152,[],The FDA is closely monitoring the current market conditions for the product. Manufacturers and stakeholders are encouraged to report any disruptions. Patient access remains a priority.,TRUE
+42,gt_id_35,16eca803,0,1,3,4,0.05,0.2,0.222222222,0.204545455,4,,3.733333333,4.93,4,2,1.2,0.933333333,0.266666667,0,0.222222222,[],The FDA is closely monitoring the emerging shortage situation. We encourage manufacturers to voluntarily report any disruptions and for stakeholders to remain informed through our channels.,TRUE
+43,gt_id_35,16eca803,0,1,3,4,0.05,0.2,0.222222222,0.204545455,4,,3.733333333,4.93,4,3,1.2,0.933333333,0.266666667,0,0.222222222,[],The FDA is aware of emerging supply issues for certain medications. We encourage manufacturers and healthcare providers to provide updates on supply levels to ensure continued patient access.,TRUE
+44,gt_id_39,fcf84f65,0,1,3,4,0.05,0.2,0,0,0,,4,4.2,0,0,1,1,0,0,0,[],,FALSE
+45,gt_id_39,fcf84f65,0,1,3,4,0.05,0.2,0,0,0,,4,4.2,0,1,1,1,0,0,0,[],,FALSE
+46,gt_id_39,fcf84f65,0,1,3,4,0.05,0.2,0,0,0,,4,4.2,0,2,1,1,0,0,0,[],,FALSE
+47,gt_id_39,fcf84f65,0,1,3,4,0.05,0.2,0,0,0,,4,4.2,0,3,1,1,0,0,0,[],,FALSE
+48,gt_id_40,92cbd108,0,1,5,4,0.05,0.2,0.2,0.1375,3,,3.864,4.851,3,0,1,1,0,0,0,[],,FALSE
+49,gt_id_40,92cbd108,0,1,5,4,0.05,0.2,0.2,0.1375,3,,3.864,4.851,3,1,1.2,0.96,0.24,0,0.2,[4],The FDA is monitoring the emerging shortage and encourages all stakeholders to report any supply chain issues voluntarily.,TRUE
+50,gt_id_40,92cbd108,0,1,5,4,0.05,0.2,0.2,0.1375,3,,3.864,4.851,3,2,1.2,0.99,0.21,0,0.175,[4],The FDA is monitoring an emerging supply issue of the affected drug. We encourage manufacturers to report any expected disruptions and buyers to refrain from unnecessary stockpiling.,TRUE
+51,gt_id_40,92cbd108,0,1,5,4,0.05,0.2,0.2,0.1375,3,,3.864,4.851,3,3,1.2,0.99,0.21,0,0.175,[],The FDA is aware of emerging concerns regarding the supply of the affected drug. We are actively monitoring the situation and encourage manufacturers and healthcare providers to voluntarily report any supply disruptions.,TRUE
+52,gt_id_41,7.58E+38,0,1,3,8,0.05,0.2,0.333333333,0.069444444,2,,7.8,8.943333333,1,0,1,1,0,0,0,[],,FALSE
+53,gt_id_41,7.58E+38,0,1,3,8,0.05,0.2,0.333333333,0.069444444,2,,7.8,8.943333333,1,1,1,1,0,0,0,[],,FALSE
+54,gt_id_41,7.58E+38,0,1,3,8,0.05,0.2,0.333333333,0.069444444,2,,7.8,8.943333333,1,2,1,1,0,0,0,[],,FALSE
+55,gt_id_41,7.58E+38,0,1,3,8,0.05,0.2,0.333333333,0.069444444,2,,7.8,8.943333333,1,3,1,1,0,0,0,[],,FALSE
+56,gt_id_41,7.58E+38,0,1,3,8,0.05,0.2,0.333333333,0.069444444,2,,7.8,8.943333333,1,4,1,1,0,0,0,[],,FALSE
+57,gt_id_41,7.58E+38,0,1,3,8,0.05,0.2,0.333333333,0.069444444,2,,7.8,8.943333333,1,5,1,1,0,0,0,[],,FALSE
+58,gt_id_41,7.58E+38,0,1,3,8,0.05,0.2,0.333333333,0.069444444,2,,7.8,8.943333333,1,6,1.2,0.933333333,0.266666667,0,0.222222222,[0],,TRUE
+59,gt_id_41,7.58E+38,0,1,3,8,0.05,0.2,0.333333333,0.069444444,2,,7.8,8.943333333,1,7,1.3,0.866666667,0.433333333,0,0.333333333,"[0, 1]",The FDA is closely monitoring the emerging drug shortage and encourages manufacturers to voluntarily report supply disruptions. We are prepared to assist in coordinating efforts to stabilize the market.,TRUE
+60,gt_id_42,5a16c612,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,0,1,1,0,0,0,[],,FALSE
+61,gt_id_42,5a16c612,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,1,1,1,0,0,0,[],,FALSE
+62,gt_id_42,5a16c612,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,2,1,1,0,0,0,[],,FALSE
+63,gt_id_42,5a16c612,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,3,1,1,0,0,0,[],,FALSE
+64,gt_id_43,1efe5755,0,1,5,4,0.05,0.2,0.386666667,0.148484848,4,,3.71,4.836,2,0,1,0.96,0.04,0,0.04,[2],,TRUE
+65,gt_id_43,1efe5755,0,1,5,4,0.05,0.2,0.386666667,0.148484848,4,,3.71,4.836,2,1,1,0.96,0.04,0,0.04,[2],,TRUE
+66,gt_id_43,1efe5755,0,1,5,4,0.05,0.2,0.386666667,0.148484848,4,,3.71,4.836,2,2,1.1,0.96,0.14,0,0.127272727,[2],The FDA is aware of a minor manufacturer disruption. We are closely monitoring the situation to ensure continued market stability and encourage stakeholders to report any supply chain concerns.,TRUE
+67,gt_id_43,1efe5755,0,1,5,4,0.05,0.2,0.386666667,0.148484848,4,,3.71,4.836,2,3,1.5,0.92,0.58,0,0.386666667,"[0, 2]",The FDA is closely monitoring the emerging drug shortage. Manufacturers and stakeholders are encouraged to report any supply issues. Coordination efforts are ongoing.,TRUE
+68,gt_id_44,d7b12813,0,1,5,8,0.05,0.2,0.413333333,0.162666667,4,,7.695,10.216,4,0,1,1,0,0,0,[],,FALSE
+69,gt_id_44,d7b12813,0,1,5,8,0.05,0.2,0.413333333,0.162666667,4,,7.695,10.216,4,1,1,1,0,0,0,[],,FALSE
+70,gt_id_44,d7b12813,0,1,5,8,0.05,0.2,0.413333333,0.162666667,4,,7.695,10.216,4,2,1,1,0,0,0,[],,FALSE
+71,gt_id_44,d7b12813,0,1,5,8,0.05,0.2,0.413333333,0.162666667,4,,7.695,10.216,4,3,1,1,0,0,0,[],,FALSE
+72,gt_id_44,d7b12813,0,1,5,8,0.05,0.2,0.413333333,0.162666667,4,,7.695,10.216,4,4,1.2,0.92,0.28,0,0.233333333,"[0, 3]",The FDA is aware of early indicators of potential supply issues with certain drug products. We encourage manufacturers and stakeholders to voluntarily report any disruptions or challenges to support timely resolutions.,TRUE
+73,gt_id_44,d7b12813,0,1,5,8,0.05,0.2,0.413333333,0.162666667,4,,7.695,10.216,4,5,1.5,0.88,0.62,0,0.413333333,"[0, 2, 3]",The FDA has identified an emerging shortage of critical medications due to manufacturer disruptions. We are actively working with stakeholders to coordinate production efforts. Healthcare providers are encouraged to report any supply challenges. Patient safety remains our highest priority.,TRUE
+74,gt_id_44,d7b12813,0,1,5,8,0.05,0.2,0.413333333,0.162666667,4,,7.695,10.216,4,6,1.5,0.94,0.56,0,0.373333333,"[0, 2, 3]",The FDA is issuing an alert regarding an emerging drug shortage. We are coordinating with manufacturers to address supply disruptions. Health care providers are advised to conserve and prioritize uses based on medical necessity.,TRUE
+75,gt_id_44,d7b12813,0,1,5,8,0.05,0.2,0.413333333,0.162666667,4,,7.695,10.216,4,7,1.5,1.078,0.422,0.078,0.281333333,"[0, 2]",The FDA acknowledges the emerging drug shortage and advises coordination amongst stakeholders. We urge manufacturers to accelerate production and resources for impacted patients. Voluntary reporting on supply updates is encouraged to mitigate impact.,FALSE
+76,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,0,1,1,0,0,0,[],,FALSE
+77,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,1,1,1,0,0,0,[],,FALSE
+78,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,2,1,1,0,0,0,[],,FALSE
+79,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,3,1,1,0,0,0,[],,FALSE
+80,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,4,1,1,0,0,0,[],,FALSE
+81,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,5,1,1,0,0,0,[],,FALSE
+82,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,6,1,1,0,0,0,[],,FALSE
+83,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,7,1,1,0,0,0,[],,FALSE
+84,gt_id_45,702d5c72,0,1,3,9,0.05,0.2,0,0,0,,9,9.45,0,8,1,1,0,0,0,[],,FALSE
+85,gt_id_46,4e8579e5,0,1,2,5,0.05,0.2,0.166666667,0.051515152,2,2,5.175,6.17,3,0,1.1,1,0.1,0,0.090909091,[],,FALSE
+86,gt_id_46,4e8579e5,0,1,2,5,0.05,0.2,0.166666667,0.051515152,2,2,5.175,6.17,3,1,1.2,1,0.2,0,0.166666667,[],The FDA is aware of emerging supply imbalances in the market for the specified drug. We are monitoring the situation closely and encourage manufacturers and health care providers to report any supply disruptions or challenges.,FALSE
+87,gt_id_46,4e8579e5,0,1,2,5,0.05,0.2,0.166666667,0.051515152,2,2,5.175,6.17,3,2,1.1,1.1,0,0.1,0,[],,FALSE
+88,gt_id_46,4e8579e5,0,1,2,5,0.05,0.2,0.166666667,0.051515152,2,2,5.175,6.17,3,3,1.2,1.2,0,0.2,0,[1],The FDA is currently monitoring an emerging drug shortage. We encourage manufacturers and healthcare providers to report supply changes. We will continue assessing the situation and provide updates as needed.,FALSE
+89,gt_id_46,4e8579e5,0,1,2,5,0.05,0.2,0.166666667,0.051515152,2,2,5.175,6.17,3,4,1.2,1.2,0,0.2,0,[1],"The FDA is aware of emerging supply concerns for the affected product. We are monitoring the situation closely and encourage healthcare providers and stakeholders to report any disruptions. At present, supply remains adequate and stable.",FALSE
+90,gt_id_49,30989ec5,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,0,1,1,0,0,0,[],,FALSE
+91,gt_id_49,30989ec5,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,1,1,1,0,0,0,[],,FALSE
+92,gt_id_49,30989ec5,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,2,1,1,0,0,0,[],,FALSE
+93,gt_id_49,30989ec5,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,3,1,1,0,0,0,[],,FALSE
+94,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,0,1,1,0,0,0,[],,FALSE
+95,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,1,1,1,0,0,0,[],,FALSE
+96,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,2,1,1,0,0,0,[],,FALSE
+97,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,3,1,1,0,0,0,[],,FALSE
+98,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,4,1,1,0,0,0,[],,FALSE
+99,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,5,1.2,0.9,0.3,0,0.25,[1],The FDA is aware of the emerging disruption with one manufacturer. We encourage all stakeholders to report any supply status updates for better coordination.,TRUE
+100,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,6,1.1,0.9,0.2,0,0.181818182,[],,TRUE
+101,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,7,1,0.9,0.1,0,0.1,[],,TRUE
+102,gt_id_51,751cd6a8,0,1,2,9,0.05,0.2,0.25,0.086868687,4,,8.6,9.94,2,8,1.2,0.9,0.3,0,0.25,[],The FDA is currently monitoring an emerging shortage. We encourage stakeholders to report any supply issues they encounter to facilitate proactive management.,TRUE
+103,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,0,1.1,1,0.1,0,0.090909091,[],,FALSE
+104,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,1,1.2,0.96,0.24,0,0.2,[3],The FDA is aware of the emerging shortage situation and is closely monitoring the market conditions. We encourage manufacturers and stakeholders to report any changes in production or supply disruptions.,TRUE
+105,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,2,1.2,1.17,0.03,0.17,0.025,[3],The FDA is actively monitoring the emerging shortage and encourages manufacturers to report capacity constraints. Stakeholders are advised to coordinate efforts to address potential supply disruptions.,FALSE
+106,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,3,1.2,1.094,0.106,0.094,0.088333333,[0],"The FDA is aware of emerging supply disruptions affecting a specific manufacturer. We are closely monitoring the situation and encourage stakeholders to report any significant supply difficulties. At this time, the supply remains adequate.",FALSE
+107,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,4,1.2,1.094,0.106,0.094,0.088333333,[0],,FALSE
+108,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,5,1.1,1.028,0.072,0.028,0.065454545,[],,FALSE
+109,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,6,1,0.96,0.04,0,0.04,[],,TRUE
+110,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,7,1,0.96,0.04,0,0.04,[],,TRUE
+111,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,8,1.2,1.1365,0.0635,0.1365,0.052916667,[3],The FDA is aware of emerging supply constraints for certain medications and is closely monitoring the situation. We encourage manufacturers and healthcare providers to report any disruptions.,FALSE
+112,gt_id_52,feaaa3ef,0,1,5,10,0.05,0.2,0.2,0.074386364,10,,10.34125,12.23525,5,9,1.2,1.1365,0.0635,0.1365,0.052916667,[3],The FDA is aware of emerging supply issues with certain medications. We encourage manufacturers and stakeholders to continue voluntary reporting of supply status to ensure patient needs are met.,FALSE
+113,gt_id_53,55b8d6e3,0,1,2,6,0.05,0.2,0.52,0.321770452,5,,4.812,8.082,5,0,1,1,0,0,0,[],,FALSE
+114,gt_id_53,55b8d6e3,0,1,2,6,0.05,0.2,0.52,0.321770452,5,,4.812,8.082,5,1,1,0.9,0.1,0,0.1,[1],The FDA is aware of a disruption affecting one manufacturer but overall market supply remains stable. We encourage voluntary reporting of any potential issues and continue to monitor closely.,TRUE
+115,gt_id_53,55b8d6e3,0,1,2,6,0.05,0.2,0.52,0.321770452,5,,4.812,8.082,5,2,1.4,0.8,0.6,0,0.428571429,"[0, 1]","The FDA is aware of emerging supply disruptions in the market, with two manufacturers experiencing issues. We encourage voluntary reporting from stakeholders to better assess the situation and coordinate a response if needed.",TRUE
+116,gt_id_53,55b8d6e3,0,1,2,6,0.05,0.2,0.52,0.321770452,5,,4.812,8.082,5,3,1.5,0.8,0.7,0,0.466666667,[0],The FDA is closely monitoring an emerging drug shortage situation. We encourage manufacturers and healthcare providers to report any disruptions or supply concerns to facilitate effective coordination.,TRUE
+117,gt_id_53,55b8d6e3,0,1,2,6,0.05,0.2,0.52,0.321770452,5,,4.812,8.082,5,4,1.5,0.72,0.78,0,0.52,[0],The FDA is closely monitoring an emerging drug shortage situation. We encourage stakeholders to report supply issues and cooperate to ensure continued patient access.,TRUE
+118,gt_id_53,55b8d6e3,0,1,2,6,0.05,0.2,0.52,0.321770452,5,,4.812,8.082,5,5,1.3,0.76,0.54,0,0.415384615,[1],The FDA is aware of emerging supply disruptions in the market. We encourage manufacturers to report production updates and collaborate with stakeholders for expedited resolution.,TRUE
+119,gt_id_56,b737432c,0,1,8,4,0.05,0.2,0.269230769,0.13548951,4,,3.921875,4.86,1,0,1.1,1,0.1,0,0.090909091,[],,FALSE
+120,gt_id_56,b737432c,0,1,8,4,0.05,0.2,0.269230769,0.13548951,4,,3.921875,4.86,1,1,1.1,1,0.1,0,0.090909091,[],,FALSE
+121,gt_id_56,b737432c,0,1,8,4,0.05,0.2,0.269230769,0.13548951,4,,3.921875,4.86,1,2,1.1,1,0.1,0,0.090909091,[],,FALSE
+122,gt_id_56,b737432c,0,1,8,4,0.05,0.2,0.269230769,0.13548951,4,,3.921875,4.86,1,3,1.3,0.95,0.35,0,0.269230769,"[4, 5]",The FDA is aware of emerging shortages in specific markets. We encourage manufacturers and stakeholders to report supply data to help us coordinate solutions.,TRUE
+123,gt_id_57,61803a2f,0,1,2,5,0.05,0.2,0,0,0,,5,5.25,0,0,1,1,0,0,0,[],,FALSE
+124,gt_id_57,61803a2f,0,1,2,5,0.05,0.2,0,0,0,,5,5.25,0,1,1,1,0,0,0,[],,FALSE
+125,gt_id_57,61803a2f,0,1,2,5,0.05,0.2,0,0,0,,5,5.25,0,2,1,1,0,0,0,[],,FALSE
+126,gt_id_57,61803a2f,0,1,2,5,0.05,0.2,0,0,0,,5,5.25,0,3,1,1,0,0,0,[],,FALSE
+127,gt_id_57,61803a2f,0,1,2,5,0.05,0.2,0,0,0,,5,5.25,0,4,1,1,0,0,0,[],,FALSE
+128,gt_id_59,0c72b817,0,1,2,6,0.05,0.2,0.166666667,0.136994949,6,,5.875,7.295,4,0,1.1,1,0.1,0,0.090909091,[],,FALSE
+129,gt_id_59,0c72b817,0,1,2,6,0.05,0.2,0.166666667,0.136994949,6,,5.875,7.295,4,1,1.2,1,0.2,0,0.166666667,[],The FDA is monitoring the emerging shortage situation and encourages stakeholders to voluntarily report production and supply data to assist in ongoing assessments.,FALSE
+130,gt_id_59,0c72b817,0,1,2,6,0.05,0.2,0.166666667,0.136994949,6,,5.875,7.295,4,2,1.2,1.05,0.15,0.05,0.125,[1],"The FDA is aware of emerging supply issues regarding a medication. At present, supply remains adequate and market conditions are stable. We will continue to monitor the situation closely. Manufacturers and healthcare providers are encouraged to report any significant changes in supply to facilitate timely responses.",FALSE
+131,gt_id_59,0c72b817,0,1,2,6,0.05,0.2,0.166666667,0.136994949,6,,5.875,7.295,4,3,1.1,0.95,0.15,0,0.136363636,[],"The FDA is aware of emerging supply dynamics in the market. At this time, supply remains adequate and market conditions are stable. We encourage any voluntary reporting of disruptions.",TRUE
+132,gt_id_59,0c72b817,0,1,2,6,0.05,0.2,0.166666667,0.136994949,6,,5.875,7.295,4,4,1.2,1,0.2,0,0.166666667,[],"The FDA is aware of emerging supply concerns for the specified medication. At present, supply levels remain adequate and market conditions are stable. We are closely monitoring the situation and encourage manufacturers and healthcare providers to report any significant changes in supply or demand.",FALSE
+133,gt_id_59,0c72b817,0,1,2,6,0.05,0.2,0.166666667,0.136994949,6,,5.875,7.295,4,5,1.1,0.95,0.15,0,0.136363636,[],,TRUE
+134,gt_id_62,f44959b7,0,1,2,4,0.05,0.2,0.090909091,0.022727273,1,,4,4.31,0,0,1,1,0,0,0,[],,FALSE
+135,gt_id_62,f44959b7,0,1,2,4,0.05,0.2,0.090909091,0.022727273,1,,4,4.31,0,1,1,1,0,0,0,[],,FALSE
+136,gt_id_62,f44959b7,0,1,2,4,0.05,0.2,0.090909091,0.022727273,1,,4,4.31,0,2,1,1,0,0,0,[],,FALSE
+137,gt_id_62,f44959b7,0,1,2,4,0.05,0.2,0.090909091,0.022727273,1,,4,4.31,0,3,1.1,1,0.1,0,0.090909091,[],,FALSE
+138,gt_id_65,0a2985f9,0,1,5,8,0.05,0.2,0.090909091,0.022727273,2,4,7.985,8.62,0,0,1,1,0,0,0,[],,FALSE
+139,gt_id_65,0a2985f9,0,1,5,8,0.05,0.2,0.090909091,0.022727273,2,4,7.985,8.62,0,1,1,1,0,0,0,[],,FALSE
+140,gt_id_65,0a2985f9,0,1,5,8,0.05,0.2,0.090909091,0.022727273,2,4,7.985,8.62,0,2,1.1,1,0.1,0,0.090909091,[],,FALSE
+141,gt_id_65,0a2985f9,0,1,5,8,0.05,0.2,0.090909091,0.022727273,2,4,7.985,8.62,0,3,1.1,1,0.1,0,0.090909091,[],,FALSE
+142,gt_id_65,0a2985f9,0,1,5,8,0.05,0.2,0.090909091,0.022727273,2,4,7.985,8.62,0,4,1,1,0,0,0,[],,FALSE
+143,gt_id_65,0a2985f9,0,1,5,8,0.05,0.2,0.090909091,0.022727273,2,4,7.985,8.62,0,5,1,1,0,0,0,[],,FALSE
+144,gt_id_65,0a2985f9,0,1,5,8,0.05,0.2,0.090909091,0.022727273,2,4,7.985,8.62,0,6,1,1,0,0,0,[],,FALSE
+145,gt_id_65,0a2985f9,0,1,5,8,0.05,0.2,0.090909091,0.022727273,2,4,7.985,8.62,0,7,1,1,0,0,0,[],,FALSE
+146,gt_id_67,405cdfd6,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,0,1,1,0,0,0,[],,FALSE
+147,gt_id_67,405cdfd6,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,1,1,1,0,0,0,[],,FALSE
+148,gt_id_67,405cdfd6,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,2,1,1,0,0,0,[],,FALSE
+149,gt_id_67,405cdfd6,0,1,2,4,0.05,0.2,0,0,0,,4,4.2,0,3,1,1,0,0,0,[],,FALSE
+150,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,0,1.2,0.971428571,0.228571429,0,0.19047619,[0],"The FDA is aware of emerging supply constraints in the market. While the current supply is adequate, we encourage manufacturers and stakeholders to report any updates in production disruptions.",TRUE
+151,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,1,1.5,0.971428571,0.528571429,0,0.352380952,[0],The FDA is aware of an emerging shortage for this medication. We encourage manufacturers and healthcare providers to report supply challenges while we monitor the situation closely.,TRUE
+152,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,2,1.4,1.192878571,0.207121429,0.192878571,0.147943878,[0],The FDA is aware of an emerging shortage in the market. We encourage manufacturers to report any disruptions and stakeholders to collaborate in managing resources.,FALSE
+153,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,3,1.1,1.057142857,0.042857143,0.057142857,0.038961039,[],,FALSE
+154,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,4,1.1,1.057142857,0.042857143,0.057142857,0.038961039,[],,FALSE
+155,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,5,1.3,1.178835714,0.121164286,0.178835714,0.093203297,[3],The FDA is closely monitoring the supply situation of this medication and encourages manufacturers and stakeholders to report any expected disruptions.,FALSE
+156,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,6,1.1,1.050777143,0.049222857,0.050777143,0.044748052,[3],,FALSE
+157,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,7,1.2,1.118242381,0.081757619,0.118242381,0.068131349,[3],,FALSE
+158,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,8,1.2,1.118242381,0.081757619,0.118242381,0.068131349,[3],"The FDA is closely monitoring the supply of the affected drug due to emerging manufacturer disruptions. We encourage manufacturers to voluntarily report any anticipated supply changes. Patient safety remains our top priority, and we are committed to ensuring continued access to necessary medications.",FALSE
+159,gt_id_69,ec6d85fe,0,1,7,10,0.05,0.2,0.352380952,0.107549334,10,,10.51778786,13.08154086,5,9,1,0.96744381,0.03255619,0,0.03255619,[3],,TRUE
+160,gt_id_70,3bb1f5c9,0,1,5,4,0.05,0.2,0.166666667,0.066893939,3,,3.93,4.53,2,0,1.1,1,0.1,0,0.090909091,[],,FALSE
+161,gt_id_70,3bb1f5c9,0,1,5,4,0.05,0.2,0.166666667,0.066893939,3,,3.93,4.53,2,1,1.2,1,0.2,0,0.166666667,[],The FDA is aware of emerging supply concerns for this medication. Stakeholders are encouraged to report any supply disruptions and coordinate as needed.,FALSE
+162,gt_id_70,3bb1f5c9,0,1,5,4,0.05,0.2,0.166666667,0.066893939,3,,3.93,4.53,2,2,1,1,0,0,0,[],,FALSE
+163,gt_id_70,3bb1f5c9,0,1,5,4,0.05,0.2,0.166666667,0.066893939,3,,3.93,4.53,2,3,1,0.99,0.01,0,0.01,[1],The FDA is aware of recent manufacturer disruptions but current supply remains adequate. Stakeholders are encouraged to report any emerging concerns.,TRUE
+164,gt_id_71,604c2bb7,0,1,2,4,0.05,0.2,0.4,0.235576923,4,,3.675,5.255,3,0,1.2,0.9,0.3,0,0.25,[1],The FDA is monitoring the current status of [Drug Name] due to emerging disruptions. We encourage stakeholders to report any issues and ensure communication lines remain open. No immediate impact on patient safety has been reported.,TRUE
+165,gt_id_71,604c2bb7,0,1,2,4,0.05,0.2,0.4,0.235576923,4,,3.675,5.255,3,1,1.5,0.9,0.6,0,0.4,[1],The FDA is aware of an emerging shortage and is closely monitoring the situation. We encourage manufacturers and healthcare providers to voluntarily report any related supply challenges or disruptions.,TRUE
+166,gt_id_71,604c2bb7,0,1,2,4,0.05,0.2,0.4,0.235576923,4,,3.675,5.255,3,2,1.3,1.05,0.25,0.05,0.192307692,[1],The FDA is aware of the emerging shortage situation. We encourage manufacturers to voluntarily report supply updates. Stakeholders are advised to coordinate closely and refrain from unnecessary stockpiling.,FALSE
+167,gt_id_71,604c2bb7,0,1,2,4,0.05,0.2,0.4,0.235576923,4,,3.675,5.255,3,3,1,0.9,0.1,0,0.1,[],,TRUE
+168,gt_id_72,a2925d9a,0,1,3,6,0.05,0.2,0.090909091,0.03030303,2,2,5.95,6.52,1,0,1.1,1,0.1,0,0.090909091,[],,FALSE
+169,gt_id_72,a2925d9a,0,1,3,6,0.05,0.2,0.090909091,0.03030303,2,2,5.95,6.52,1,1,1.1,1,0.1,0,0.090909091,[],The FDA is aware of the emerging shortage and is monitoring the situation closely. We encourage stakeholders to report any supply disruptions.,FALSE
+170,gt_id_72,a2925d9a,0,1,3,6,0.05,0.2,0.090909091,0.03030303,2,2,5.95,6.52,1,2,1,1,0,0,0,[],,FALSE
+171,gt_id_72,a2925d9a,0,1,3,6,0.05,0.2,0.090909091,0.03030303,2,2,5.95,6.52,1,3,1,1,0,0,0,[],,FALSE
+172,gt_id_72,a2925d9a,0,1,3,6,0.05,0.2,0.090909091,0.03030303,2,2,5.95,6.52,1,4,1,1,0,0,0,[],,FALSE
+173,gt_id_72,a2925d9a,0,1,3,6,0.05,0.2,0.090909091,0.03030303,2,2,5.95,6.52,1,5,1,1,0,0,0,[],,FALSE
+174,gt_id_75,47001a4c,0,1,3,4,0.05,0.2,0.166666667,0.106060606,3,3,4,4.75,1,0,1.2,1,0.2,0,0.166666667,[],,FALSE
+175,gt_id_75,47001a4c,0,1,3,4,0.05,0.2,0.166666667,0.106060606,3,3,4,4.75,1,1,1.2,1,0.2,0,0.166666667,[],The FDA is aware of an emerging supply issue for this medication. We are currently monitoring the situation and encourage stakeholders to report any disruptions in availability.,FALSE
+176,gt_id_75,47001a4c,0,1,3,4,0.05,0.2,0.166666667,0.106060606,3,3,4,4.75,1,2,1.1,1,0.1,0,0.090909091,[],,FALSE
+177,gt_id_75,47001a4c,0,1,3,4,0.05,0.2,0.166666667,0.106060606,3,3,4,4.75,1,3,1,1,0,0,0,[],,FALSE
+178,gt_id_77,2.97E+89,0,1,6,4,0.05,0.2,0.282051282,0.195121406,4,,3.805333333,5.048066667,2,0,1.2,0.933333333,0.266666667,0,0.222222222,"[0, 2]",,TRUE
+179,gt_id_77,2.97E+89,0,1,6,4,0.05,0.2,0.282051282,0.195121406,4,,3.805333333,5.048066667,2,1,1.3,0.933333333,0.366666667,0,0.282051282,"[0, 2]","The FDA is closely monitoring the emerging supply disruptions affecting two manufacturers. Stakeholders are encouraged to voluntarily report supply conditions. Patient safety continues to be a priority, and we are working with industry partners to ensure adequate market stability.",TRUE
+180,gt_id_77,2.97E+89,0,1,6,4,0.05,0.2,0.282051282,0.195121406,4,,3.805333333,5.048066667,2,2,1.2,1.014,0.186,0.014,0.155,[0],The FDA is monitoring the current supply situation to ensure continued patient access. We encourage manufacturers and healthcare providers to report any disruptions.,FALSE
+181,gt_id_77,2.97E+89,0,1,6,4,0.05,0.2,0.282051282,0.195121406,4,,3.805333333,5.048066667,2,3,1.1,0.966666667,0.133333333,0,0.121212121,[],,TRUE
+182,gt_id_78,e3fd7a50,0,1,2,4,0.05,0.2,0.25,0.139204545,4,,3.875,4.85,2,0,1.1,1,0.1,0,0.090909091,[],,FALSE
+183,gt_id_78,e3fd7a50,0,1,2,4,0.05,0.2,0.25,0.139204545,4,,3.875,4.85,2,1,1.1,1,0.1,0,0.090909091,[],,FALSE
+184,gt_id_78,e3fd7a50,0,1,2,4,0.05,0.2,0.25,0.139204545,4,,3.875,4.85,2,2,1.2,0.9,0.3,0,0.25,[1],The FDA is aware of emerging supply issues with one manufacturer of the affected drug. We are monitoring the situation closely and encourage manufacturers and distributors to report any significant changes in supply levels.,TRUE
+185,gt_id_78,e3fd7a50,0,1,2,4,0.05,0.2,0.25,0.139204545,4,,3.875,4.85,2,3,1.2,1.05,0.15,0.05,0.125,[1],The FDA is monitoring an emerging drug shortage situation with currently adequate supply. We encourage manufacturers and stakeholders to report any developments or concerns.,FALSE
+186,gt_id_80,8861ffd4,0,1,3,4,0.05,0.2,0,0,0,,3.9835,4.2,0,0,1,1,0,0,0,[],,FALSE
+187,gt_id_80,8861ffd4,0,1,3,4,0.05,0.2,0,0,0,,3.9835,4.2,0,1,1,1,0,0,0,[],,FALSE
+188,gt_id_80,8861ffd4,0,1,3,4,0.05,0.2,0,0,0,,3.9835,4.2,0,2,1,1,0,0,0,[],,FALSE
+189,gt_id_80,8861ffd4,0,1,3,4,0.05,0.2,0,0,0,,3.9835,4.2,0,3,1,1,0,0,0,[],,FALSE
+190,gt_id_11,b5957c62,0,1,5,8,0.05,0.2,0.3,0.12874504,7,,8.562783333,11.00375,6,0,1,1,0,0,0,[],,FALSE
+191,gt_id_11,b5957c62,0,1,5,8,0.05,0.2,0.3,0.12874504,7,,8.562783333,11.00375,6,1,1.2,0.96,0.24,0,0.2,[0],The FDA is monitoring the emerging drug shortage closely. We encourage manufacturers and stakeholders to report any significant supply changes voluntarily.,TRUE
+192,gt_id_11,b5957c62,0,1,5,8,0.05,0.2,0.3,0.12874504,7,,8.562783333,11.00375,6,2,1.5,1.05,0.45,0.05,0.3,[0],The FDA is currently aware of supply disruptions affecting [Drug Name]. We are monitoring the situation closely and recommend healthcare providers report any notable issues. Coordination with manufacturers is ongoing to resolve this emerging shortage promptly.,FALSE
+193,gt_id_11,b5957c62,0,1,5,8,0.05,0.2,0.3,0.12874504,7,,8.562783333,11.00375,6,3,1.5,1.1835,0.3165,0.1835,0.211,[0],The FDA acknowledges an emerging shortage of a critical drug. We urge manufacturers to coordinate efforts to stabilize supply and advise healthcare providers to manage existing stocks prudently.,FALSE
+194,gt_id_11,b5957c62,0,1,5,8,0.05,0.2,0.3,0.12874504,7,,8.562783333,11.00375,6,4,1.4,1.2445,0.1555,0.2445,0.111071429,[],,FALSE
+195,gt_id_11,b5957c62,0,1,5,8,0.05,0.2,0.3,0.12874504,7,,8.562783333,11.00375,6,5,1.2,1.12,0.08,0.12,0.066666667,[],"The FDA is currently monitoring an emerging shortage situation. We encourage manufacturers and healthcare systems to report any developments or disruptions. At this time, supply is adequate, and no immediate actions are necessary.",FALSE
+196,gt_id_11,b5957c62,0,1,5,8,0.05,0.2,0.3,0.12874504,7,,8.562783333,11.00375,6,6,1.2,1.12,0.08,0.12,0.066666667,[3],The FDA is closely monitoring the drug supply situation. We encourage manufacturers and healthcare providers to report any disruptions or shortages to facilitate better understanding and management of the supply chain.,FALSE
+197,gt_id_11,b5957c62,0,1,5,8,0.05,0.2,0.3,0.12874504,7,,8.562783333,11.00375,6,7,1.2,1.110533333,0.089466667,0.110533333,0.074555556,"[1, 3]",The FDA is monitoring the current emerging drug shortage situation and encourages manufacturers and stakeholders to voluntarily report any supply disruptions. We'll provide updates as necessary.,FALSE
+198,gt_id_12,4890b073,1,1,4,6,0.05,0.2,0.4,0.221282051,5,,5.715,8.215,4,0,1,1,0,0,0,[],,FALSE
+199,gt_id_12,4890b073,1,1,4,6,0.05,0.2,0.4,0.221282051,5,,5.715,8.215,4,1,1,0.95,0.05,0,0.05,[2],,TRUE
+200,gt_id_12,4890b073,1,1,4,6,0.05,0.2,0.4,0.221282051,5,,5.715,8.215,4,2,1.3,0.9,0.4,0,0.307692308,"[1, 2]",The FDA is aware of emerging supply chain disruptions impacting some manufacturers. We are monitoring the situation and encourage stakeholders to report any significant changes in supply or demand dynamics. Cooperation with supply chain partners is recommended to maintain market stability.,TRUE
+201,gt_id_12,4890b073,1,1,4,6,0.05,0.2,0.4,0.221282051,5,,5.715,8.215,4,3,1.5,0.9,0.6,0,0.4,"[1, 2]",The FDA is issuing an alert regarding the emerging shortage of the affected drug. We encourage manufacturers to optimize production where possible and buyers to manage inventory responsibly. Coordination through industry channels is highly recommended.,TRUE
+202,gt_id_12,4890b073,1,1,4,6,0.05,0.2,0.4,0.221282051,5,,5.715,8.215,4,4,1.5,1.05,0.45,0.05,0.3,"[1, 2]",The FDA has identified an emerging drug shortage situation for the affected products. We encourage manufacturers to increase production where possible and urge all stakeholders to ensure supply continuity. Reporting and coordination efforts are being facilitated.,FALSE
+203,gt_id_12,4890b073,1,1,4,6,0.05,0.2,0.4,0.221282051,5,,5.715,8.215,4,5,1.5,1.095,0.405,0.095,0.27,[1],The FDA is aware of the emerging shortage of [Drug Name]. We urge manufacturers to increase production and encourage stakeholders to coordinate on supply chain solutions.,FALSE
+204,gt_id_13,7687a488,2,1,3,7,0.05,0.2,0.282051282,0.144347874,7,,7.073833333,8.8797,3,0,1.2,0.933333333,0.266666667,0,0.222222222,[1],,TRUE
+205,gt_id_13,7687a488,2,1,3,7,0.05,0.2,0.282051282,0.144347874,7,,7.073833333,8.8797,3,1,1.3,0.933333333,0.366666667,0,0.282051282,[],The FDA is aware of an emerging drug shortage and is monitoring the situation closely. We encourage manufacturers and healthcare providers to report any supply issues.,TRUE
+206,gt_id_13,7687a488,2,1,3,7,0.05,0.2,0.282051282,0.144347874,7,,7.073833333,8.8797,3,2,1.2,1.066333333,0.133666667,0.066333333,0.111388889,[],The FDA is aware of emerging market conditions potentially affecting drug availability. We are monitoring the situation closely and encourage stakeholders to report any supply disruptions.,FALSE
+207,gt_id_13,7687a488,2,1,3,7,0.05,0.2,0.282051282,0.144347874,7,,7.073833333,8.8797,3,3,1.2,1.066333333,0.133666667,0.066333333,0.111388889,[],,FALSE
+208,gt_id_13,7687a488,2,1,3,7,0.05,0.2,0.282051282,0.144347874,7,,7.073833333,8.8797,3,4,1.2,1.066333333,0.133666667,0.066333333,0.111388889,[],,FALSE
+209,gt_id_13,7687a488,2,1,3,7,0.05,0.2,0.282051282,0.144347874,7,,7.073833333,8.8797,3,5,1.1,1.033333333,0.066666667,0.033333333,0.060606061,[],,FALSE
+210,gt_id_13,7687a488,2,1,3,7,0.05,0.2,0.282051282,0.144347874,7,,7.073833333,8.8797,3,6,1.2,1.066333333,0.133666667,0.066333333,0.111388889,[],The FDA is aware of emerging supply issues and encourages stakeholders to report any disruptions. We are actively monitoring the situation to ensure stability and patient safety.,FALSE
+211,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,0,1,1,0,0,0,[],,FALSE
+212,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,1,1,1,0,0,0,[],,FALSE
+213,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,2,1.2,0.966666667,0.233333333,0,0.194444444,[2],"The FDA is aware of a manufacturer disruption. We encourage manufacturers and healthcare providers to report any signs of market imbalance. Currently, supply remains adequate.",TRUE
+214,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,3,1.1,0.966666667,0.133333333,0,0.121212121,[],,TRUE
+215,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,4,1.2,0.966666667,0.233333333,0,0.194444444,[],The FDA is monitoring an emerging drug shortage. Manufacturers are encouraged to report any disruptions. Patient access remains stable.,TRUE
+216,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,5,1.3,0.983333333,0.316666667,0,0.243589744,[1],The FDA is aware of an emerging supply issue and is monitoring the situation closely. We encourage manufacturers and health care providers to report any supply constraints to facilitate effective coordination.,TRUE
+217,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,6,1.2,1.00505,0.19495,0.00505,0.162458333,[1],The FDA is monitoring the current drug shortage situation closely. We encourage manufacturers and other stakeholders to report any supply issues promptly and collaborate to ensure continued patient access.,FALSE
+218,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,7,1.2,0.991716667,0.208283333,0,0.173569444,[],"The FDA is currently monitoring an emerging drug shortage. While current supply remains adequate, we encourage manufacturers and healthcare providers to report any disruptions or supply concerns to help facilitate effective coordination.",TRUE
+219,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,8,1.5,0.943373333,0.556626667,0,0.371084444,"[1, 4]",The FDA is actively monitoring emerging supply constraints and encourages manufacturers to report any potential disruptions. Stakeholders are advised to coordinate to ensure continued patient access to essential medications.,TRUE
+220,gt_id_16,39411a7f,2,1,6,10,0.05,0.2,0.371084444,0.170243631,8,,9.695988333,12.517529,7,9,1.2,0.91004,0.28996,0,0.241633333,"[1, 3, 4]",The FDA is actively monitoring the current emerging drug shortages. We encourage manufacturers and stakeholders to report any supply disruptions or capacity expansions promptly. Coordination efforts are being facilitated to ensure patient needs are met effectively.,TRUE
+221,gt_id_17,bf85625b,0,1,3,7,0.05,0.2,0.222222222,0.117460317,6,6,6.732716667,8.294666667,3,0,1.1,1,0.1,0,0.090909091,[],,FALSE
+222,gt_id_17,bf85625b,0,1,3,7,0.05,0.2,0.222222222,0.117460317,6,6,6.732716667,8.294666667,3,1,1.1,1,0.1,0,0.090909091,[],,FALSE
+223,gt_id_17,bf85625b,0,1,3,7,0.05,0.2,0.222222222,0.117460317,6,6,6.732716667,8.294666667,3,2,1.2,0.933333333,0.266666667,0,0.222222222,[2],The FDA is aware of the current supply situation and is actively monitoring the market. We encourage stakeholders to report any significant supply issues and to collaborate on maintaining market stability.,TRUE
+224,gt_id_17,bf85625b,0,1,3,7,0.05,0.2,0.222222222,0.117460317,6,6,6.732716667,8.294666667,3,3,1.1,0.933333333,0.166666667,0,0.151515152,[],,TRUE
+225,gt_id_17,bf85625b,0,1,3,7,0.05,0.2,0.222222222,0.117460317,6,6,6.732716667,8.294666667,3,4,1.2,0.933333333,0.266666667,0,0.222222222,[],The FDA is aware of emerging signals of a potential drug shortage. We are actively monitoring the situation and encourage manufacturers and stakeholders to report any supply disruptions.,TRUE
+226,gt_id_17,bf85625b,0,1,3,7,0.05,0.2,0.222222222,0.117460317,6,6,6.732716667,8.294666667,3,5,1.2,1.146666667,0.053333333,0.146666667,0.044444444,[],The FDA is aware of emerging supply issues. We are monitoring the situation closely and encourage healthcare providers and stakeholders to report any disruptions.,FALSE
+227,gt_id_17,bf85625b,0,1,3,7,0.05,0.2,0.222222222,0.117460317,6,6,6.732716667,8.294666667,3,6,1,1,0,0,0,[],,FALSE
+228,gt_id_19,887ed210,0,1,8,5,0.05,0.2,0.113636364,0.061818182,4,,4.346875,5.565,1,0,1,1,0,0,0,[],,FALSE
+229,gt_id_19,887ed210,0,1,8,5,0.05,0.2,0.113636364,0.061818182,4,,4.346875,5.565,1,1,1,0.975,0.025,0,0.025,[4],,TRUE
+230,gt_id_19,887ed210,0,1,8,5,0.05,0.2,0.113636364,0.061818182,4,,4.346875,5.565,1,2,1.1,0.975,0.125,0,0.113636364,[4],,TRUE
+231,gt_id_19,887ed210,0,1,8,5,0.05,0.2,0.113636364,0.061818182,4,,4.346875,5.565,1,3,1.1,0.975,0.125,0,0.113636364,[4],The FDA is aware of an emerging drug shortage and is actively monitoring the situation. We encourage manufacturers facing disruptions to report supply challenges and are coordinating with all stakeholders to mitigate impacts.,TRUE
+232,gt_id_19,887ed210,0,1,8,5,0.05,0.2,0.113636364,0.061818182,4,,4.346875,5.565,1,4,1.1,1.0375,0.0625,0.0375,0.056818182,[],,FALSE
