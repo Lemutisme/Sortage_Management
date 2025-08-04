@@ -8,4 +8,4 @@ gt_evaluation/
 data/FDA_final.csv
 .vscode/
 *.csvdata/experiments_logs
-
+*.csv
