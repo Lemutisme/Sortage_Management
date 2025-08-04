@@ -1,8 +1,3 @@
-# File: config_web.py
-"""
-Web-specific configuration management
-"""
-
 import os
 from pathlib import Path
 

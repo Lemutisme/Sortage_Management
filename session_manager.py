@@ -1,8 +1,3 @@
-# File: session_manager.py
-"""
-Session and simulation lifecycle management
-"""
-
 import time
 import threading
 from typing import Dict, Optional

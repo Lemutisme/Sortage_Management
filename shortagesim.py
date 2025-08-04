@@ -1,9 +1,3 @@
-# File: web_server.py
-"""
-Flask-SocketIO Web Server for ShortageSim
-Integrates the existing simulation framework with the web interface
-"""
-
 import asyncio
 
 import sys
