@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 
 from config_web import WebConfig
-from web_server import WebSimulationCoordinator
+from shortagesim import WebSimulationCoordinator
 
 @dataclass
 class SimulationSession:

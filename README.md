@@ -37,19 +37,18 @@ pip install -r requirements.txt
 export OPENAI_API_KEY="your-api-key-here"
 
 # Or add your key to keys/openai.txt
-```
 
-### Quick Test
-
-```bash
 # Run setup test to verify installation
 python src/test_setup.py
-
-# Run a single example simulation
-python src/main.py
 ```
 
 ## 🎮 Usage
+
+### 🔗 Test on Our Web Interface!
+
+```
+python shortagesim.py
+```
 
 ### Running Experiments
 
