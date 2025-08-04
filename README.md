@@ -31,25 +31,26 @@ ShortageSim addresses these challenges by simulating realistic agent behaviors a
 cd Sortage_Management
 
 # Install dependencies
+conda create -n ShortageSim python=3.12
+conda activate ShortageSim
 pip install -r requirements.txt
 
-# Set up your OpenAI API key
+# Set up your OpenAI API key in Terminal or add your key to keys/openai.txt
 export OPENAI_API_KEY="your-api-key-here"
 
-# Or add your key to keys/openai.txt
-```
-
-### Quick Test
-
-```bash
 # Run setup test to verify installation
 python src/test_setup.py
-
-# Run a single example simulation
-python src/main.py
 ```
 
 ## 🎮 Usage
+
+### 🔗 Test on Our Web Interface!
+
+```
+python shortagesim.py
+```
+
+![Web]()
 
 ### Running Experiments
 
@@ -70,7 +71,7 @@ python src/main.py policy
 
 ## 🏗️ System Architecture
 
-![System Architecture](figures/system_overview.png)
+![System Architecture](figures/system_overview.png "System Architecture")
 
 ### Core Components
 
