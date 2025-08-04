@@ -7,4 +7,5 @@ gt_evaluation/
 .venv/
 data/FDA_final.csv
 .vscode/
-*.csv
+*.csvdata/experiments_logs
+
