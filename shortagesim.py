@@ -376,6 +376,6 @@ if __name__ == '__main__':
     templates_dir.mkdir(exist_ok=True)
     
     print("Starting ShortageSim Web Server...")
-    print("Access the interface at: http://localhost:5000")
+    print("Access the interface at: http://localhost:5001")
     
-    socketio.run(app, debug=True, host='0.0.0.0', port=5000)
+    socketio.run(app, debug=True, host='0.0.0.0', port=5001)
