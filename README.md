@@ -50,7 +50,7 @@ python src/test_setup.py
 python shortagesim.py
 ```
 
-![Web]()
+![Web](figures/shortagesim_web.png)
 
 ### Running Experiments
 
