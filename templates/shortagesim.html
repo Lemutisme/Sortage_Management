@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortageSim - Agent Decision Analysis</title>
+    
+    <!-- Socket.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 30px;
+            min-height: 800px;
+        }
+        
+        .left-panel {
+            flex: 0 0 350px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        
+        .right-panel {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #34495e;
+            font-size: 14px;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+        
+        .simulation-status {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .status-idle {
+            border-left: 5px solid #95a5a6;
+        }
+        
+        .status-running {
+            border-left: 5px solid #f39c12;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-completed {
+            border-left: 5px solid #27ae60;
+        }
+        
+        .status-error {
+            border-left: 5px solid #e74c3c;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .agent-timeline {
+            flex: 1;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        
+        .period-container {
+            margin-bottom: 40px;
+            border: 1px solid #e0e6ed;
+            border-radius: 15px;
+            background: white;
+            overflow: hidden;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .period-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .period-summary {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e6ed;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        
+        .metric-box {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .metric-value {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .metric-label {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-top: 4px;
+        }
+        
+        .shortage-high {
+            color: #e74c3c;
+        }
+        
+        .shortage-medium {
+            color: #f39c12;
+        }
+        
+        .shortage-low {
+            color: #27ae60;
+        }
+        
+        .agent-decisions {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .agent-section {
+            border-bottom: 1px solid #e0e6ed;
+        }
+        
+        .agent-section:last-child {
+            border-bottom: none;
+        }
+        
+        .agent-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .agent-header:hover {
+            background: #e9ecef;
+        }
+        
+        .agent-header.fda {
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .agent-header.manufacturer {
+            border-left: 4px solid #f39c12;
+        }
+        
+        .agent-header.buyer {
+            border-left: 4px solid #27ae60;
+        }
+        
+        .agent-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .expand-icon.expanded {
+            transform: rotate(90deg);
+        }
+        
+        .agent-content {
+            padding: 20px;
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .agent-content.expanded {
+            max-height: 1000px;
+        }
+        
+        .decision-summary {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .decision-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .decision-value {
+            font-size: 1.1em;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+        
+        .confidence-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .confidence-high {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .confidence-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .confidence-low {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .reasoning-section {
+            margin-top: 20px;
+        }
+        
+        .reasoning-title {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        
+        .reasoning-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #495057;
+            border-left: 3px solid #6c757d;
+        }
+        
+        .reasoning-item {
+            margin-bottom: 12px;
+        }
+        
+        .reasoning-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .reasoning-label {
+            font-weight: 600;
+            color: #343a40;
+            display: inline-block;
+            min-width: 120px;
+        }
+        
+        .fda-announcement {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-weight: 500;
+            box-shadow: 0 4px 8px rgba(238, 90, 36, 0.3);
+        }
+        
+        .fda-announcement::before {
+            content: '📢 ';
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #ecf0f1;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.error {
+            background: #e74c3c;
+        }
+        
+        .notification.warning {
+            background: #f39c12;
+        }
+        
+        .debug-info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-family: monospace;
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+        }
+        
+        .empty-state-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        .manufacturer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .manufacturer-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .manufacturer-id {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        
+        .manufacturer-stats {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .tab:hover {
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-pills"></i> ShortageSim</h1>
+            <p>Agent Decision Analysis & Reasoning Explorer</p>
+        </div>
+        
+        <div class="main-content">
+            <!-- Left Panel: Configuration -->
+            <div class="left-panel">
+                <div class="simulation-status status-idle" id="simulationStatus">
+                    <h4>Status: <span id="statusText">Ready</span></h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="statusDetail">Configure and run simulation</p>
+                </div>
+                
+                <div class="debug-info" id="debugInfo">
+                    Socket.IO: Loading...
+                </div>
+                
+                <div class="section">
+                    <h3><i class="fas fa-cogs"></i> Market Parameters</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Manufacturers</label>
+                            <input type="number" id="nManufacturers" value="4" min="2" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label>Periods</label>
+                            <input type="number" id="nPeriods" value="4" min="1" max="12">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Disruption Prob</label>
+                            <input type="number" id="disruptionProb" value="0.05" min="0" max="1" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label>Disruption Magnitude</label>
+                            <input type="number" id="disruptionMagnitude" value="0.2" min="0" max="1" step="0.1">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="forceDisruption" style="width: auto; margin-right: 8px;">
+                            Start with disruption
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3><i class="fas fa-dollar-sign"></i> Economics</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Unit Profit</label>
+                            <input type="number" id="unitProfit" value="1.0" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label>Capacity Cost</label>
+                            <input type="number" id="capacityCost" value="0.5" step="0.1">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3><i class="fas fa-robot"></i> LLM Settings</h3>
+                    <div class="form-group">
+                        <label>Model</label>
+                        <select id="llmModel">
+                            <option value="gpt-4o">GPT-4o</option>
+                            <option value="gpt-4">GPT-4</option>
+                            <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Temperature</label>
+                        <input type="number" id="temperature" value="0.3" min="0" max="2" step="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>API Key (Optional)</label>
+                        <input type="password" id="apiKey" placeholder="Mock responses if empty">
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <button class="btn" id="runButton" onclick="runSimulation()">
+                        <i class="fas fa-play"></i>
+                        <span id="runButtonText">Run Simulation</span>
+                    </button>
+                    <button class="btn btn-secondary" id="stopButton" onclick="stopSimulation()" disabled>
+                        <i class="fas fa-stop"></i>
+                        Stop
+                    </button>
+                    <button class="btn btn-danger" onclick="resetSimulation()">
+                        <i class="fas fa-redo"></i>
+                        Reset
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Right Panel: Agent Analysis -->
+            <div class="right-panel">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('timeline')">
+                        <i class="fas fa-clock"></i> Agent Timeline
+                    </button>
+                    <button class="tab" onclick="switchTab('summary')">
+                        <i class="fas fa-chart-bar"></i> Summary
+                    </button>
+                    <button class="tab" onclick="switchTab('reasoning')">
+                        <i class="fas fa-brain"></i> Reasoning Analysis
+                    </button>
+                </div>
+                
+                <div class="agent-timeline" id="agentTimeline">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Agent Decisions Will Appear Here</h3>
+                        <p>Run a simulation to see detailed agent reasoning, decisions, and interactions in real-time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        <span id="notificationText"></span>
+    </div>
+    
+    <script>
+        // Global variables
+        let socket, sessionId = null, simulationRunning = false;
+        let periodData = [];
+        
+        // Debug and initialization
+        function updateDebugInfo() {
+            const info = [
+                `Socket.IO: ${typeof io !== 'undefined' ? '✅' : '❌'}`,
+                `Connection: ${socket && socket.connected ? '✅' : '⏳'}`
+            ];
+            document.getElementById('debugInfo').innerHTML = info.join(' | ');
+        }
+        
+        // Initialize socket connection
+        function initializeSocket() {
+            if (typeof io === 'undefined') {
+                showNotification('Socket.IO not available', 'error');
+                return;
+            }
+            
+            socket = io();
+            
+            socket.on('connect', () => {
+                showNotification('Connected to server', 'success');
+                updateDebugInfo();
+            });
+            
+            socket.on('session_created', (data) => {
+                sessionId = data.session_id;
+                console.log('Session created:', sessionId);
+            });
+            
+            socket.on('simulation_status', (data) => {
+                if (data.session_id === sessionId) {
+                    updateStatus(data.status, data.detail, data.progress);
+                }
+            });
+            
+            socket.on('period_completed', (data) => {
+                if (data.session_id === sessionId) {
+                    periodData.push(data);
+                    addPeriodData(data.period, data.data);
+                }
+            });
+            
+            socket.on('simulation_results', (data) => {
+                if (data.session_id === sessionId) {
+                    simulationRunning = false;
+                    updateButtonStates();
+                    showNotification('Simulation completed! Explore agent decisions above.', 'success');
+                    displayFinalResults(data.results);
+                }
+            });
+            
+            socket.on('simulation_error', (data) => {
+                if (data.session_id === sessionId) {
+                    simulationRunning = false;
+                    updateButtonStates();
+                    showNotification('Simulation Error: ' + data.error, 'error');
+                }
+            });
+        }
+        
+        // Main simulation functions
+        function runSimulation() {
+            if (simulationRunning || !sessionId) return;
+            
+            const config = {
+                n_manufacturers: parseInt(document.getElementById('nManufacturers').value),
+                n_periods: parseInt(document.getElementById('nPeriods').value),
+                disruption_probability: parseFloat(document.getElementById('disruptionProb').value),
+                disruption_magnitude: parseFloat(document.getElementById('disruptionMagnitude').value),
+                force_disruption: document.getElementById('forceDisruption').checked,
+                unit_profit: parseFloat(document.getElementById('unitProfit').value),
+                capacity_cost: parseFloat(document.getElementById('capacityCost').value),
+                llm_model: document.getElementById('llmModel').value,
+                temperature: parseFloat(document.getElementById('temperature').value),
+                api_key: document.getElementById('apiKey').value || null
+            };
+            
+            socket.emit('run_simulation', {
+                session_id: sessionId,
+                config: config
+            });
+            
+            simulationRunning = true;
+            updateButtonStates();
+            clearTimeline();
+        }
+        
+        function stopSimulation() {
+            if (!simulationRunning) return;
+            socket.emit('stop_simulation', { session_id: sessionId });
+        }
+        
+        function resetSimulation() {
+            stopSimulation();
+            simulationRunning = false;
+            updateButtonStates();
+            periodData = [];
+            clearTimeline();
+            updateStatus('idle', 'Ready to run simulation', 0);
+        }
+        
+        // UI helper functions
+        function updateStatus(status, detail, progress) {
+            document.getElementById('simulationStatus').className = `simulation-status status-${status}`;
+            document.getElementById('statusText').textContent = status.charAt(0).toUpperCase() + status.slice(1);
+            document.getElementById('statusDetail').textContent = detail;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        
+        function updateButtonStates() {
+            const runButton = document.getElementById('runButton');
+            const stopButton = document.getElementById('stopButton');
+            const runButtonText = document.getElementById('runButtonText');
+            
+            if (simulationRunning) {
+                runButton.disabled = true;
+                stopButton.disabled = false;
+                runButtonText.innerHTML = '<div class="loading-spinner"></div> Running...';
+            } else {
+                runButton.disabled = false;
+                stopButton.disabled = true;
+                runButtonText.innerHTML = '<i class="fas fa-play"></i> Run Simulation';
+            }
+        }
+        
+        function clearTimeline() {
+            document.getElementById('agentTimeline').innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="fas fa-cog fa-spin"></i>
+                    </div>
+                    <h3>Simulation Running...</h3>
+                    <p>Agent decisions and reasoning will appear here as the simulation progresses.</p>
+                </div>
+            `;
+        }
+        
+        function addPeriodData(period, data) {
+            const timeline = document.getElementById('agentTimeline');
+            
+            // Remove empty state if this is the first period
+            if (period === 0) {
+                timeline.innerHTML = '';
+            }
+            
+            const periodContainer = document.createElement('div');
+            periodContainer.className = 'period-container';
+            
+            // Determine shortage severity
+            let shortageClass = 'shortage-low';
+            if (data.shortage_percentage > 0.2) shortageClass = 'shortage-high';
+            else if (data.shortage_percentage > 0.1) shortageClass = 'shortage-medium';
+            
+            periodContainer.innerHTML = `
+                <div class="period-header">
+                    <i class="fas fa-calendar-day"></i> Period ${period + 1}
+                    <span style="float: right; font-size: 0.9em;">
+                        ${new Date().toLocaleTimeString()}
+                    </span>
+                </div>
+                
+                <div class="period-summary">
+                    <div class="metric-box">
+                        <div class="metric-value">${data.total_demand?.toFixed(2) || '1.00'}</div>
+                        <div class="metric-label">Total Demand</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">${data.total_supply?.toFixed(2) || '1.00'}</div>
+                        <div class="metric-label">Total Supply</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value ${shortageClass}">${(data.shortage_percentage * 100)?.toFixed(1) || '0.0'}%</div>
+                        <div class="metric-label">Shortage</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">${data.disrupted_manufacturers?.length || 0}</div>
+                        <div class="metric-label">Disrupted Mfrs</div>
+                    </div>
+                </div>
+                
+                ${data.fda_announcement ? `<div class="fda-announcement">${data.fda_announcement}</div>` : ''}
+                
+                <div class="agent-decisions">
+                    ${createFDASection(data.agent_decisions?.fda)}
+                    ${createManufacturerSection(data.agent_decisions?.manufacturers)}
+                    ${createBuyerSection(data.agent_decisions?.buyer)}
+                </div>
+            `;
+            
+            timeline.appendChild(periodContainer);
+            timeline.scrollTop = timeline.scrollHeight;
+            
+            // Add click handlers for expanding sections
+            periodContainer.querySelectorAll('.agent-header').forEach(header => {
+                header.addEventListener('click', () => toggleAgentSection(header));
+            });
+        }
+        
+        function createFDASection(fdaDecision) {
+            if (!fdaDecision) return '';
+            
+            const announcementType = fdaDecision.announcement_type || 'none';
+            const reasoning = fdaDecision.reasoning || 'No detailed reasoning provided';
+            const confidence = fdaDecision.confidence || 'unknown';
+            
+            return `
+                <div class="agent-section">
+                    <div class="agent-header fda">
+                        <div>
+                            <span class="agent-icon">🏛️</span>
+                            <strong>FDA Regulator</strong>
+                            <span class="confidence-badge confidence-${confidence}">${confidence} confidence</span>
+                        </div>
+                        <i class="fas fa-chevron-right expand-icon"></i>
+                    </div>
+                    <div class="agent-content">
+                        <div class="decision-summary">
+                            <div class="decision-title">Regulatory Decision</div>
+                            <div class="decision-value">
+                                ${announcementType === 'none' ? 'No public announcement' : `${announcementType.toUpperCase()} announcement issued`}
+                            </div>
+                        </div>
+                        
+                        <div class="reasoning-section">
+                            <div class="reasoning-title">🧠 FDA Reasoning Process</div>
+                            <div class="reasoning-content">
+                                ${typeof reasoning === 'object' ? 
+                                    Object.entries(reasoning).map(([key, value]) => 
+                                        `<div class="reasoning-item">
+                                            <span class="reasoning-label">${key.replace(/_/g, ' ').toUpperCase()}:</span>
+                                            ${value}
+                                        </div>`
+                                    ).join('') :
+                                    `<div class="reasoning-item">${reasoning}</div>`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function createManufacturerSection(manufacturers) {
+            if (!manufacturers || manufacturers.length === 0) {
+                return `
+                    <div class="agent-section">
+                        <div class="agent-header manufacturer">
+                            <div>
+                                <span class="agent-icon">🏭</span>
+                                <strong>Manufacturers</strong>
+                                <span style="color: #666; font-size: 0.9em;">No decision data</span>
+                            </div>
+                            <i class="fas fa-chevron-right expand-icon"></i>
+                        </div>
+                        <div class="agent-content">
+                            <p style="color: #666; font-style: italic;">No manufacturer decision data available for this period.</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            const totalInvestment = manufacturers.reduce((sum, m) => sum + (m.investment || 0), 0);
+            const activeInvestors = manufacturers.filter(m => m.investment > 0).length;
+            
+            return `
+                <div class="agent-section">
+                    <div class="agent-header manufacturer">
+                        <div>
+                            <span class="agent-icon">🏭</span>
+                            <strong>Manufacturers (${manufacturers.length})</strong>
+                            <span style="color: #666; font-size: 0.9em;">${activeInvestors} investing</span>
+                        </div>
+                        <i class="fas fa-chevron-right expand-icon"></i>
+                    </div>
+                    <div class="agent-content">
+                        <div class="decision-summary">
+                            <div class="decision-title">Investment Summary</div>
+                            <div class="decision-value">
+                                Total investment: ${totalInvestment.toFixed(3)} capacity units
+                            </div>
+                        </div>
+                        
+                        <div class="manufacturer-grid">
+                            ${manufacturers.map(mfr => `
+                                <div class="manufacturer-card">
+                                    <div class="manufacturer-id">Manufacturer ${mfr.id}</div>
+                                    <div class="manufacturer-stats">
+                                        <strong>Investment:</strong> ${(mfr.investment * 100).toFixed(1)}%<br>
+                                        <strong>Reasoning:</strong> ${mfr.reasoning?.substring(0, 80) || 'No reasoning provided'}${mfr.reasoning?.length > 80 ? '...' : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        ${manufacturers[0]?.reasoning ? `
+                            <div class="reasoning-section">
+                                <div class="reasoning-title">🧠 Example Manufacturer Reasoning (Mfr ${manufacturers[0].id})</div>
+                                <div class="reasoning-content">
+                                    <div class="reasoning-item">${manufacturers[0].reasoning}</div>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function createBuyerSection(buyerDecision) {
+            if (!buyerDecision) return '';
+            
+            const demandQuantity = buyerDecision.demand_quantity || 1.0;
+            const reasoning = buyerDecision.reasoning || 'No detailed reasoning provided';
+            const demandChange = ((demandQuantity - 1.0) * 100).toFixed(1);
+            const demandDirection = demandChange > 0 ? 'increased' : demandChange < 0 ? 'decreased' : 'maintained';
+            
+            return `
+                <div class="agent-section">
+                    <div class="agent-header buyer">
+                        <div>
+                            <span class="agent-icon">🏥</span>
+                            <strong>Healthcare Buyers</strong>
+                            <span style="color: #666; font-size: 0.9em;">${demandDirection} demand</span>
+                        </div>
+                        <i class="fas fa-chevron-right expand-icon"></i>
+                    </div>
+                    <div class="agent-content">
+                        <div class="decision-summary">
+                            <div class="decision-title">Procurement Decision</div>
+                            <div class="decision-value">
+                                Order quantity: ${demandQuantity.toFixed(2)} units 
+                                <span style="color: ${demandChange > 0 ? '#e74c3c' : demandChange < 0 ? '#27ae60' : '#6c757d'};">
+                                    (${demandChange > 0 ? '+' : ''}${demandChange}% vs baseline)
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="reasoning-section">
+                            <div class="reasoning-title">🧠 Buyer Reasoning Process</div>
+                            <div class="reasoning-content">
+                                ${typeof reasoning === 'object' ? 
+                                    Object.entries(reasoning).map(([key, value]) => 
+                                        `<div class="reasoning-item">
+                                            <span class="reasoning-label">${key.replace(/_/g, ' ').toUpperCase()}:</span>
+                                            ${value}
+                                        </div>`
+                                    ).join('') :
+                                    `<div class="reasoning-item">${reasoning}</div>`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function toggleAgentSection(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.expand-icon');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+                icon.classList.add('expanded');
+            }
+        }
+        
+        function displayFinalResults(results) {
+            // Could add a summary view here
+            console.log('Final results received:', results);
+        }
+        
+        function switchTab(tabName) {
+            // Tab switching functionality could be implemented here
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (tabName === 'summary') {
+                showNotification('Summary view coming soon!', 'warning');
+            } else if (tabName === 'reasoning') {
+                showNotification('Reasoning analysis coming soon!', 'warning');
+            }
+        }
+        
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const text = document.getElementById('notificationText');
+            
+            text.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => notification.classList.remove('show'), 4000);
+        }
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDebugInfo();
+            setTimeout(initializeSocket, 500);
+        });
+    </script>
+</body>
+</html>

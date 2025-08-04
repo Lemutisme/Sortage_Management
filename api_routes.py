@@ -1,4 +1,3 @@
-# File: api_routes.py
 """
 Additional API routes for advanced functionality
 """
@@ -6,9 +5,10 @@ Additional API routes for advanced functionality
 from flask import Blueprint, request, jsonify, send_file
 from werkzeug.utils import secure_filename
 import pandas as pd
-from pathlib import Path
+import json
 
 from datetime import datetime
+
 from session_manager import SessionManager
 from config_web import WebConfig
 
@@ -26,7 +26,7 @@ def health_check():
 @api_bp.route('/sessions/<session_id>/status')
 def get_session_status(session_id):
     """Get detailed session status"""
-    session = session_manager.get_session(session_id)
+    session = SessionManager.get_session(session_id)
     if not session:
         return jsonify({'error': 'Session not found'}), 404
     
@@ -50,7 +50,7 @@ def upload_ground_truth():
     
     if file and file.filename.endswith('.csv'):
         filename = secure_filename(file.filename)
-        filepath = web_config.UPLOAD_FOLDER / filename
+        filepath = WebConfig.UPLOAD_FOLDER / filename
         file.save(filepath)
         
         # Validate CSV format
@@ -82,7 +82,7 @@ def run_ground_truth_experiment():
     if not filename:
         return jsonify({'error': 'Filename required'}), 400
     
-    filepath = web_config.UPLOAD_FOLDER / filename
+    filepath = WebConfig.UPLOAD_FOLDER / filename
     if not filepath.exists():
         return jsonify({'error': 'File not found'}), 404
     
@@ -94,7 +94,7 @@ def run_ground_truth_experiment():
 @api_bp.route('/results/<session_id>/download/<format>')
 def download_results(session_id, format):
     """Download simulation results in various formats"""
-    session = session_manager.get_session(session_id)
+    session = SessionManager.get_session(session_id)
     if not session or not session.results:
         return jsonify({'error': 'No results available'}), 404
     
@@ -106,7 +106,7 @@ def download_results(session_id, format):
     
     if format == 'json':
         filename = f'shortagesim_results_{session_id}_{timestamp}.json'
-        filepath = web_config.RESULTS_FOLDER / filename
+        filepath = WebConfig.RESULTS_FOLDER / filename
         
         with open(filepath, 'w') as f:
             json.dump(session.results, f, indent=2)
@@ -115,7 +115,7 @@ def download_results(session_id, format):
     
     elif format == 'csv':
         filename = f'shortagesim_results_{session_id}_{timestamp}.csv'
-        filepath = web_config.RESULTS_FOLDER / filename
+        filepath = WebConfig.RESULTS_FOLDER / filename
         
         # Convert results to DataFrame and save as CSV
         # This would need to be implemented based on your results structure
