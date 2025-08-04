@@ -1,10 +1,9 @@
 import json
 import logging
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 from abc import ABC, abstractmethod
 from datetime import datetime
 import asyncio
-import openai
 
 from configs import SimulationConfig
 

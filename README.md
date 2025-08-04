@@ -1,338 +1,192 @@
-# Drug Shortage Multi-Agent Simulation Framework
+# ShortageSim: LLM-based Multi-Agent Simulation for Drug Shortage Management
 
-A comprehensive LLM-based multi-agent simulation system for modeling pharmaceutical supply chain dynamics and evaluating FDA policy interventions during drug shortages.
+## 📋 Overview
 
-## 🎯 Overview
+ShortageSim is a comprehensive multi-agent simulation framework that models pharmaceutical supply chain dynamics during drug shortage events. By leveraging Large Language Models (LLMs) to power agent decision-making, the system captures realistic responses to regulatory signals and market conditions under information asymmetry.
 
-This framework simulates the complex interactions between manufacturers, healthcare buyers, and FDA regulators during drug shortage events. Each agent uses Large Language Models (LLMs) to make realistic decisions based on market conditions, regulatory signals, and strategic objectives.
+### 🎯 Research Motivation
 
-### Key Features
+Drug shortages regularly disrupt patient care and impose major costs on health systems worldwide. While the FDA issues alerts about potential shortages, the effectiveness of these interventions remains poorly understood due to:
 
-* **🤖 LLM-Powered Agents** : Manufacturers, buyers, and FDA regulators with realistic decision-making
-* **📊 Market Dynamics** : Supply-demand allocation, capacity investments, and disruption modeling
-* **🏛️ Policy Testing** : Compare reactive vs proactive FDA intervention strategies
-* **📈 Comprehensive Evaluation** : Track shortage resolution, costs, and stakeholder outcomes
-* **🔧 Modular Design** : Easily customizable agent behaviors and prompt templates
+* **Information Asymmetry** : FDA cannot observe individual manufacturers' inventory levels or buyers' procurement plans
+* **Strategic Behavior** : Alerts may trigger stockpiling, potentially exacerbating shortages
+* **Complex Interactions** : Multiple stakeholders with conflicting objectives
 
-## 🚀 Quick Start
+ShortageSim addresses these challenges by simulating realistic agent behaviors and evaluating policy interventions.
 
-### Installation
+## 🚀 Key Features
+
+* **🤖 LLM-Powered Agents** : Manufacturers, buyers, and FDA regulators with sophisticated decision-making
+* **📊 Realistic Market Dynamics** : Supply disruptions, capacity investments, and demand allocation
+* **🏛️ Policy Evaluation** : Test reactive vs proactive FDA intervention strategies
+* **📈 Ground Truth Validation** : Calibrated against historical FDA shortage data
+* **📝 Comprehensive Logging** : Detailed tracking of all decisions and market states
+* **🔧 Modular Architecture** : Easily extensible for new agent types and behaviors
+
+## 📦 Installation
+
+### Setup
 
 ```bash
-git clone https://github.com/Lemutisme/Sortage_Management.git
 cd Sortage_Management
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Set up your OpenAI API key
+export OPENAI_API_KEY="your-api-key-here"
+
+# Or add your key to keys/openai.txt
 ```
 
-### Basic Usage
-
-```python
-import asyncio
-from simulator import SimulationCoordinator
-from configs import SimulationConfig
-
-# Configure simulation
-config = SimulationConfig(
-    n_manufacturers=4,
-    n_periods=4, 
-    disruption_probability=0.05,
-    api_key="your-openai-api-key"  # or set environment variable
-)
-
-# Run simulation
-async def main():
-    coordinator = SimulationCoordinator(config)
-    results = await coordinator.run_simulation()
-    print(f"Peak shortage: {results['summary_metrics']['peak_shortage_percentage']:.1%}")
-
-asyncio.run(main())
-```
-
-## 📁 Repository Structure
-
-```
-drug-shortage-simulation/
-├── src/
-│   ├── simulator.py           # Main simulation coordinator
-│   ├── base.py               # Base agent framework  
-│   ├── manufacturer.py       # Manufacturer agent implementation
-│   ├── buyer.py             # Buyer consortium agent
-│   ├── fda.py               # FDA regulatory agent
-│   ├── Environment.py       # Market environment and coordination
-│   ├── configs.py           # Configuration and data structures
-│   ├── prompts.py           # Modular prompt template system
-│   └── main.py              # Example usage and testing
-├── prompts/
-│   ├── README.md            # Detailed prompt documentation
-│   └── templates/           # Individual prompt template files
-├── data/
-│   ├── FDA_final.csv        # Historical FDA shortage data
-│   └── ASHP_Detailed_data.csv # ASHP narrative reports
-├── experiments/             # Example experimental scenarios
-├── tests/                   # Unit tests and validation
-├── requirements.txt
-└── README.md
-```
-
-## 🎭 Agent Architecture
-
-Each agent follows a two-stage decision pipeline:
-
-### Stage 1: Collector & Analyst
-
-* **Input** : Raw market context and agent state
-* **Process** : Extract structured state variables using LLM
-* **Output** : JSON with market conditions and internal state
-
-### Stage 2: Decision Maker
-
-* **Input** : Structured state analysis from Stage 1
-* **Process** : Make strategic decisions using LLM reasoning
-* **Output** : JSON with decision and detailed reasoning
-
-### Agent Types
-
-| Agent                  | Role                            | Objective                           | Key Decisions              |
-| ---------------------- | ------------------------------- | ----------------------------------- | -------------------------- |
-| **Manufacturer** | Pharmaceutical company CEO      | Maximize profit while managing risk | Capacity investment levels |
-| **Buyer**        | Healthcare consortium CPO       | Ensure availability, minimize costs | Purchase quantities        |
-| **FDA**          | Regulatory shortage coordinator | Minimize patient impact             | Public announcement timing |
-
-## 🔧 LLM Integration
-
-### Supported Providers
-
-The framework supports multiple LLM providers:
-
-```python
-# OpenAI (recommended for JSON reliability)
-config = SimulationConfig(
-    llm_model="gpt-4",
-    api_key=os.getenv("OPENAI_API_KEY")
-)
-
-# Anthropic Claude
-config = SimulationConfig(
-    llm_model="claude-3-sonnet-20240229", 
-    api_key=os.getenv("ANTHROPIC_API_KEY")
-)
-
-# Azure OpenAI
-config = SimulationConfig(
-    llm_model="gpt-4",
-    api_key=os.getenv("AZURE_API_KEY"),
-    azure_endpoint="https://your-resource.openai.azure.com/"
-)
-```
-
-### Environment Variables
-
-For security, set API keys as environment variables:
+### Quick Test
 
 ```bash
-export OPENAI_API_KEY="your-key-here"
-export ANTHROPIC_API_KEY="your-key-here"
-export AZURE_API_KEY="your-key-here"
+# Run setup test to verify installation
+python src/test_setup.py
+
+# Run a single example simulation
+python src/main.py
 ```
 
-## 📝 Prompt Customization
+## 🎮 Usage
 
-### Using the Modular Prompt System
+### Running Experiments
+
+```bash
+# Single simulation with disruption
+python src/main.py
+
+# Comparative study across scenarios
+python src/main.py comparative
+
+# Ground truth validation experiments
+python src/main.py gt_experiment_dic    # For discontinued cases
+python src/main.py gt_experiment_nodic  # For non-discontinued cases
+
+# Policy effectiveness test
+python src/main.py policy
+```
+
+## 🏗️ System Architecture
+
+![System Architecture](figures/system_overview.png)
+
+### Core Components
+
+1. **Environment Module** : Manages market dynamics, disruptions, and state transitions
+2. **Agent System** : LLM-powered decision makers (manufacturers, buyers, FDA)
+3. **Information Flow** : Controls inter-agent communication and enforces information asymmetry
+4. **Simulation Controller** : Orchestrates execution and comprehensive logging
+
+### Agent Decision Pipeline
+
+Each agent follows a two-stage LLM pipeline:
+
+```
+Stage 1: Collector & Analyst
+├── Input: Raw market context and signals
+├── Process: Extract structured state via LLM
+└── Output: JSON with analyzed market conditions
+
+Stage 2: Decision Maker  
+├── Input: Structured analysis from Stage 1
+├── Process: Strategic decision-making via LLM
+└── Output: Action + detailed reasoning
+```
+
+## 📊 Market Mechanics
+
+### Disruption Modeling
+
+* **Probability** : $\lambda = 0.05$ per manufacturer per period
+* **Magnitude** : $\delta = 20\%$ capacity reduction
+* **Duration** : $U\{n\}$ periods
+* **Recovery** : Gradual capacity restoration
+
+### Supply-Demand Allocation
+
+1. Equal initial allocation: $D_t / N$ per manufacturer
+2. Disrupted firms produce: $\min(capacity, allocation)$
+3. Unfilled demand redistributed to healthy firms
+4. Market shortage calculated as: $\max(0, D_t - total\_supply)$
+
+### Agent Objectives
+
+| Agent                  | Role                  | Objective                             | Key Decisions                         |
+| ---------------------- | --------------------- | ------------------------------------- | ------------------------------------- |
+| **Manufacturer** | Pharmaceutical CEO    | Maximize profit while managing risk   | Capacity investment (0-30% expansion) |
+| **Buyer**        | Healthcare consortium | Minimize costs (purchase + stockout)  | Order quantity adjustment             |
+| **FDA**          | Regulatory agency     | Minimize shortage duration & severity | Issue public announcements            |
+
+## 📈 Evaluation Metrics
+
+### Primary Metrics
+
+1. **FDA Intervention Percentage (FIP)** : Fraction of periods with FDA announcements
+2. **Resolution-Lag Percentage (RLP)** : Timing accuracy vs ground truth
+
+$$
+RLP = 100 × (t_{sim} - t_{GT}) / t_{GT}
+$$
+
+### Performance Results
+
+| Dataset  | Avg FIP (%) | Avg RLP (%)      | Description                     |
+| -------- | ----------- | ---------------- | ------------------------------- |
+| FDA-Disc | 79.1        | **1.40**   | Discontinued manufacturer cases |
+| FDA-NR   | 37.5        | **-22.70** | No disclosed reason cases       |
+
+## 🔬 Experimental Framework
+
+### Ground Truth Validation
+
+The framework includes comprehensive validation against 51 historical FDA shortage events:
 
 ```python
-from prompts import PromptManager
+# Load ground truth data
+df = pd.read_csv("data/GT_Disc.csv")
 
-# Load prompt templates
-pm = PromptManager()
-
-# Get formatted prompts for any agent
-system_prompt, user_prompt, expected_keys = pm.get_prompt(
-    agent_type="manufacturer",  # or "buyer", "fda"
-    stage="collector_analyst",  # or "decision_maker"
-    **context_variables
+# Run validation experiments
+results = await run_gt_experiments(
+    df, 
+    n_simulations=3,      # Multiple runs per case
+    export_dir="gt_evaluation"
 )
 ```
 
-### Customizing Agent Behavior
+### Customizing Agent Behaviors
 
-Create variant prompt templates for different experimental conditions:
+Modify agent prompts in `src/prompts.py`:
 
 ```python
-# Risk-averse manufacturer
-def _manufacturer_conservative_prompts():
-    return """
-    You are a conservative pharmaceutical manufacturer.
-    Prioritize risk management over aggressive expansion.
-    Only invest in capacity when shortage risk is confirmed and high.
-    """
-
-# Aggressive buyer 
-def _buyer_aggressive_prompts():
-    return """
-    You are a proactive healthcare buyer.
-    Build significant safety stock when any shortage signals appear.
-    Patient safety is absolute priority regardless of cost.
-    """
+def get_manufacturer_prompts():
+    return {
+        "system_template": """You are the CEO of a pharmaceutical company...""",
+        "user_template": """Current market state: {market_context}...""",
+        "expected_keys": ["investment_decision", "reasoning"]
+    }
 ```
 
-### Prompt Template Structure
+## 📊 Logging and Analysis
 
-All prompts follow this consistent structure:
-
-```python
-{
-    "system_template": "Role definition and objectives",
-    "user_template": "Context + decision framework + JSON schema", 
-    "expected_keys": ["required", "json", "keys"]
-}
-```
-
-## 🧪 Experimental Scenarios
-
-### Baseline Experiments
+The framework includes comprehensive logging at multiple levels:
 
 ```python
-# Test different market structures
-configs = [
-    SimulationConfig(n_manufacturers=3),  # Concentrated market
-    SimulationConfig(n_manufacturers=5),  # Competitive market
-]
-
-# Test disruption sensitivity  
-configs = [
-    SimulationConfig(disruption_probability=0.01),  # Low disruption
-    SimulationConfig(disruption_probability=0.10),  # High disruption
-]
-```
-
-### Policy Comparisons
-
-```python
-# Compare FDA intervention strategies
-results_reactive = await run_simulation(fda_mode="reactive")
-results_proactive = await run_simulation(fda_mode="proactive")
-
-# Analyze policy effectiveness
-compare_resolution_times(results_reactive, results_proactive)
-```
-
-## 📊 Evaluation Metrics
-
-### Key Performance Indicators
-
-* **Shortage Resolution** : Time from onset to market clearing
-* **Peak Shortage Severity** : Maximum unmet demand percentage
-* **Total Economic Cost** : Buyer costs + manufacturer profits
-* **Policy Effectiveness** : Impact of FDA interventions
-
-### Analysis Functions
-
-```python
-from analysis import analyze_results, compare_scenarios
-
-# Convert results to DataFrame
-df = analyze_results(simulation_results)
-
-# Generate summary metrics
-metrics = {
-    "avg_shortage_duration": df['shortage_periods'].mean(),
-    "peak_shortage": df['shortage_pct'].max(), 
-    "total_cost": simulation_results['buyer_total_cost']
-}
-```
-
-## 🔬 Research Applications
-
-### Validation Against Historical Data
-
-```python
-# Load historical shortage events
-historical_events = load_fda_shortage_data("data/FDA_final.csv")
-
-# Run simulation with historical parameters
-for event in historical_events:
-    config = create_config_from_event(event)
-    simulated_outcome = await run_simulation(config)
-  
-    # Compare simulated vs actual resolution time
-    validate_prediction(simulated_outcome, event.actual_resolution)
-```
-
-### Policy Counterfactuals
-
-```python
-# Test "what if" scenarios
-scenarios = [
-    {"name": "No FDA Intervention", "fda_mode": "silent"},
-    {"name": "Early Warning", "fda_mode": "proactive"},  
-    {"name": "Reactive Only", "fda_mode": "reactive"}
-]
-
-# Compare outcomes across policy regimes
-results = {}
-for scenario in scenarios:
-    results[scenario["name"]] = await run_simulation(**scenario)
-  
-analyze_policy_impact(results)
+simulation_logs/
+└── session_20250102_143022/
+    ├── simulation_log.json      # Complete event log
+    ├── market_states.json       # Period-by-period states
+    ├── agent_decisions.json     # All agent decisions
+    └── summary_metrics.json     # Aggregate results
 ```
 
 ## 🤝 Contributing
 
-### Adding New Agent Types
-
-1. Inherit from `BaseAgent`
-2. Implement `collect_and_analyze()` and `decide()` methods
-3. Add prompt templates to `prompts.py`
-4. Update configuration options
-
-### Extending Market Dynamics
-
-1. Modify `Environment.calculate_market_outcome()`
-2. Add new state variables to data structures
-3. Update agent context creation
-4. Test with existing scenarios
-
-### Research Datasets
-
-We welcome contributions of:
-
-* Historical drug shortage datasets
-* Manufacturer capacity/investment data
-* FDA announcement archives
-* Validation benchmarks
-
-## 📄 Citation
-
-If you use this framework in your research, please cite:
-
-```bibtex
-@software{Sortage_Management,
-  title={Drug Shortage Multi-Agent Simulation Framework},
-  author={Clause DZ},
-  year={2025},
-  url={https://github.com/your-username/drug-shortage-simulation}
-}
-```
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](https://claude.ai/chat/LICENSE) file for details.
-
-## 🆘 Support
-
-* **Documentation** : See `/prompts/README.md` for detailed prompt engineering guide
-* **Issues** : Report bugs and feature requests via GitHub Issues
-* **Discussions** : Join our GitHub Discussions for research collaboration
-
-## 🔮 Roadmap
+We welcome contributions! Areas of particular interest:
 
 * [ ] Proactive FDA agent implementation
 * [ ] Multi-drug market extensions
 * [ ] International supply chain modeling
-* [ ] Machine learning outcome prediction
-* [ ] Real-time data integration
+* [ ] Alternative LLM backends (Claude, Llama, etc.)
 * [ ] Interactive visualization dashboard
-
----
-
-**Built for pharmaceutical supply chain research and policy analysis.**

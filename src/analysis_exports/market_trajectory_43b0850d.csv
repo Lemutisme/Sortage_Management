@@ -1,5 +1,0 @@
-period,total_demand,total_supply,shortage_amount,unsold,shortage_percentage,disrupted_manufacturers,fda_announcement
-0,1.2,0.7,0.5,0,0.4166666666666667,[0],
-1,1.3,0.7,0.6000000000000001,0,0.46153846153846156,[0],The FDA is aware of an emerging shortage due to a disruption in one manufacturer's supply. We are monitoring the situation closely. Manufacturers and supply chain partners are encouraged to provide updates and projections to facilitate resolution.
-2,1.5,0.8500000000000001,0.6499999999999999,0,0.4333333333333333,[0],The FDA is closely monitoring the current emerging shortage situation. We encourage manufacturers to report any production issues and for stakeholders to stay informed on future updates.
-3,1.5,0.8500000000000001,0.6499999999999999,0,0.4333333333333333,[0],The FDA is closely monitoring the emerging drug shortage and encourages manufacturers and stakeholders to report any supply disruptions. We are coordinating efforts to ensure minimal impact on patient care.

@@ -1,5 +1,0 @@
-manufacturer_id,capacity,disrupted,recovery_periods,last_production,cumulative_profit,total_investments,total_invested_amount
-0,0.2875,False,0,0.2875,1.05625,4,0.0375
-1,0.1,True,0,0.1,0.4,0,0.0
-2,0.325,False,0,0.325,1.0637500000000002,4,0.1725
-3,0.2875,False,0,0.2875,1.05625,4,0.0375

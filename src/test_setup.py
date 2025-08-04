@@ -7,7 +7,6 @@ This script tests the basic setup and configuration before running the full simu
 """
 
 import asyncio
-import os
 import sys
 from pathlib import Path
 
