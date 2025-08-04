@@ -1,4 +1,4 @@
-# ShortageSim: LLM-based Multi-Agent Simulation for Drug Shortage Management
+# ShortageSim: Simulating Drug Shortages under Information Asymmetry
 
 ## 📋 Overview
 
