@@ -110,7 +110,7 @@ Stage 2: Decision Maker
 1. Equal initial allocation: $D_t / N$ per manufacturer
 2. Disrupted firms produce: $\min(capacity, allocation)$
 3. Unfilled demand redistributed to healthy firms
-4. Market shortage calculated as: $\max(0, D_t - total\_supply)$
+4. Market shortage calculated as: $\max(0, D_t - \text{total\_supply})$
 
 ### Agent Objectives
 
