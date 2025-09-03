@@ -191,3 +191,18 @@ We welcome contributions! Areas of particular interest:
 * [ ] International supply chain modeling
 * [ ] Alternative LLM backends (Claude, Llama, etc.)
 * [ ] Interactive visualization dashboard
+* [ ] 
+
+## Citation
+
+```
+@misc{cui2025shortagesimsimulatingdrugshortages,
+      title={ShortageSim: Simulating Drug Shortages under Information Asymmetry}, 
+      author={Mingxuan Cui and Yilan Jiang and Duo Zhou and Cheng Qian and Yuji Zhang and Qiong Wang},
+      year={2025},
+      eprint={2509.01813},
+      archivePrefix={arXiv},
+      primaryClass={cs.MA},
+      url={https://arxiv.org/abs/2509.01813}, 
+}
+```
