@@ -191,7 +191,6 @@ We welcome contributions! Areas of particular interest:
 * [ ] International supply chain modeling
 * [ ] Alternative LLM backends (Claude, Llama, etc.)
 * [ ] Interactive visualization dashboard
-* [ ] 
 
 ## Citation
 
