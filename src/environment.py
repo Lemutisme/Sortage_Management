@@ -1,6 +1,6 @@
 import random
 import logging
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple, Any, Optional
 
 from buyer import BuyerAgent
 from fda import FDAAgent
@@ -15,17 +15,30 @@ from configs import SimulationConfig, DisruptionEvent
 class Environment:
     """Market environment managing supply-demand dynamics."""
     
-    def __init__(self, config: SimulationConfig):
+    def __init__(self, config: SimulationConfig, manufacturer_configs: Optional[List[SimulationConfig]] = None):
         self.config = config
         self.current_period = 0
         self.disruptions = []
         self.market_history = []
         
-        # Initialize manufacturers
-        self.manufacturers = [
-            ManufacturerAgent(i, config) 
-            for i in range(config.n_manufacturers)
-        ]
+        # Initialize manufacturers (support asymmetric per-manufacturer configs)
+        if manufacturer_configs is not None and len(manufacturer_configs) > 0:
+            # Synchronize global n_manufacturers with provided list length
+            if config.n_manufacturers != len(manufacturer_configs):
+                logging.getLogger("Environment").info(
+                    f"Overriding n_manufacturers from {config.n_manufacturers} to {len(manufacturer_configs)} based on provided manufacturer_configs"
+                )
+                self.config.n_manufacturers = len(manufacturer_configs)
+
+            self.manufacturers = [
+                ManufacturerAgent(i, m_cfg)
+                for i, m_cfg in enumerate(manufacturer_configs)
+            ]
+        else:
+            self.manufacturers = [
+                ManufacturerAgent(i, config) 
+                for i in range(config.n_manufacturers)
+            ]
         
         # Initialize buyer and FDA
         self.buyer = BuyerAgent(config)

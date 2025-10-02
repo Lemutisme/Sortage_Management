@@ -1,5 +1,5 @@
 import logging
-from typing import Dict, Optional, Any
+from typing import Dict, Optional, Any, List
 from dataclasses import asdict
 import numpy as np
 
@@ -10,9 +10,9 @@ from logger import SimulationLogger
 class SimulationCoordinator:
     """Main simulation coordinator managing the multi-agent system with comprehensive logging."""
     
-    def __init__(self, config: SimulationConfig):
+    def __init__(self, config: SimulationConfig, manufacturer_configs: Optional[List[SimulationConfig]] = None):
         self.config = config
-        self.environment = Environment(config)
+        self.environment = Environment(config, manufacturer_configs=manufacturer_configs)
         self.results = []
         
         # Setup basic logging for coordinator FIRST

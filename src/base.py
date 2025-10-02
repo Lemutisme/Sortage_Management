@@ -273,8 +273,7 @@ class BaseAgent(ABC, LoggerMixin):
         
         # Determine provider and corresponding API key
         provider = getattr(self.config, 'llm_provider', 'openai') or 'openai'
-        print(f"Provider: {provider}")
-        self.logger.debug(f"Selected LLM provider: {provider}")
+        self.logger.debug(f"Selected LLM provider: {provider}, model: {self.config.llm_model}")
 
         # Map provider to key attribute and presence
         provider_key_map = {
