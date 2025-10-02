@@ -65,6 +65,10 @@ python src/main.py gt_experiment_nodic  # For non-discontinued cases
 
 # Policy effectiveness test
 python src/main.py policy
+
+# Use different models
+# We support OpenAI, Anthropic, Google, and DeepSeek
+python src.main --provider anthropic --model claude-3-5-sonnet-20240620
 ```
 
 ## 🏗️ System Architecture
