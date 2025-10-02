@@ -3,7 +3,7 @@ from typing import Dict, Optional, Any
 from dataclasses import asdict
 import numpy as np
 
-from Environment import Environment
+from environment import Environment
 from configs import SimulationConfig, MarketState
 from logger import SimulationLogger
 

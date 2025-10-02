@@ -28,13 +28,13 @@ class BaseAgent(ABC, LoggerMixin):
     def __init__(self, agent_id: str, config: SimulationConfig):
         # Initialize LoggerMixin first
         super().__init__()
-        
+
         self.agent_id = agent_id
         self.config = config
         self.logger = logging.getLogger(f"{self.__class__.__name__}_{agent_id}")
         self.decision_history = []
         self.reasoning_history = []
-        
+
         # Logger will be set by simulation coordinator
         self.simulation_logger = None
         self.current_period = 0
@@ -78,19 +78,19 @@ class BaseAgent(ABC, LoggerMixin):
                 )
         except Exception as e:
             self.logger.warning(f"Failed to log LLM call: {e}")
-    
+
     async def make_decision(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """Main decision-making pipeline with comprehensive logging."""
         self.current_period = context.get('period', 0)
-        
+
         try:
             self.logger.info(f"Starting decision process for period {self.current_period}")
-            
+
             # Step 1: Collect and analyze information
             self.logger.debug(f"Context received: {json.dumps(context, indent=2)}")
-            
+
             state_json = await self.collect_and_analyze(context)
-            
+
             # Log analysis stage
             self.log_decision(
                 period=self.current_period,
@@ -98,10 +98,10 @@ class BaseAgent(ABC, LoggerMixin):
                 context=context,
                 result=state_json
             )
-            
+
             # Step 2: Make decision based on analyzed state
             decision_json = await self.decide(state_json)
-            
+
             # Log decision stage
             self.log_decision(
                 period=self.current_period,
@@ -109,7 +109,7 @@ class BaseAgent(ABC, LoggerMixin):
                 context={"state_analysis": state_json},
                 result=decision_json
             )
-            
+
             # Store in agent history
             decision_record = {
                 'period': self.current_period,
@@ -119,13 +119,13 @@ class BaseAgent(ABC, LoggerMixin):
                 'timestamp': datetime.now().isoformat()
             }
             self.decision_history.append(decision_record)
-            
+
             self.logger.info(f"Decision completed successfully for period {self.current_period}")
             return decision_json
-            
+
         except Exception as e:
             self.logger.error(f"Decision making failed for period {self.current_period}: {e}")
-            
+
             # Log the failure
             if hasattr(self, 'simulation_logger'):
                 self.simulation_logger.log_agent_decision(
@@ -137,39 +137,38 @@ class BaseAgent(ABC, LoggerMixin):
                     result={"error": str(e), "using_default": True},
                     llm_calls=[]
                 )
-            
+
             return self.get_default_decision(context)
-    
+
     @abstractmethod
     async def collect_and_analyze(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """Analyze context and extract structured state variables."""
         pass
-    
+
     @abstractmethod
     async def decide(self, state_json: Dict[str, Any]) -> Dict[str, Any]:
         """Make decision based on analyzed state."""
         pass
-    
+
     @abstractmethod
     def get_default_decision(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """Fallback decision if LLM calls fail."""
         pass
-    
+
     async def call_llm(self, system_prompt: str, user_prompt: str, 
-                      expected_json_keys: List[str] = None,
-                      stage: str = "unknown") -> Dict[str, Any]:
+                        expected_json_keys: List[str] = None,
+                        stage: str = "unknown") -> Dict[str, Any]:
         """Call LLM with retry logic, JSON validation, and comprehensive logging."""
-        
+
         llm_calls_log = []
-        
+
         for attempt in range(self.config.max_retries):
             try:
                 self.logger.debug(f"LLM call attempt {attempt + 1} for stage '{stage}'")
-                
+
                 # Make the actual LLM call
                 response = await self._make_llm_call(system_prompt, user_prompt)
-                
-                
+
                 # Log successful call
                 self.log_llm_call(
                     period=self.current_period,
@@ -180,7 +179,7 @@ class BaseAgent(ABC, LoggerMixin):
                     success=True,
                     attempt=attempt + 1
                 )
-                
+
                 llm_calls_log.append({
                     "attempt": attempt + 1,
                     "success": True,
@@ -192,7 +191,7 @@ class BaseAgent(ABC, LoggerMixin):
                 # Parse and validate JSON response
                 if not response or response.strip() == "":
                     raise ValueError("Empty response from LLM")
-                
+
                 # Clean the response (remove any non-JSON content)
                 response = response.strip()
                 if response.startswith('```json'):
@@ -200,14 +199,14 @@ class BaseAgent(ABC, LoggerMixin):
                 if response.endswith('```'):
                     response = response[:-3]
                 response = response.strip()
-                
+
                 # Find JSON object boundaries
                 start_idx = response.find('{')
                 end_idx = response.rfind('}')
-                
+
                 if start_idx == -1 or end_idx == -1:
                     raise ValueError("No JSON object found in response")
-                
+
                 json_content = response[start_idx:end_idx+1]
 
                 result = json.loads(json_content)
@@ -217,14 +216,14 @@ class BaseAgent(ABC, LoggerMixin):
                     if missing_keys:
                         self.logger.warning(f"Missing expected keys: {missing_keys}, but continuing...")
                         # Don't raise error for missing keys, just warn
-                
+
                 self.logger.info(f"LLM call successful on attempt {attempt + 1}")
                 return result
-                
+
             except json.JSONDecodeError as e:
                 error_msg = f"JSON parsing failed: {e}. Response: '{response[:200]}...'"
                 self.logger.warning(f"LLM call attempt {attempt + 1} failed: {error_msg}")
-                
+
                 # Log failed call
                 self.log_llm_call(
                     period=self.current_period,
@@ -236,24 +235,24 @@ class BaseAgent(ABC, LoggerMixin):
                     attempt=attempt + 1,
                     error=error_msg
                 )
-                
+
                 llm_calls_log.append({
                     "attempt": attempt + 1,
                     "success": False,
                     "error": error_msg,
                     "stage": stage
                 })
-                
+
                 if attempt == self.config.max_retries - 1:
                     self.logger.error(f"All LLM call attempts failed for stage '{stage}' due to JSON parsing")
                     raise
-                    
+
                 await asyncio.sleep(2 ** attempt)  # Exponential backoff
-                
+
             except Exception as e:
                 error_msg = str(e)
                 self.logger.warning(f"LLM call attempt {attempt + 1} failed: {error_msg}")
-                
+
                 # Log failed call
                 self.log_llm_call(
                     period=self.current_period,
@@ -265,18 +264,18 @@ class BaseAgent(ABC, LoggerMixin):
                     attempt=attempt + 1,
                     error=error_msg
                 )
-                
+
                 llm_calls_log.append({
                     "attempt": attempt + 1,
                     "success": False,
                     "error": error_msg,
                     "stage": stage
                 })
-                
+
                 if attempt == self.config.max_retries - 1:
                     self.logger.error(f"All LLM call attempts failed for stage '{stage}'")
                     raise
-                    
+
                 await asyncio.sleep(2 ** attempt)  # Exponential backoff
 
     async def _make_llm_call(self, system_prompt: str, user_prompt: str) -> str:
@@ -286,11 +285,11 @@ class BaseAgent(ABC, LoggerMixin):
         if not hasattr(self.config, 'api_key') or not self.config.api_key:
             self.logger.warning("No API key configured, using mock responses")
             return self._mock_response()
-        
+
         # OPTION 1: OpenAI API
         try:
             import openai
-            
+
             # Check if API key looks valid
             if len(self.config.api_key.strip()) < 10:
                 self.logger.warning("API key appears invalid, using mock responses")
@@ -317,16 +316,16 @@ class BaseAgent(ABC, LoggerMixin):
             if not response or not response.choices:
                 self.logger.error("OpenAI API returned empty response")
                 return self._mock_response()
-            
+
             content = response.choices[0].message.content
-            
+
             if not content or content.strip() == "":
                 self.logger.error("OpenAI API returned empty content")
                 return self._mock_response()
 
             self.logger.debug(f"OpenAI API response received: {len(content)} characters")
             return content.strip()
-            
+
         except ImportError:
             self.logger.warning("OpenAI library not installed, using mock responses")
             return self._mock_response()
@@ -342,7 +341,7 @@ class BaseAgent(ABC, LoggerMixin):
         except Exception as e:
             self.logger.error(f"OpenAI API call failed: {e}")
             return self._mock_response()
-    
+
     def _mock_response(self) -> str:
         """Fallback mock responses for testing."""
         if "manufacturer" in self.agent_id:

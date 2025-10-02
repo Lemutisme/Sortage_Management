@@ -28,8 +28,6 @@ ShortageSim addresses these challenges by simulating realistic agent behaviors a
 ### Setup
 
 ```bash
-cd Sortage_Management
-
 # Install dependencies
 conda create -n ShortageSim python=3.12
 conda activate ShortageSim
@@ -195,7 +193,7 @@ We welcome contributions! Areas of particular interest:
 ## Citation
 
 ```
-@misc{cui2025shortagesimsimulatingdrugshortages,
+@misc{ShortageSim,
       title={ShortageSim: Simulating Drug Shortages under Information Asymmetry}, 
       author={Mingxuan Cui and Yilan Jiang and Duo Zhou and Cheng Qian and Yuji Zhang and Qiong Wang},
       year={2025},

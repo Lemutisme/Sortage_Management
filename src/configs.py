@@ -9,12 +9,12 @@ import os
 
 def load_api_key_safely() -> str:
     """Safely load API key from various sources."""
-    
+
     # Try environment variable first
     api_key = os.getenv("OPENAI_API_KEY")
     if api_key and len(api_key.strip()) > 10:
         return api_key.strip()
-    
+
     # Try reading from file
     key_file_paths = [
         "./keys/openai.txt",
@@ -22,7 +22,7 @@ def load_api_key_safely() -> str:
         "keys/openai.txt",
         "openai.txt"
     ]
-    
+
     for key_file in key_file_paths:
         try:
             if os.path.exists(key_file):
@@ -32,7 +32,7 @@ def load_api_key_safely() -> str:
                     return api_key
         except Exception as e:
             print(f"Warning: Could not read API key from {key_file}: {e}")
-    
+
     # Return None if no key found - will use mock responses
     print("Warning: No OpenAI API key found. Using mock responses for testing.")
     print("To use real LLM calls:")
@@ -78,7 +78,7 @@ class DisruptionEvent:
     duration: int
     magnitude: float
     remaining_periods: int = None
-    
+
     def __post_init__(self):
         if self.remaining_periods is None:
             self.remaining_periods = self.duration
@@ -93,7 +93,7 @@ class ManufacturerState:
     last_production: float = 0.0
     cumulative_profit: float = 0.0
     investment_history: List[float] = None
-    
+
     def __post_init__(self):
         if self.investment_history is None:
             self.investment_history = []
