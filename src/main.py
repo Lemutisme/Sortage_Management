@@ -445,60 +445,67 @@ async def run_quick_policy_test(model_override: str = None, provider_override: s
     print(f"High Disruption - FDA Interventions: {len(high_results['fda_announcements'])}")
 
 if __name__ == "__main__":
-    import sys
-    
+    import argparse
+    import asyncio
+    from pathlib import Path
+    import pandas as pd
+
     print("🧬 Drug Shortage Multi-Agent Simulation with Comprehensive Logging")
     print("=" * 70)
 
-    # Simple CLI parsing for --model and --provider
-    model_override = None
-    provider_override = None
-    extra_args = sys.argv[1:]
-    mode = None
-    # Recognize flags anywhere after script name
-    i = 0
-    while i < len(extra_args):
-        arg = extra_args[i]
-        if arg == "--model" and i + 1 < len(extra_args):
-            model_override = extra_args[i + 1]
-            i += 2
-            continue
-        if arg == "--provider" and i + 1 < len(extra_args):
-            provider_override = extra_args[i + 1].lower()
-            i += 2
-            continue
-        if not mode:
-            mode = arg.lower()
-        i += 1
+    # --- New Argument Parsing Logic using argparse ---
+    parser = argparse.ArgumentParser(description="Run the Drug Shortage Multi-Agent Simulation.")
 
-    if mode:
-        if mode == "comparative":
-            print("Running comparative study...")
-            asyncio.run(run_comparative_study(model_override, provider_override))
-        elif mode == "policy":
-            print("Running policy test...")
-            asyncio.run(run_quick_policy_test(model_override, provider_override))
-        elif mode == "gt_experiment_dic":
-            print("Running ground truth experiment...")
-            HERE = Path(__file__).resolve().parent
-            csv_path = HERE/"../data"/"GT_Disc.csv"
-            df = pd.read_csv(csv_path)
-            print(df.shape)
-            asyncio.run(run_gt_experiments(df, n_simulations=1, model_override=model_override, provider_override=provider_override))
-        elif mode == "gt_experiment_nodic":
-            print("Running ground truth experiment (No discontinued)...")
-            HERE = Path(__file__).resolve().parent
-            csv_path = HERE/"../data"/"GT_NoDisc.csv"
-            df = pd.read_csv(csv_path)
-            print(df.shape)
-            asyncio.run(run_gt_experiments(df.iloc[6:], model_override=model_override, provider_override=provider_override))
-        else:
-            print("Unknown mode. Running single example...")
-            asyncio.run(run_single_example(model_override=model_override, provider_override=provider_override))
-    else:
-        print("Running single example simulation...")
+    parser.add_argument(
+        "mode",
+        type=str,
+        nargs='?', # Makes the mode optional, defaults to None if not provided
+        default="single", # Default mode if none is specified
+        choices=["single", "comparative", "policy", "gt_experiment_disc", "gt_experiment_nondisc"],
+        help="The simulation mode to run."
+    )
+
+    # Keeping --model and --provider for legacy compatibility if needed, but llm_model is preferred
+    parser.add_argument("--model", type=str, help="Legacy: Specify a model name directly.")
+    parser.add_argument("--provider", type=str, help="Legacy: Specify a provider directly.")
+
+    args = parser.parse_args()
+
+    # Use the new llm_model argument, but allow legacy override
+    model_override = args.model if args.model else args.llm_model
+    provider_override = args.provider
+
+    # --- Main Simulation Logic ---
+    if args.mode == "comparative":
+        print(f"Running comparative study with model: {model_override}...")
+        asyncio.run(run_comparative_study(model_override, provider_override))
+        
+    elif args.mode == "policy":
+        print(f"Running policy test with model: {model_override}...")
+        asyncio.run(run_quick_policy_test(model_override, provider_override))
+        
+    elif args.mode == "gt_experiment_disc":
+        print(f"Running ground truth experiment (Discontinued) with model: {model_override}...")
+        HERE = Path(__file__).resolve().parent
+        csv_path = HERE / "../data" / "GT_Disc.csv"
+        df = pd.read_csv(csv_path)
+        print(f"Loaded {df.shape[0]} trajectories from {csv_path.name}")
+        asyncio.run(run_gt_experiments(df, n_simulations=1, model_override=model_override, provider_override=provider_override))
+        
+    elif args.mode == "gt_experiment_nondisc":
+        print(f"Running ground truth experiment (No Discontinued) with model: {model_override}...")
+        HERE = Path(__file__).resolve().parent
+        csv_path = HERE / "../data" / "GT_NoDisc.csv"
+        df = pd.read_csv(csv_path)
+        print(f"Loaded {df.shape[0]} trajectories from {csv_path.name}")
+        # Example of running a subset, adjust as needed
+        asyncio.run(run_gt_experiments(df.iloc[:], model_override=model_override, provider_override=provider_override))
+        
+    else: # This handles the "single" mode (default)
+        print(f"Running single example simulation with model: {model_override}...")
         asyncio.run(run_single_example(start_with_disruption=True, model_override=model_override, provider_override=provider_override))
-    
+
+    # --- Footer ---
     print("\n✅ Simulation completed! Check the generated log files for detailed analysis.")
     print("💡 Log files include:")
     print("   - Comprehensive event logs (JSONL format)")
