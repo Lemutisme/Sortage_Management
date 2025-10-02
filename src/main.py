@@ -73,7 +73,7 @@ async def run_logged_simulation(config: SimulationConfig,
         print(f"❌ Simulation failed: {e}")
         raise
 
-async def run_comparative_study():
+async def run_comparative_study(model_override: str = None, provider_override: str = None):
     """Run multiple simulations to compare different scenarios."""
     
     print("🔬 Running Comparative Study with Different Market Conditions")
@@ -123,6 +123,12 @@ async def run_comparative_study():
         print(f"\n--- Running Scenario: {scenario['name']} ---")
         
         try:
+            # Apply overrides if provided
+            if model_override:
+                scenario['config'].llm_model = model_override
+            if provider_override:
+                scenario['config'].llm_provider = provider_override
+
             results = await run_logged_simulation(
                 scenario['config'], 
                 scenario['name']
@@ -277,7 +283,7 @@ def export_detailed_analysis(results: Dict[str, Any], export_dir: str = "analysi
 # Main Execution Functions
 # =============================================================================
 
-async def run_single_example(start_with_disruption: bool = False):
+async def run_single_example(start_with_disruption: bool = False, model_override: str = None, provider_override: str = None):
     """Run a single example simulation with detailed logging."""
     
     config = SimulationConfig(
@@ -290,6 +296,12 @@ async def run_single_example(start_with_disruption: bool = False):
         # Uncomment and set your API key:
         # api_key=os.getenv("OPENAI_API_KEY")
     )
+
+    # Apply overrides
+    if model_override:
+        config.llm_model = model_override
+    if provider_override:
+        config.llm_provider = provider_override
 
     results = await run_logged_simulation(config, start_with_disruption, "Single Example Run")
 
@@ -305,7 +317,9 @@ async def run_gt_experiments(
         df: pd.DataFrame,
         show_progress: bool = True,
         export_dir: str = "gt_evaluation",
-        n_simulations: int = 1
+        n_simulations: int = 1,
+        model_override: str = None,
+        provider_override: str = None
 ):
     export_path = Path(export_dir)
     export_path.mkdir(exist_ok=True)
@@ -331,6 +345,10 @@ async def run_gt_experiments(
                     llm_temperature=0.3,
                     n_disruptions_if_forced_disruption=int(row_dict['disruption_number'])
                 )
+                if model_override:
+                    config.llm_model = model_override
+                if provider_override:
+                    config.llm_provider = provider_override
                 
                 start_with_disruption = True if row_dict['disruption_number'] > 0 else False
 
@@ -382,7 +400,7 @@ async def run_gt_experiments(
     return comparison_df
 
 
-async def run_quick_policy_test():
+async def run_quick_policy_test(model_override: str = None, provider_override: str = None):
     """Quick test of different policy scenarios."""
     
     print("🎯 Quick Policy Effectiveness Test")
@@ -396,6 +414,10 @@ async def run_quick_policy_test():
         disruption_probability=0.02,
         disruption_magnitude=0.10
     )
+    if model_override:
+        low_disruption_config.llm_model = model_override
+    if provider_override:
+        low_disruption_config.llm_provider = provider_override
     
     high_disruption_config = SimulationConfig(
         n_manufacturers=4,
@@ -403,6 +425,10 @@ async def run_quick_policy_test():
         disruption_probability=0.08,
         disruption_magnitude=0.25
     )
+    if model_override:
+        high_disruption_config.llm_model = model_override
+    if provider_override:
+        high_disruption_config.llm_provider = provider_override
     
     print("\n--- Low Disruption Environment ---")
     low_results = await run_logged_simulation(low_disruption_config, "Low Disruption Policy Test")
@@ -423,37 +449,55 @@ if __name__ == "__main__":
     
     print("🧬 Drug Shortage Multi-Agent Simulation with Comprehensive Logging")
     print("=" * 70)
-    
-    if len(sys.argv) > 1:
-        mode = sys.argv[1].lower()
-        
+
+    # Simple CLI parsing for --model and --provider
+    model_override = None
+    provider_override = None
+    extra_args = sys.argv[1:]
+    mode = None
+    # Recognize flags anywhere after script name
+    i = 0
+    while i < len(extra_args):
+        arg = extra_args[i]
+        if arg == "--model" and i + 1 < len(extra_args):
+            model_override = extra_args[i + 1]
+            i += 2
+            continue
+        if arg == "--provider" and i + 1 < len(extra_args):
+            provider_override = extra_args[i + 1].lower()
+            i += 2
+            continue
+        if not mode:
+            mode = arg.lower()
+        i += 1
+
+    if mode:
         if mode == "comparative":
             print("Running comparative study...")
-            asyncio.run(run_comparative_study())
+            asyncio.run(run_comparative_study(model_override, provider_override))
         elif mode == "policy":
             print("Running policy test...")
-            asyncio.run(run_quick_policy_test())
+            asyncio.run(run_quick_policy_test(model_override, provider_override))
         elif mode == "gt_experiment_dic":
             print("Running ground truth experiment...")
             HERE = Path(__file__).resolve().parent
             csv_path = HERE/"../data"/"GT_Disc.csv"
-            # csv_path = HERE/"../data"/"GT_Disc_tester.csv"
             df = pd.read_csv(csv_path)
             print(df.shape)
-            asyncio.run(run_gt_experiments(df, n_simulations=1))
+            asyncio.run(run_gt_experiments(df, n_simulations=1, model_override=model_override, provider_override=provider_override))
         elif mode == "gt_experiment_nodic":
             print("Running ground truth experiment (No discontinued)...")
             HERE = Path(__file__).resolve().parent
             csv_path = HERE/"../data"/"GT_NoDisc.csv"
             df = pd.read_csv(csv_path)
             print(df.shape)
-            asyncio.run(run_gt_experiments(df.iloc[6:]))
+            asyncio.run(run_gt_experiments(df.iloc[6:], model_override=model_override, provider_override=provider_override))
         else:
             print("Unknown mode. Running single example...")
-            asyncio.run(run_single_example())
+            asyncio.run(run_single_example(model_override=model_override, provider_override=provider_override))
     else:
         print("Running single example simulation...")
-        asyncio.run(run_single_example(start_with_disruption=True))
+        asyncio.run(run_single_example(start_with_disruption=True, model_override=model_override, provider_override=provider_override))
     
     print("\n✅ Simulation completed! Check the generated log files for detailed analysis.")
     print("💡 Log files include:")

@@ -6,17 +6,7 @@ from datetime import datetime
 import asyncio
 
 from configs import SimulationConfig
-
-# Import LoggerMixin if available, otherwise create a simple fallback
-try:
-    from logger import LoggerMixin
-except ImportError:
-    # Simple fallback LoggerMixin if import fails
-    class LoggerMixin:
-        def setup_logger(self, simulation_logger):
-            self.simulation_logger = simulation_logger
-            if hasattr(simulation_logger, 'get_agent_logger'):
-                self.agent_logger = simulation_logger.get_agent_logger(self.agent_id)
+from logger import LoggerMixin
 
 # =============================================================================
 # Base Agent Framework with Logging Integration
@@ -281,66 +271,145 @@ class BaseAgent(ABC, LoggerMixin):
     async def _make_llm_call(self, system_prompt: str, user_prompt: str) -> str:
         """Actual LLM API call with enhanced error handling and debugging."""
         
-        # First check if we have an API key
-        if not hasattr(self.config, 'api_key') or not self.config.api_key:
-            self.logger.warning("No API key configured, using mock responses")
+        # Determine provider and corresponding API key
+        provider = getattr(self.config, 'llm_provider', 'openai') or 'openai'
+        print(f"Provider: {provider}")
+        self.logger.debug(f"Selected LLM provider: {provider}")
+
+        # Map provider to key attribute and presence
+        provider_key_map = {
+            'openai': getattr(self.config, 'api_key', None),
+            'anthropic': getattr(self.config, 'anthropic_api_key', None),
+            'gemini': getattr(self.config, 'gemini_api_key', None),
+            'deepseek': getattr(self.config, 'deepseek_api_key', None),
+        }
+
+        api_key = provider_key_map.get(provider)
+        if not api_key or len(str(api_key).strip()) < 10:
+            self.logger.warning(f"No API key configured for provider '{provider}', using mock responses")
             return self._mock_response()
 
-        # OPTION 1: OpenAI API
-        try:
-            import openai
+        # Enhanced system prompt to ensure JSON compliance
+        enhanced_system_prompt = system_prompt + "\n\nYou must respond with valid JSON format only. Do not include any text before or after the JSON object."
 
-            # Check if API key looks valid
-            if len(self.config.api_key.strip()) < 10:
-                self.logger.warning("API key appears invalid, using mock responses")
+        # Provider-specific implementations
+        if provider == 'openai':
+            try:
+                import openai
+
+                client = openai.AsyncOpenAI(api_key=api_key)
+                self.logger.debug(f"Making OpenAI API call with model: {self.config.llm_model}")
+                response = await client.chat.completions.create(
+                    model=self.config.llm_model,
+                    messages=[
+                        {"role": "system", "content": enhanced_system_prompt},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                )
+                if not response or not response.choices:
+                    self.logger.error("OpenAI API returned empty response")
+                    return self._mock_response()
+                content = response.choices[0].message.content or ""
+                if not content.strip():
+                    self.logger.error("OpenAI API returned empty content")
+                    return self._mock_response()
+                self.logger.debug(f"OpenAI API response received: {len(content)} characters")
+                return content.strip()
+            except ImportError:
+                self.logger.warning("OpenAI library not installed, using mock responses")
+                return self._mock_response()
+            except Exception as e:
+                try:
+                    # Attempt to use typed exceptions if available
+                    import openai as _openai
+                    if isinstance(e, (_openai.APIConnectionError, _openai.AuthenticationError, _openai.RateLimitError)):
+                        self.logger.error(f"OpenAI API error: {e}")
+                        return self._mock_response()
+                except Exception:
+                    pass
+                self.logger.error(f"OpenAI API call failed: {e}")
                 return self._mock_response()
 
-            client = openai.AsyncOpenAI(api_key=self.config.api_key)
-            
-            # Enhanced system prompt to ensure JSON compliance
-            enhanced_system_prompt = system_prompt + "\n\nYou must respond with valid JSON format only. Do not include any text before or after the JSON object."
-
-            self.logger.debug(f"Making OpenAI API call with model: {self.config.llm_model}")
-
-            response = await client.chat.completions.create(
-                model=self.config.llm_model,
-                messages=[
-                    {"role": "system", "content": enhanced_system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                # temperature=self.config.llm_temperature,
-                # max_tokens=2000
-            )
-
-            
-            if not response or not response.choices:
-                self.logger.error("OpenAI API returned empty response")
+        if provider == 'anthropic':
+            try:
+                from anthropic import AsyncAnthropic
+                client = AsyncAnthropic(api_key=api_key)
+                self.logger.debug(f"Making Anthropic API call with model: {self.config.llm_model}")
+                msg = await client.messages.create(
+                    model=self.config.llm_model,
+                    max_tokens=2000,
+                    temperature=self.config.llm_temperature,
+                    system=enhanced_system_prompt,
+                    messages=[{"role": "user", "content": user_prompt}],
+                )
+                # Anthropic returns content as a list of items; join text
+                content_parts = []
+                for part in getattr(msg, 'content', []) or []:
+                    text = getattr(part, 'text', None)
+                    if text:
+                        content_parts.append(text)
+                content = "\n".join(content_parts).strip()
+                if not content:
+                    self.logger.error("Anthropic API returned empty content")
+                    return self._mock_response()
+                return content
+            except ImportError:
+                self.logger.warning("Anthropic library not installed, using mock responses")
+                return self._mock_response()
+            except Exception as e:
+                self.logger.error(f"Anthropic API call failed: {e}")
                 return self._mock_response()
 
-            content = response.choices[0].message.content
-
-            if not content or content.strip() == "":
-                self.logger.error("OpenAI API returned empty content")
+        if provider == 'gemini':
+            try:
+                import google.generativeai as genai
+                genai.configure(api_key=api_key)
+                self.logger.debug(f"Making Gemini API call with model: {self.config.llm_model}")
+                model = genai.GenerativeModel(self.config.llm_model,
+                                              system_instruction=enhanced_system_prompt)
+                resp = await model.generate_content_async(user_prompt)
+                content = getattr(resp, 'text', '') or ''
+                if not content.strip():
+                    self.logger.error("Gemini API returned empty content")
+                    return self._mock_response()
+                return content.strip()
+            except ImportError:
+                self.logger.warning("Google Generative AI library not installed, using mock responses")
+                return self._mock_response()
+            except Exception as e:
+                self.logger.error(f"Gemini API call failed: {e}")
                 return self._mock_response()
 
-            self.logger.debug(f"OpenAI API response received: {len(content)} characters")
-            return content.strip()
+        if provider == 'deepseek':
+            try:
+                import openai as openai_compat
+                # DeepSeek offers OpenAI-compatible API; set base URL
+                client = openai_compat.AsyncOpenAI(api_key=api_key, base_url="https://api.deepseek.com")
+                self.logger.debug(f"Making DeepSeek API call with model: {self.config.llm_model}")
+                response = await client.chat.completions.create(
+                    model=self.config.llm_model,
+                    messages=[
+                        {"role": "system", "content": enhanced_system_prompt},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                )
+                if not response or not response.choices:
+                    self.logger.error("DeepSeek API returned empty response")
+                    return self._mock_response()
+                content = response.choices[0].message.content or ""
+                if not content.strip():
+                    self.logger.error("DeepSeek API returned empty content")
+                    return self._mock_response()
+                return content.strip()
+            except ImportError:
+                self.logger.warning("OpenAI-compatible library not installed for DeepSeek, using mock responses")
+                return self._mock_response()
+            except Exception as e:
+                self.logger.error(f"DeepSeek API call failed: {e}")
+                return self._mock_response()
 
-        except ImportError:
-            self.logger.warning("OpenAI library not installed, using mock responses")
-            return self._mock_response()
-        except openai.APIConnectionError as e:
-            self.logger.error(f"OpenAI API connection failed: {e}")
-            return self._mock_response()
-        except openai.AuthenticationError as e:
-            self.logger.error(f"OpenAI API authentication failed: {e}")
-            return self._mock_response()
-        except openai.RateLimitError as e:
-            self.logger.error(f"OpenAI API rate limit exceeded: {e}")
-            return self._mock_response()
-        except Exception as e:
-            self.logger.error(f"OpenAI API call failed: {e}")
-            return self._mock_response()
+        self.logger.error(f"Unknown LLM provider '{provider}', using mock responses")
+        return self._mock_response()
 
     def _mock_response(self) -> str:
         """Fallback mock responses for testing."""
