@@ -29,56 +29,78 @@ class PromptManager:
         """Load all prompt templates."""
         return {
             "manufacturer": {
-                "collector_analyst": PromptTemplate(
+                "collector_analyst": {"default": PromptTemplate(
                     system_template=self._manufacturer_collector_system(),
                     user_template=self._manufacturer_collector_user(),
                     expected_keys=["role", "market_conditions", "internal_state"]
-                ),
-                "decision_maker": PromptTemplate(
+                )},
+                "decision_maker": {"default": PromptTemplate(
                     system_template=self._manufacturer_decision_system(),
                     user_template=self._manufacturer_decision_user(),
                     expected_keys=["decision", "reasoning"]
-                )
+                )}
             },
             "buyer": {
-                "collector_analyst": PromptTemplate(
+                "collector_analyst": {"default": PromptTemplate(
                     system_template=self._buyer_collector_system(),
                     user_template=self._buyer_collector_user(),
                     expected_keys=["role", "market_conditions", "internal_state"]
-                ),
-                "decision_maker": PromptTemplate(
+                )},
+                "decision_maker": {"default": PromptTemplate(
                     system_template=self._buyer_decision_system(),
                     user_template=self._buyer_decision_user(),
                     expected_keys=["decision", "reasoning"]
                 )
+                }
             },
             "fda": {
-                "collector_analyst": PromptTemplate(
-                    system_template=self._fda_collector_system(),
-                    user_template=self._fda_collector_user(),
+                "collector_analyst": {
+                    # Reactive FDA templates
+                    "reactive": PromptTemplate(
+                    system_template=self._fda_collector_system_reactive(),
+                    user_template=self._fda_collector_user_reactive(),
                     expected_keys=["role", "market_conditions", "internal_state"]
                 ),
-                "decision_maker": PromptTemplate(
-                    system_template=self._fda_decision_system(),
-                    user_template=self._fda_decision_user(),
+                # Proactive FDA templates
+                    "proactive": PromptTemplate(
+                    system_template=self._fda_collector_system_proactive(),
+                    user_template=self._fda_collector_user_proactive(),
+                    expected_keys=["role", "market_conditions", "internal_state"]
+                )
+                },
+                "decision_maker": {
+                    "reactive": PromptTemplate(
+                    system_template=self._fda_decision_system_reactive(),
+                    user_template=self._fda_decision_user_reactive(),
+                    expected_keys=["decision", "reasoning"]
+                ),
+                "proactive": PromptTemplate(
+                    system_template=self._fda_decision_system_proactive(),
+                    user_template=self._fda_decision_user_proactive(),
                     expected_keys=["decision", "reasoning"]
                 )
+                }
             }
         }
     
-    def get_prompt(self, agent_type: str, stage: str, **kwargs) -> tuple:
+    def get_prompt(self, agent_type: str, stage: str, mode: str="default", **kwargs) -> tuple:
         """
         Get formatted prompts for an agent.
         
         Args:
             agent_type: "manufacturer", "buyer", or "fda"
             stage: "collector_analyst" or "decision_maker"
+            mode: "reactive", "proactive", or "default" to select the prompt flavor
             **kwargs: Variables to format into the prompt templates
             
         Returns:
             (system_prompt, user_prompt, expected_keys)
         """
-        template = self.templates[agent_type][stage]
+        templates_for_stage = self.templates[agent_type][stage]
+        template = templates_for_stage.get(mode, templates_for_stage.get("default"))
+        
+        if template is None:
+             raise ValueError(f"No prompt template found for {agent_type}, stage {stage}, mode {mode}")
         
         system_prompt = template.system_template.format(**kwargs)
         user_prompt = template.user_template.format(**kwargs)
@@ -373,10 +395,10 @@ Make your procurement decision:
 """
     
     # =============================================================================
-    # FDA Prompt Templates
+    # FDA Prompt Templates - Reactive Mode (Default)
     # =============================================================================
-    
-    def _fda_collector_system(self) -> str:
+
+    def _fda_collector_system_reactive(self) -> str:
         return """
 You are an FDA regulatory analyst in the Drug Shortage Program, responsible for 
 monitoring pharmaceutical supply chains and determining when to **initiate a public shortage intervention**.
@@ -391,7 +413,7 @@ Your primary mission is minimizing patient impact from drug shortages through
 effective market coordination and transparent communication.
 """
 
-    def _fda_collector_user(self) -> str:
+    def _fda_collector_user_reactive(self) -> str:
         return """
 SHORTAGE MONITORING ASSESSMENT
 ==============================
@@ -439,7 +461,7 @@ Provide regulatory assessment:
 }}
 """
 
-    def _fda_decision_system(self) -> str:
+    def _fda_decision_system_reactive(self) -> str:
         return """
 You are an FDA official with authority to issue public drug shortage communications.
 Your announcements can significantly impact manufacturer and buyer behavior.
@@ -459,7 +481,7 @@ POLICY CONSTRAINTS:
 Your decision will influence how quickly and effectively this shortage resolves.
 """
 
-    def _fda_decision_user(self) -> str:
+    def _fda_decision_user_reactive(self) -> str:
         return """
 REGULATORY COMMUNICATION DECISION
 =================================
@@ -501,6 +523,134 @@ Make your regulatory decision:
 }}
 """
 
+# =============================================================================
+    # FDA Prompt Templates - Proactive Mode (New)
+# =============================================================================
+
+    def _fda_collector_system_proactive(self) -> str:
+        return """
+You are an FDA regulatory analyst in the Drug Shortage Program, responsible for 
+monitoring pharmaceutical supply chains and determining when to **intervene to prevent a shortage**.
+
+REGULATORY AUTHORITY:
+- You can issue public announcements and alerts
+- You cannot directly mandate production increases
+- Your communications significantly influence market behavior
+- You operate under a PROACTIVE policy framework
+
+Your primary mission is **pre-empting** drug shortages and maintaining supply chain resilience through 
+early market coordination and transparent communication.
+"""
+
+    def _fda_collector_user_proactive(self) -> str:
+        return """
+SHORTAGE FORECASTING ASSESSMENT
+===============================
+
+Current Market Intelligence:
+- Period: {period}/{n_periods}
+- Total supply last period: {last_supply}
+- Total demand last period: {last_demand} 
+- Shortage amount (actual): {shortage_amount}
+- Shortage percentage (actual): {shortage_percentage:.1%}
+- Manufacturer disruptions: {disrupted_count}/{n_manufacturers}
+
+PROACTIVE POLICY FRAMEWORK:
+Focus on *predictive* intervention based on disruption risks and supply-demand forecasts.
+Assess whether public announcements can mitigate an *anticipated* market failure.
+
+Key Questions:
+1. Are there *leading indicators* of a future supply-demand imbalance?
+2. Would an early warning communication help manufacturers proactively increase capacity or buyers build a small buffer?
+3. What is the risk of a 'false alarm' creating market panic?
+4. What is the maximum acceptable predicted patient safety risk?
+
+Provide regulatory assessment:
+{{
+    "role": "fda_regulator",
+    "goal": "prevent_shortages_and_enhance_resilience",
+    "market_conditions": {{
+        "shortage_status": "none/risk_identified/emerging/confirmed",
+        "supply_adequacy_forecast": "surplus/adequate/at_risk/insufficient", 
+        "market_stability": "stable/vulnerable/disrupted",
+        "coordination_need": "none/advisable/essential",
+        "manufacturer_disruptions": "number of disrupted manufacturers in the current period"
+    }},
+    "internal_state": {{
+        "alert_urgency": "routine/elevated/high/critical",
+        "intervention_threshold": "met/not_met",
+        "communication_strategy": "none/advise/alert/urgent",
+        "stakeholder_pressure": "low/moderate/high"
+    }},
+    "regulatory_context": {{
+        "patient_safety_risk_forecast": "assessment_of_future_clinical_impact",
+        "market_failure_indicators": "evidence_of_impending_coordination_problems",
+        "precedent_guidance": "similar_historical_cases_or_early_intervention_policy"
+    }}
+}}
+"""
+
+    def _fda_decision_system_proactive(self) -> str:
+        return """
+You are an FDA official with authority to issue public drug shortage communications.
+Your announcements can significantly impact manufacturer and buyer behavior.
+
+COMMUNICATION IMPACT:
+- Early announcements must be credible to drive a proactive capacity increase by manufacturers.
+- Early alerts must be carefully worded to avoid unnecessary stockpiling by buyers. 
+- Public attention can facilitate industry coordination.
+- Poor timing or messaging could exacerbate shortages.
+
+POLICY CONSTRAINTS:
+- Cannot directly compel private companies to increase production.
+- **Proactive intervention requires higher confidence in the prediction to justify the market risk.**
+- Must balance transparency with market stability.
+- Patient safety considerations override market concerns.
+
+Your decision will influence how quickly and effectively this shortage is *prevented*.
+"""
+
+    def _fda_decision_user_proactive(self) -> str:
+        return """
+REGULATORY COMMUNICATION DECISION
+=================================
+
+Market Assessment:
+{state_json}
+
+INTERVENTION OPTIONS:
+1. NO ACTION: Market forecasts show no significant risk or current failure.
+2. PREVENTATIVE ADVISORY: Advise stakeholders of potential future risk, encourage internal review (low impact).
+3. SHORTAGE FORECAST ALERT: Credible prediction of shortage, urge manufacturers to increase capacity (moderate impact).
+4. PRE-EMPTIVE CRITICAL ALERT: High-confidence forecast of immediate critical shortage, with expedited regulatory support (high impact).
+
+DECISION CRITERIA:
+- Will early communication successfully pre-empt the shortage?
+- Is the certainty of the predicted shortage high enough to justify the risk of market overreaction?
+- What is the cost of a false alarm versus the cost of a missed opportunity to prevent a shortage?
+- Are there market failures that a proactive warning could address?
+
+Make your regulatory decision:
+{{
+    "decision": {{
+        "announcement_type": "none/advisory/forecast_alert/preemptive_critical",
+        "communication_urgency": "routine/elevated/urgent",
+        "public_message": "brief_announcement_text_if_applicable",
+        "manufacturer_disruptions": "number of disrupted manufacturers in the current period"
+    }},
+    "reasoning": {{
+        "shortage_assessment": "predicted status and trajectory analysis",
+        "intervention_justification": "why this proactive response level is appropriate",
+        "market_impact_prediction": "expected proactive responses from manufacturers and buyers",
+        "patient_safety_considerations": "clinical urgency and access concerns if the forecast materializes"
+    }},
+    "success_metrics": {{
+        "target_resolution_time": "expected_periods_to_prevention_or_resolution",
+        "acceptable_peak_shortage": "maximum_tolerable_predicted_shortage_percentage"
+    }},
+    "confidence": "low/moderate/high"
+}}
+"""
 
 # =============================================================================
 # Integration with Agent Classes

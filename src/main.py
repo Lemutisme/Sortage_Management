@@ -403,46 +403,69 @@ async def run_gt_experiments(
 async def run_quick_policy_test(model_override: str = None, provider_override: str = None):
     """Quick test of different policy scenarios."""
     
-    print("🎯 Quick Policy Effectiveness Test")
+    print("🎯 FDA Policy Effectiveness Test: Reactive vs. Proactive")
     
-    # This would require implementing proactive FDA mode
-    # For now, we test with different disruption scenarios
-    
-    low_disruption_config = SimulationConfig(
-        n_manufacturers=4,
-        n_periods=4,
-        disruption_probability=0.02,
-        disruption_magnitude=0.10
+   # --- 1. Define Common Test Parameters for High Disruption ---
+    COMMON_PARAMS = {
+        "n_manufacturers": 4,
+        "n_periods": 10, # Good period length for policy comparison
+        "disruption_probability": 0.08,
+        "disruption_magnitude": 0.25,
+        "llm_model": model_override,
+        "llm_provider": provider_override
+    }
+        
+    # --- 2. Create the two Policy Configurations (Distinct Instances) ---
+
+    # a) Reactive Policy Configuration
+    reactive_config = SimulationConfig(
+        **COMMON_PARAMS,
+        fda_mode='reactive' # Explicitly set the mode
     )
-    if model_override:
-        low_disruption_config.llm_model = model_override
-    if provider_override:
-        low_disruption_config.llm_provider = provider_override
     
-    high_disruption_config = SimulationConfig(
-        n_manufacturers=4,
-        n_periods=4,
-        disruption_probability=0.08,
-        disruption_magnitude=0.25
+    # b) Proactive Policy Configuration
+    proactive_config = SimulationConfig(
+        **COMMON_PARAMS,
+        fda_mode='proactive' # Explicitly set the mode
     )
-    if model_override:
-        high_disruption_config.llm_model = model_override
-    if provider_override:
-        high_disruption_config.llm_provider = provider_override
     
-    print("\n--- Low Disruption Environment ---")
-    low_results = await run_logged_simulation(low_disruption_config, "Low Disruption Policy Test")
+    # --- 3. Run Simulations and Collect Results ---
     
-    print("\n--- High Disruption Environment ---")
-    high_results = await run_logged_simulation(high_disruption_config, "High Disruption Policy Test")
+    print("\n--- Running REACTIVE Policy Test (High Disruption) ---")
+    reactive_results = await run_logged_simulation(
+        reactive_config, 
+        "Reactive FDA Policy Test"
+    )
     
-    # Compare outcomes
-    print(f"\n📊 Policy Test Comparison:")
-    print(f"Low Disruption - Peak Shortage: {low_results['summary_metrics']['peak_shortage_percentage']:.1%}")
-    print(f"High Disruption - Peak Shortage: {high_results['summary_metrics']['peak_shortage_percentage']:.1%}")
+    print("\n--- Running PROACTIVE Policy Test (High Disruption) ---")
+    proactive_results = await run_logged_simulation(
+        proactive_config, 
+        "Proactive FDA Policy Test"
+    )
     
-    print(f"Low Disruption - FDA Interventions: {len(low_results['fda_announcements'])}")
-    print(f"High Disruption - FDA Interventions: {len(high_results['fda_announcements'])}")
+    # --- 4. Compare Outcomes ---
+    
+    print(f"\n📊 Policy Test Comparison (Scenario: High Disruption):")
+    
+    # Reactive Metrics
+    reactive_peak = reactive_results['summary_metrics']['peak_shortage_percentage']
+    reactive_interventions = len(reactive_results['fda_announcements'])
+    
+    # Proactive Metrics
+    proactive_peak = proactive_results['summary_metrics']['peak_shortage_percentage']
+    proactive_interventions = len(proactive_results['fda_announcements'])
+    
+    # Output Table
+    print("\n| Policy | Peak Shortage | Total Interventions |")
+    print("|:---|:---|:---|")
+    print(f"| **Reactive** | {reactive_peak:.1%} | {reactive_interventions} |")
+    print(f"| **Proactive** | {proactive_peak:.1%} | {proactive_interventions} |")
+    
+    # Analysis
+    if proactive_peak < reactive_peak:
+        print("\n✅ **Conclusion:** The Proactive policy resulted in a lower peak shortage, indicating better performance in this scenario.")
+    else:
+        print("\n❌ **Conclusion:** The Reactive policy performed better or equally, suggesting the Proactive mode may be over-intervening or its prompts need tuning.")
 
 if __name__ == "__main__":
     import argparse
@@ -466,8 +489,8 @@ if __name__ == "__main__":
     )
 
     # Keeping --model and --provider for legacy compatibility if needed, but llm_model is preferred
-    parser.add_argument("--model", type=str, help="Legacy: Specify a model name directly.")
-    parser.add_argument("--provider", type=str, help="Legacy: Specify a provider directly.")
+    parser.add_argument("--model", type=str, default="gpt-4o", help="Legacy: Specify a model name directly.")
+    parser.add_argument("--provider", type=str, default="openai", help="Legacy: Specify a provider directly.")
 
     args = parser.parse_args()
 

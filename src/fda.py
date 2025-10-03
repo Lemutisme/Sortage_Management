@@ -15,7 +15,9 @@ class FDAAgent(BaseAgent):
         self.prompt_manager = PromptManager()
         
         self.announcement_history = []
-        self.mode = "reactive"
+        # Assuming config.fda_mode is the source, default to 'reactive'
+        self.mode = getattr(config, 'fda_mode', 'reactive')
+        self.logger.info(f"FDA Agent initialized in {self.mode.upper()} mode.")
 
     async def collect_and_analyze(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """Use modular prompt system for regulatory analysis with detailed logging."""
@@ -41,7 +43,7 @@ class FDAAgent(BaseAgent):
             "shortage_amount": shortage_amount,
             "shortage_percentage": shortage_percentage,
             "disrupted_count": disrupted_count,
-            "n_manufacturers": self.config.n_manufacturers
+            "n_manufacturers": self.config.n_manufacturers,
         }
 
         self.logger.debug(f"Regulatory analysis context: {prompt_context}")
@@ -49,6 +51,7 @@ class FDAAgent(BaseAgent):
         system_prompt, user_prompt, expected_keys = self.prompt_manager.get_prompt(
             agent_type=self.agent_type,
             stage="collector_analyst",
+            mode=self.mode,
             **prompt_context
         )
 
@@ -99,6 +102,7 @@ class FDAAgent(BaseAgent):
         system_prompt, user_prompt, expected_keys = self.prompt_manager.get_prompt(
             agent_type=self.agent_type,
             stage="decision_maker",
+            mode=self.mode,
             **decision_context
         )
 

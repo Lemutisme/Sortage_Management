@@ -40,6 +40,7 @@ class SimulationConfig:
     holding_cost: float = 0.1
     stockout_penalty: float = 1.1
     n_disruptions_if_forced_disruption: int = 1
+    fda_mode: str = "reactive"  # proactive or reactive
 
     # LLM Configuration
     llm_provider: str = "openai"  # one of: openai, anthropic, gemini, deepseek
