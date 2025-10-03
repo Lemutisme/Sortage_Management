@@ -320,7 +320,8 @@ async def run_gt_experiments(
         export_dir: str = "gt_evaluation",
         n_simulations: int = 1,
         model_override: str = None,
-        provider_override: str = None
+        provider_override: str = None,
+        **config_overrides
 ):
     export_path = Path(export_dir)
     export_path.mkdir(exist_ok=True)
@@ -338,19 +339,27 @@ async def run_gt_experiments(
             print(f"\n📊 Running Ground Truth Experiment: gt_id_{row_dict['gt_id']}_simulation_{sim}")
             print("=" * 80)
             try:
-                config = SimulationConfig(
-                    n_manufacturers=int(row_dict['n_manufacturers']),
-                    n_periods=int(row_dict['periods']),
-                    disruption_probability=0.05,
-                    disruption_magnitude=row_dict['disruption_magnitude'],
-                    llm_temperature=0.3,
-                    n_disruptions_if_forced_disruption=int(row_dict['disruption_number'])
-                )
+                default_params = {
+                    "n_manufacturers": int(row_dict['n_manufacturers']),
+                    "n_periods": int(row_dict['periods']),
+                    "disruption_probability": 0.05,
+                    "disruption_magnitude": row_dict['disruption_magnitude'],
+                    "llm_temperature": 0.3,
+                    "n_disruptions_if_forced_disruption": int(row_dict['disruption_number'])
+                }
+                print("In ground truth experiment, n_manufacturers, n_periods, disruption_magnitude are set by the GT data and cannot be overridden.")
+                # Apply overrides
+                for key, value in config_overrides.items():
+                    if key in ["llm_temperature", "fda_mode"]:
+                        default_params[key] = value
+                        print("overriding", key, value)
                 if model_override:
-                    config.llm_model = model_override
+                    default_params['llm_model'] = model_override
                 if provider_override:
-                    config.llm_provider = provider_override
-                
+                    default_params['llm_provider'] = provider_override
+
+                config = SimulationConfig(**default_params)
+
                 start_with_disruption = True if row_dict['disruption_number'] > 0 else False
 
                 results = await run_logged_simulation(config, start_with_disruption, "gt_id_" + str(row_dict['gt_id']))
@@ -565,7 +574,7 @@ if __name__ == "__main__":
         csv_path = HERE / "../data" / "GT_Disc.csv"
         df = pd.read_csv(csv_path)
         print(f"Loaded {df.shape[0]} trajectories from {csv_path.name}")
-        asyncio.run(run_gt_experiments(df, n_simulations=1, model_override=model_override, provider_override=provider_override))
+        asyncio.run(run_gt_experiments(df, n_simulations=1, model_override=model_override, provider_override=provider_override, **config_overrides))
         
     elif args.mode == "gt_experiment_nondisc":
         print(f"Running ground truth experiment (No Discontinued) with model: {model_override}...")
@@ -574,7 +583,7 @@ if __name__ == "__main__":
         df = pd.read_csv(csv_path)
         print(f"Loaded {df.shape[0]} trajectories from {csv_path.name}")
         # Example of running a subset, adjust as needed
-        asyncio.run(run_gt_experiments(df.iloc[:], model_override=model_override, provider_override=provider_override))
+        asyncio.run(run_gt_experiments(df.iloc[:], model_override=model_override, provider_override=provider_override, **config_overrides))
         
     else: # This handles the "single" mode (default)
         print(f"Running single example simulation with model: {model_override}...")

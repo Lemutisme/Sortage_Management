@@ -69,6 +69,22 @@ python src/main.py policy
 # Use different models
 # We support OpenAI, Anthropic, Google, and DeepSeek
 python src/main.py --provider anthropic --model claude-3-5-sonnet-20240620
+
+## Input number of manufacturers
+python src/main.py --n_manufacturers 4
+
+## Customize number of LLM temperature
+python src/main.py --llm_temperature 0.5
+
+## Choose FDA policy type from reactive(default) or proactive
+python src/main.py --fda_mode proactive
+
+## Combined Custom Scenario (Manufacturers, Periods, and Disruption)
+python src/main.py single --n_manufacturers 6 --n_periods 12 --disruption_probability 0.05
+
+## Define Custom Market Share Distribution (Requires --n_manufacturers)
+# Note: The list size for --market_share must match the value of --n_manufacturers.
+python src/main.py single --n_manufacturers 3 --market_share 0.6,0.3,0.1
 ```
 
 ## 🏗️ System Architecture
