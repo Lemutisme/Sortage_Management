@@ -283,19 +283,20 @@ def export_detailed_analysis(results: Dict[str, Any], export_dir: str = "analysi
 # Main Execution Functions
 # =============================================================================
 
-async def run_single_example(start_with_disruption: bool = False, model_override: str = None, provider_override: str = None):
+async def run_single_example(start_with_disruption: bool = False, model_override: str = None, provider_override: str = None, **config_overrides):
     """Run a single example simulation with detailed logging."""
     
-    config = SimulationConfig(
-        n_manufacturers=2,
-        n_periods=4,
-        disruption_probability=0.05,
-        disruption_magnitude=0.3,
-        llm_temperature=0.3,
-        n_disruptions_if_forced_disruption=1
-        # Uncomment and set your API key:
-        # api_key=os.getenv("OPENAI_API_KEY")
-    )
+    default_params = {
+        "n_manufacturers": 2,
+        "n_periods": 4,
+        "disruption_probability": 0.05,
+        "disruption_magnitude": 0.3,
+        "llm_temperature": 0.3,
+        "n_disruptions_if_forced_disruption": 1,
+    }
+
+    final_params = {**default_params, **config_overrides}
+    config = SimulationConfig(**final_params)
 
     # Apply overrides
     if model_override:
@@ -400,32 +401,41 @@ async def run_gt_experiments(
     return comparison_df
 
 
-async def run_quick_policy_test(model_override: str = None, provider_override: str = None):
+async def run_quick_policy_test(model_override: str = None, provider_override: str = None, **config_overrides):
     """Quick test of different policy scenarios."""
     
     print("🎯 FDA Policy Effectiveness Test: Reactive vs. Proactive")
     
    # --- 1. Define Common Test Parameters for High Disruption ---
-    COMMON_PARAMS = {
+    common_params = {
         "n_manufacturers": 4,
         "n_periods": 10, # Good period length for policy comparison
         "disruption_probability": 0.08,
         "disruption_magnitude": 0.25,
-        "llm_model": model_override,
-        "llm_provider": provider_override
     }
-        
+
+    final_params = {**common_params, **config_overrides}
+    if "fda_mode" in final_params:
+        del final_params["fda_mode"] # Remove to avoid conflict in SimulationConfig
+        print("⚠️ Warning: Since we are comparing policy interventions, 'fda_mode' in config_overrides will be ignored and set explicitly for each policy.")
+
+    # Apply overrides
+    if model_override:
+        final_params['llm_model'] = model_override
+    if provider_override:
+        final_params['llm_provider'] = provider_override
+
     # --- 2. Create the two Policy Configurations (Distinct Instances) ---
 
     # a) Reactive Policy Configuration
     reactive_config = SimulationConfig(
-        **COMMON_PARAMS,
+        **final_params,
         fda_mode='reactive' # Explicitly set the mode
     )
     
     # b) Proactive Policy Configuration
     proactive_config = SimulationConfig(
-        **COMMON_PARAMS,
+        **final_params,
         fda_mode='proactive' # Explicitly set the mode
     )
     
@@ -489,14 +499,56 @@ if __name__ == "__main__":
     )
 
     # Keeping --model and --provider for legacy compatibility if needed, but llm_model is preferred
-    parser.add_argument("--model", type=str, default="gpt-4o", help="Legacy: Specify a model name directly.")
-    parser.add_argument("--provider", type=str, default="openai", help="Legacy: Specify a provider directly.")
+    parser.add_argument("--model", type=str, help="Legacy: Specify a model name directly.")
+    parser.add_argument("--provider", type=str, help="Legacy: Specify a provider directly.")
+
+    parser.add_argument("--n_manufacturers", type=int, help="Number of manufacturers in the simulation.")
+    parser.add_argument("--n_periods", type=int, help="Number of periods in the simulation.")
+    parser.add_argument("--disruption_probability", type=float, help="Probability of disruption per manufacturer per period.")
+    
+    def parse_list_of_floats(arg_value):
+        """
+        Splits a comma-separated string into a list of float numbers.
+        """
+        try:
+            # Split the string by comma, strip whitespace, and convert to float
+            items = [float(item.strip()) for item in arg_value.split(',') if item.strip()]
+            return items
+        except ValueError:
+            # Raise an error if any item can't be converted to a float
+            raise argparse.ArgumentTypeError(f"Invalid list value: '{arg_value}'. Items must be valid floating-point numbers.")
+    parser.add_argument("--market_share", type=parse_list_of_floats, help="Comma-separated market share percentages for manufacturers (e.g., '0.5,0.3,0.2').")
+    parser.add_argument("--fda_mode", type=str, choices=["reactive", "proactive"], help="FDA policy mode to use in the simulation.")
+
+    parser.add_argument("--llm_temperature", type=float, help="LLM sampling temperature for decision-making.")
 
     args = parser.parse_args()
 
+    if args.market_share is not None:
+        if args.n_manufacturers is None:
+            print("\n❌ Error: The '--market_share' argument requires '--n_manufacturers' to be set.")
+            print("Please provide both arguments when customizing market share.")
+            exit(1)
+        elif len(args.market_share) != args.n_manufacturers:
+            print(f"\n❌ Error: The length of '--market_share' ({len(args.market_share)}) does not match '--n_manufacturers' ({args.n_manufacturers}).")
+            print("Please ensure the market share list matches the number of manufacturers.")
+            exit(1)
+        elif sum(args.market_share) == 0.0:
+            print(f"\n❌ Error: The sum of '--market_share' cannot be zero.")
+            print("Please provide valid market share percentages that sum to a positive value.")
+            exit(1)
+        else:
+            args.market_share = [share / sum(args.market_share) for share in args.market_share] # Normalize to sum to 1.0
+            print(f"\n✅ Normalized market share: {args.market_share}")
+
     # Use the new llm_model argument, but allow legacy override
-    model_override = args.model if args.model else args.llm_model
+    model_override = args.model #if args.model else args.llm_model
     provider_override = args.provider
+
+    # Create a dictionary of SimulationConfig overrides
+    config_overrides = {
+        key: value for key, value in args.__dict__.items() if value is not None and key!='mode'
+    }
 
     # --- Main Simulation Logic ---
     if args.mode == "comparative":
@@ -505,7 +557,7 @@ if __name__ == "__main__":
         
     elif args.mode == "policy":
         print(f"Running policy test with model: {model_override}...")
-        asyncio.run(run_quick_policy_test(model_override, provider_override))
+        asyncio.run(run_quick_policy_test(model_override, provider_override, **config_overrides))
         
     elif args.mode == "gt_experiment_disc":
         print(f"Running ground truth experiment (Discontinued) with model: {model_override}...")
@@ -526,7 +578,7 @@ if __name__ == "__main__":
         
     else: # This handles the "single" mode (default)
         print(f"Running single example simulation with model: {model_override}...")
-        asyncio.run(run_single_example(start_with_disruption=True, model_override=model_override, provider_override=provider_override))
+        asyncio.run(run_single_example(start_with_disruption=True, model_override=model_override, provider_override=provider_override, **config_overrides))
 
     # --- Footer ---
     print("\n✅ Simulation completed! Check the generated log files for detailed analysis.")
