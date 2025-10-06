@@ -323,12 +323,18 @@ async def run_gt_experiments(
         provider_override: str = None,
         **config_overrides
 ):
+    if model_override:
+        export_dir += f"/model_{model_override}"
+    if config_overrides.get('llm_temperature') is not None:
+        export_dir += f"/temp_{config_overrides['llm_temperature']}"
     export_path = Path(export_dir)
     export_path.mkdir(exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    csv_path = export_path / f"gt_experiments_{ts}.csv"
+    csv_path = export_path  / f"gt_experiments_{ts}.csv"
+    config_path = export_path / f"gt_experiments_config_{ts}.txt"
     exists_header = False
 
+    save_config = False
     iterator = tqdm(df.itertuples(index=False), total=len(df)) if show_progress else df.itertuples(index=False)
     comparative_results = []
     comparison_df = pd.DataFrame()
@@ -359,6 +365,11 @@ async def run_gt_experiments(
                     default_params['llm_provider'] = provider_override
 
                 config = SimulationConfig(**default_params)
+                if not save_config:
+                    with open(config_path, 'w') as f:
+                        f.write(str(config))
+                    print(f"\n💾 Configuration saved to: {config_path}")
+                    save_config = True
 
                 start_with_disruption = True if row_dict['disruption_number'] > 0 else False
 
@@ -556,7 +567,7 @@ if __name__ == "__main__":
 
     # Create a dictionary of SimulationConfig overrides
     config_overrides = {
-        key: value for key, value in args.__dict__.items() if value is not None and key!='mode'
+        key: value for key, value in args.__dict__.items() if value is not None and key not in ['mode', 'model', 'provider']
     }
 
     # --- Main Simulation Logic ---
