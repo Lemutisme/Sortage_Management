@@ -122,7 +122,9 @@ def compute_mean_rlp(
 
 if __name__ == "__main__":
     # ADD simulation result file name here
-    # filename = ""
+    # ds
+    # filename = "gt_evaluation/gt_experiments_20251005_112105.csv"
+    filename="gt_evaluation/gt_experiments_20251005_193803.csv"
     df = pd.read_csv(filename)
 
     if df["trajectory"].dtype == "object" and isinstance(df["trajectory"].iloc[0], str):

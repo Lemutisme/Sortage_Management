@@ -295,7 +295,12 @@ async def run_single_example(start_with_disruption: bool = False, model_override
         "n_disruptions_if_forced_disruption": 1,
     }
 
-    final_params = {**default_params, **config_overrides}
+    # keys you want to exclude
+    exclude_keys = {'model', 'provider'}
+    # remove them before merging
+    filtered_overrides = {k: v for k, v in config_overrides.items() if k not in exclude_keys}
+    final_params = {**default_params, **filtered_overrides}
+
     config = SimulationConfig(**final_params)
 
     # Apply overrides
