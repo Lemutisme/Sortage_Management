@@ -79,16 +79,75 @@ class ZeroShotTrajectoryPredictor:
         self.config = config
         self.logger = logging.getLogger("ZeroShotTrajectoryPredictor")
         
-        # Setup OpenAI client
-        if config.api_key:
-            openai.api_key = config.api_key
-            if config.azure_endpoint:
-                openai.api_base = config.azure_endpoint
-                openai.api_type = "gpt-4o"
-                openai.api_version = config.api_version
-        else:
-            self.logger.warning("No API key found - will use mock responses")
+        self.openai_client = None
+        self.anthropic_client = None
+        self.gemini_client = None
+        self.deepseek_client = None
+
+        provider = getattr(config, 'llm_provider', 'openai').lower()
+
+        if provider not in ['openai', 'deepseek', 'anthropic', 'gemini']:
+            self.logger.warning(f"Unsupported LLM provider '{provider}' specified.")
+            return
+
+        # Initialize clients based on provider
+        if provider == 'openai':
+            from openai import AsyncOpenAI
+            if config.api_key:
+                api_key = config.api_key
+                api_base = "https://api.openai.com/v1" 
+                self.logger.info("Configured AsyncOpenAI client (for gpt-4o)")
+                try:
+                    # Create an instance of the async client
+                    self.openai_client = AsyncOpenAI(api_key=api_key, base_url=api_base)
+                except Exception as e:
+                    self.logger.error(f"Failed to initialize AsyncOpenAI client: {e}")
+            else:
+                self.logger.warning(f"No API key found for {provider}. Cannot initialize client.")
+
+        elif provider == 'anthropic':
+            anthropic_api_key = getattr(config, 'anthropic_api_key', None)
+            import anthropic
+            if anthropic_api_key:
+                try:
+                    self.anthropic_client = anthropic.AsyncAnthropic(api_key=anthropic_api_key)
+                    self.logger.info("Configured Anthropic client for Claude")
+                except Exception as e:
+                    self.logger.error(f"Failed to initialize Anthropic client: {e}")
+            else:
+                self.logger.warning("No Anthropic API key found. Cannot initialize client.")
+
+        elif provider == 'gemini':
+            from google import genai
+            gemini_api_key = getattr(config, 'gemini_api_key', None)
+            if gemini_api_key:
+                try:
+                    self.gemini_client = genai.Client(api_key=gemini_api_key)
+                    self.logger.info("Configured Google GenAI client for Gemini")
+                except Exception as e:
+                    self.logger.error(f"Failed to initialize Gemini client: {e}")
+            else:
+                self.logger.warning("No Gemini API key found. Cannot initialize client.")
+
+        elif provider == 'deepseek':
+            from openai import AsyncOpenAI
+            if config.deepseek_api_key:
+                api_key = config.deepseek_api_key
+                api_base = getattr(config, 'deepseek_api_base', 'https://api.deepseek.com')
+                self.logger.info(f"Configured AsyncOpenAI client for DeepSeek (base: {api_base})")
+                try:
+                    # Deepseek uses the OpenAI compatible API
+                    self.deepseek_client = AsyncOpenAI(api_key=api_key, base_url=api_base)
+                except Exception as e:
+                    self.logger.error(f"Failed to initialize DeepSeek client: {e}")
+            else:
+                self.logger.warning(f"No API key found for {provider}. Cannot initialize client.")
+
+        # Check if any client was successfully initialized
+        if not (self.openai_client or self.anthropic_client or self.gemini_client or self.deepseek_client):
+            self.logger.warning("No usable LLM client initialized. Will use mock responses.")
     
+
     def create_scenario_context(self, 
                               n_manufacturers: int,
                               periods: int,
@@ -291,31 +350,93 @@ Focus on economic fundamentals and realistic market dynamics. Explain how profit
     async def _call_llm(self, system_prompt: str, user_prompt: str) -> str:
         """Make async call to LLM API."""
         
+        provider = getattr(self.config, 'llm_provider', 'openai').lower()
+        model = getattr(self.config, 'llm_model', 'gpt-4o')
+
+        # Enhanced system prompt to ensure JSON compliance
+        enhanced_system_prompt = system_prompt + "\n\nYou must respond with valid JSON format only. Do not include any text before or after the JSON object."
+
         messages = [
-            {"role": "system", "content": system_prompt},
+            {"role": "system", "content": enhanced_system_prompt},
             {"role": "user", "content": user_prompt}
         ]
+
         
         try:
-            if self.config.azure_endpoint:
-                response = await openai.ChatCompletion.acreate(
-                    engine=self.config.llm_model,
-                    messages=messages,
-                    temperature=self.config.llm_temperature,
-                    max_tokens=4000  # Increased for trajectory data
-                )
-            else:
-                response = await openai.ChatCompletion.acreate(
-                    model=self.config.llm_model,
+            # 1. OpenAI / DeepSeek (OpenAI-compatible API)
+             # 1. OpenAI 
+            if provider == 'openai':
+                if not self.openai_client:
+                    raise ValueError(f"{provider} client not initialized.")
+                
+                client_to_use = self.openai_client
+
+                # Using the modern client instance method
+                response = await client_to_use.chat.completions.create(
+                    model=model,
                     messages=messages,
                     temperature=self.config.llm_temperature,
                     max_tokens=4000
                 )
+                return response.choices[0].message.content
+        
+            # 2. Anthropic (Claude)
+            elif provider == 'anthropic':
+                if not self.anthropic_client:
+                    raise ValueError("Anthropic client not initialized.")
+                
+            # Anthropic expects system_prompt separately
+                response = await self.anthropic_client.messages.create(
+                    model=model,
+                    system=enhanced_system_prompt,
+                    messages=[{"role": "user", "content": user_prompt}],
+                    temperature=self.config.llm_temperature,
+                    max_tokens=4000
+                )
+                # Claude response structure is different
+                return response.content[0].text if response.content else ""
+
+            # 3. Google GenAI (Gemini)
+            elif provider == 'gemini':
+                from google import genai
+                if not self.gemini_client:
+                    raise ValueError("Gemini client not initialized.")
+                
+                # The google-genai library currently uses a synchronous client, so we wrap it
+                response = await asyncio.to_thread(
+                    self.gemini_client.models.generate_content,
+                    model=model,
+                    contents=user_prompt,
+                    config=genai.types.GenerateContentConfig(
+                        system_instruction=enhanced_system_prompt,
+                        temperature=self.config.llm_temperature
+                    )
+                )
+                
+                return response.text
+
+            # 4. DeepSeek (OpenAI-compatible API)
+            elif provider == 'deepseek':
+                if not self.deepseek_client:
+                    raise ValueError(f"{provider} client not initialized.")
+                
+                client_to_use = self.deepseek_client
+
+                # Using the modern client instance method
+                response = await client_to_use.chat.completions.create(
+                    model=model,
+                    messages=messages,
+                    temperature=self.config.llm_temperature,
+                    max_tokens=4000
+                )
+                return response.choices[0].message.content
             
-            return response.choices[0].message.content
-            
+            else:
+                self.logger.error(f"Unsupported LLM provider: {provider}")
+                raise ValueError(f"Unsupported LLM provider: {provider}")
+
         except Exception as e:
-            self.logger.error(f"LLM API call failed: {e}")
+            self.logger.error(f"General error during LLM API call for {provider}: {e}")
             raise
     
     def _parse_trajectory_response(self, response: str, scenario: TrajectoryScenarioContext) -> SupplyTrajectory:
