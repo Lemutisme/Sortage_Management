@@ -4,6 +4,7 @@ simulation_logs/
 analysis_exports/
 experiments_logs/
 gt_evaluation/
+gt_evaluation_zero_shot/
 .venv/
 data/FDA_final.csv
 .vscode/
